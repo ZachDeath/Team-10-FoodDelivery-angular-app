@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+h1,h2 {
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}  
+
+.card2 {
+    width: 60%;
+}

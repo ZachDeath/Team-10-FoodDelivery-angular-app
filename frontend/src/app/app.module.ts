@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [appComponent, HeaderComponent, FooterComponent],
+
   imports: [BrowserModule],
   providers: [],
   bootstrap: [appComponent],

@@ -1,7 +1,18 @@
-<div class="container-" style="background-color: #dc4726;">
+<div class="container-flex" style="background-color: #dc4726;">
     <nav class="navcss navbar navbar-expand navbar-light justify-content-between ">
-        <a class="mx-5 pt-0" href="home.html"><img class="logo" src={{imagePath}} height="150px"></a>
-        <ul class="nav mx-5">
+        <a class="mx-4 pt-0" href="home.html"><img class="logo" src={{imagePath}}></a>
+        
+        <div class=" dropdown mx-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"> <i class="bi bi-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+        <ul class="nav header mx-1">
             <li class="nav-item navbar-brand py-0">
                 <a class="nav-link active mx-2" href="#">Contact Us</a>
             </li>
@@ -18,3 +29,4 @@
                 <a class="nav-link active mr-4" href="#">Checkout</a>
         </ul>
     </nav>
+</div>

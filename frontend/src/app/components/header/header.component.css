@@ -16,6 +16,11 @@ a {
     color: black;
     background-color: white;
     border-color: #6c757d;
+    font-family: "Varela Round", sans-serif;
+}
+
+.dropdown-item {
+  font-family: "Varela Round", sans-serif;
 }
 
 .nav-item a {

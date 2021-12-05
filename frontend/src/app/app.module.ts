@@ -7,9 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
-  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent],
+  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent],
 
   imports: [BrowserModule,
   FormsModule],

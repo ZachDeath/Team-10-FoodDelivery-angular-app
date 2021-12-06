@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit {
     password: ""
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
 
   routeToHome(){
 
-    //this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
 
   }
 

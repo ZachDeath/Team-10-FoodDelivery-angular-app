@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { appComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';

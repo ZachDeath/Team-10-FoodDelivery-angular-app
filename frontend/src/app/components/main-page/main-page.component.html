@@ -1,51 +1,16 @@
+<app-banner></app-banner>
 <div class="container-flex d-flex justify-content-center">
   <div class="container-flex w-75 d-flex pt-5 justify-content-center">
-    <div class="card d-inline-block mx-4" style="width: 25rem">
+    
+    <div class="card d-inline-block mx-4" style="width: 25rem" *ngFor = "let menu of menus">
       <div class="card-body d-flex justify-content-sm-center">
-        <a href="#" class="btn btn-primary stretched-link">Vegetarian</a>
+        <a href="#" class="btn btn-primary stretched-link">{{ menu.name }}</a>
       </div>
       <div class="card-body d-flex justify-content-sm-center pt-0 px-4">
-        <img
-          class="card-img-top mb-2"
-          [ngStyle]="{
-            height: '300px',
-            width: '290px',
-            backgroundImage: 'url(./assets/images/vegetarian-pizza.jpg)'
-          }"
-        />
-      </div>
-    </div>
-
-    <div class="card d-inline-block mx-4" style="width: 25rem">
-      <div class="card-body d-flex justify-content-sm-center">
-        <a href="#" class="btn btn-primary stretched-link">Meat Feast</a>
-      </div>
-      <div class="card-body d-flex justify-content-sm-center pt-0 px-4">
-        <img
-          class="card-img-top mb-2"
-          [ngStyle]="{
-            height: '300px',
-            width: '290px',
-            backgroundImage: 'url(./assets/images/meat-pizza.jpg)'
-          }"
-        />
-      </div>
-    </div>
-
-    <div class="card d-inline-block mx-4 " style="width: 25rem">
-      <div class="card-body d-flex justify-content-sm-center">
-        <a href="#" class="btn btn-primary stretched-link">Sides</a>
-      </div>
-      <div class="card-body d-flex justify-content-sm-center pt-0 px-4">
-        <img
-          class="card-img-top mb-2"
-          [ngStyle]="{
-            height: '300px',
-            width: '290px',
-            backgroundImage: 'url(./assets/images/garlicbread.jpg)'
-          }"
-        />
+        <img class="card-img-top mb-2" src="{{ menu.photoPath }}" />
       </div>
     </div>
   </div>
 </div>
+
+   

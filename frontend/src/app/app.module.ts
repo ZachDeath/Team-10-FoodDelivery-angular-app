@@ -8,13 +8,13 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { AppRoutingModule } from './app-routing.module';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent],
 
   imports: [BrowserModule,
-  FormsModule, AppRoutingModule],
+  FormsModule, RoutingModule],
   providers: [],
   bootstrap: [appComponent],
 })

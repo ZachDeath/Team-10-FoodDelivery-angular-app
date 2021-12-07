@@ -1,11 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-
-@media (min-width: 1200px) {}
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 a {
-    font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
+}
+
+.logo {
+  height: 200px;
+}
+
+.dropdown {
+    display: none;
+}
+
+.btn-secondary {
+    color: black;
+    background-color: white;
+    border-color: #6c757d;
+    font-family: "Varela Round", sans-serif;
+}
+
+.dropdown-item {
+  font-family: "Varela Round", sans-serif;
 }
 
 .nav-item a {
-    color: white;
+  color: white;
+  font-size: 1.2em;
 }
+
+@media screen and (max-width: 2560px) {
+  .nav-item a {
+    font-size: 2.0em;
+    padding-left: 2.5em;
+  }
+
+  .logo {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+    .nav-item a {
+      font-size: 1.4em;
+      padding-left: 2.5em;
+    }
+  
+    .logo {
+      height: 175px;
+    }
+  }
+
+@media screen and (max-width: 1440px) {
+  .nav-item a {
+    font-size: 1.25em;
+    padding-left: 0.6em;
+  }
+  .logo {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-item a {
+    font-size: 0.78em;
+    padding-left: 0.0em;
+  }
+  .logo {
+    height: 125px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-item a {
+    font-size: 0.61em;
+    padding-left: 0.10em;
+  }
+  .logo {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 661px) {
+    .nav-item a {
+      font-size: 0.85em;
+      padding-left: 0.1em;
+    }
+    .logo {
+      height: 100px;
+    }
+    
+    .header {
+        display: none;
+    }
+
+    .dropdown {
+        display: inline-block;
+    }
+    
+  }

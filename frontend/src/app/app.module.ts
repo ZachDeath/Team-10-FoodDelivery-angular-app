@@ -4,11 +4,14 @@ import { appComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { BannerComponent } from './components/banner/banner.component';
 import { RoutingModule } from './routing.module';
 
 @NgModule({
-  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent],
+  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule],

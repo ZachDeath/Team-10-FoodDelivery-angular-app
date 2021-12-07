@@ -13,3 +13,8 @@ p {
     bottom: 0;
     width: 100%;
  }
+
+ body {
+    margin-bottom: 100px;
+    clear: both;
+ }

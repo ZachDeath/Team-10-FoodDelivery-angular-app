@@ -9,9 +9,10 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { RoutingModule } from './routing.module';
+import { BasketComponent } from './components/basket/basket.component';
 
 @NgModule({
-  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent],
+  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent, BasketComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule],

@@ -1,22 +1,28 @@
 <div class="text-center mt-4" style="color: #dc4726;">
     <h1>Basket Summary</h1>
+    
+</div>
+
+<div class="text-center" style="color: #dc4726; max-width: 50rem; margin:2rem auto;" *ngIf="itemsInBasket.length>0">
+    <hr>
     <h6>You currently have <b>{{itemsInBasket.length}} {{itemsInBasket.length !==1 ? 'items' : 'item' }} </b> in your order</h6>
+    <hr>
 </div>
 
 
-<div class="card" style="max-width: 38rem; margin:2rem auto; border: 2px solid #dc4726;" *ngFor="let item of itemsInBasket">
+<div class="card" style="max-width: 50rem; margin:2rem auto; border: 2px solid #dc4726;" *ngFor="let item of itemsInBasket">
     <div class="card-body">
         <div class="row">
             <div class="col-md-auto" width="110px">
                 <img [src]="item.picture" width="100px"  height="100px">
             </div>
             <div class="col-6 text-right">
-                <h5 class="text-right"><b>{{item.title}}: £{{item.price}}</b></h5>
+                <h5 class="text-right"><b>{{item.title}}: {{item.price | currency: 'GBP'}}</b></h5>
                 <h6>{{item.description}}</h6>
             </div>
-            <div class="col">
-                <h6>Quantity: {{item.quantity}}</h6>
-                <button class="btn" style="background-color: #dc4726; margin-top: 35px;" (click)="deleteItems(item)">Delete {{item.title}}</button>
+            <div class="col justify-content-right">
+                <a class="btn" style="background-color: #dc4726; margin-left: 50%;" (click)="addDuplicate(item)">Add Another</a>
+                <a class="btn" style="background-color: #dc4726; margin-top: 24px; margin-left: 54%;" (click)="deleteItems(item)">Delete Item</a>
             </div>
 
         </div>
@@ -24,8 +30,14 @@
     </div>
 </div>
 
-<div class="text-center" style="color: #dc4726;">
-    <h6>Order Total: <b>£{{basketPrice}}</b></h6>
+<div class="text-center" style="color: #dc4726; max-width: 50rem; margin:2rem auto;" *ngIf="itemsInBasket.length>0">
+    <hr>
+    <h6>Order Total: <b>{{basketPrice | currency: 'GBP'}}</b></h6>
+    <hr>
+</div>
+
+<div class="text-center my-5" style="color: #dc4726;" *ngIf="itemsInBasket.length<=0">
+    <h3>Basket empty! Visit Menu to add items!</h3>
 </div>
 
 

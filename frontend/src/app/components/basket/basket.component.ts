@@ -59,4 +59,18 @@ export class BasketComponent implements OnInit {
 
     }
 
+    addDuplicate(item: menuItem){
+
+        this.bService.addItem({
+
+            title: item.title,
+            description: item.description,
+            quantity: item.quantity,
+            price: item.price,
+            picture: item.picture
+
+        })
+
+    }
+
 }

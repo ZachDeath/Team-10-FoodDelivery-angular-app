@@ -44,8 +44,8 @@ export class MenuService implements OnInit{
           typeOfFood: 2,
         },
       ];
+      
       menuTypeArray = [];
-      menuTypes = this.createMenuTypes();
       meatEaterMenu = []
       vegMenu = []
       sideMenu = []
@@ -56,23 +56,6 @@ export class MenuService implements OnInit{
       }
     
       ngOnInit(): void {}
-    
-      // creates an array of all the menu's types
-      createMenuTypes() {
-        for (let i = 0; i < this.menu.length; i++) {
-          if (this.menu[i].typeOfFood == 0) {
-            this.menuTypeArray.push('Meateater');
-          }
-          if (this.menu[i].typeOfFood == 1) {
-            this.menuTypeArray.push('Vegetarian');
-          }
-          if (this.menu[i].typeOfFood == 2) {
-            this.menuTypeArray.push('Sides');
-          }
-        }
-        // returns all the different types of menus
-        return new Set(this.menuTypeArray);
-      }
     
       createMenus() {
         for (let i = 0; i < this.menu.length; i++) {

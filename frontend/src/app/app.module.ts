@@ -10,9 +10,11 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { BannerComponent } from './components/banner/banner.component';
 import { RoutingModule } from './routing.module';
 import { BasketComponent } from './components/basket/basket.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
-  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent, BasketComponent],
+  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule],

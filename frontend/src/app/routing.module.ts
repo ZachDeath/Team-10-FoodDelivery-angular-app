@@ -5,6 +5,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BasketComponent } from './components/basket/basket.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 //configure route paths
 const routes: Routes = [
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'checkout', component: BasketComponent },
-  { path: '**', component: MainPageComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

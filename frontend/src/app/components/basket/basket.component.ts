@@ -52,7 +52,8 @@ export class BasketComponent implements OnInit {
             description: "this is a test from button",
             quantity: 1,
             price: 15.00,
-            picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg"
+            picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg",
+            typeOfFood: 1
         });
 
 

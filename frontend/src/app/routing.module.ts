@@ -5,7 +5,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { BasketComponent } from './components/basket/basket.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './components/menus/menu.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 //configure route paths

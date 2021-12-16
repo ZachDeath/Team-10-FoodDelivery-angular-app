@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    console.log('Menu Loaded');
   }
 
+  ngOnInit(): void {}
 }

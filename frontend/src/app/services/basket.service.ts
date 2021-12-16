@@ -13,7 +13,8 @@ export class BasketService implements OnInit{
         description: "this is a test item",
         quantity: 1,
         price: 15.00,
-        picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg"
+        picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg",
+        typeOfFood: 0
     },
 
     {
@@ -21,7 +22,8 @@ export class BasketService implements OnInit{
         description: "this is a second test item",
         quantity: 1,
         price: 19.00,
-        picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg"
+        picture: "https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg",
+        typeOfFood: 1
     }];
 
     ngOnInit(){

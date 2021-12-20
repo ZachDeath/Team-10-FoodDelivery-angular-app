@@ -12,7 +12,7 @@ h5 {
      color: white;
  }
  
- button:hover {
+ button:hover, button:active, button:enabled {
      background-color: #cf2600;
      border: none;
      color: white;

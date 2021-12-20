@@ -19,16 +19,7 @@ export class MeatEaterMenuComponent implements OnInit {
 
   addToBasketFromMenu(item:menuItem){
 
-    this.bService.addItem({
-
-      title: item.title,
-      description: item.description,
-      quantity: item.quantity,
-      price: item.price,
-      picture: item.picture,
-      typeOfFood: item.typeOfFood
-
-  })
+    this.bService.addItem(item)
 
   }
 

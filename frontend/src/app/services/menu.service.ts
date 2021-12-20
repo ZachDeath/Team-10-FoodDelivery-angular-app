@@ -73,6 +73,8 @@ export class MenuService implements OnInit{
         console.log(this.meatEaterMenu, this.vegMenu, this.sideMenu);
         return this.meatEaterMenu, this.vegMenu, this.sideMenu;
       }
+
+      
     
     }
     

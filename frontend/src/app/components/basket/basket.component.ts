@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/services/basket.service';
-import { menuItem } from 'src/app/shared/menuItem.model';
+import { menuItem } from '../../shared/menuItem.model';
 
 @Component({
   selector: 'app-basket',
@@ -68,7 +68,8 @@ export class BasketComponent implements OnInit {
             description: item.description,
             quantity: item.quantity,
             price: item.price,
-            picture: item.picture
+            picture: item.picture,
+            typeOfFood: item.typeOfFood
 
         })
 

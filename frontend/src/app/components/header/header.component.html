@@ -12,7 +12,7 @@
                 <a class="dropdown-item" routerLink = "/menu">Menu</a>
                 <a class="dropdown-item" routerLink = "/registration">Register</a>
                 <a class="dropdown-item" routerLink = "/login">Login</a>
-                <a class="dropdown-item" routerLink = "/checkout">Checkout</a>
+                <a class="dropdown-item" routerLink = "/basket">Basket</a>
             </div>
         </div>
         <ul class="nav header mx-4">
@@ -28,8 +28,10 @@
             <li class="nav-item  navbar-brand py-0">
                 <a class="nav-link active mx-2 "routerLink = "/login">Login</a>
             </li>
-            <li class="nav-item navbar-brand py-0">
-                <a class="nav-link active mr-4" routerLink = "/checkout">Checkout</a>
+            <li class="nav-item navbar-brand py-0 ms-5">
+                <div style="background-color: white;">
+                <a style = "color: black" class ="nav-link active mr-4" routerLink = "/basket"> <i class="bi bi-basket3"></i> {{itemsInBasket.length}} | {{basketPrice | currency: 'GBP'}}</a>
+            </div>
         </ul>
     </nav>
 </div>

@@ -10,6 +10,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { SideMenuComponent } from './components/menus/side-menu/side-menu.component';
 import { MeatEaterMenuComponent } from './components/menus/meat-eater-menu/meat-eater-menu.component';
 import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 //configure route paths
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'meat-menu', component: MeatEaterMenuComponent },
   { path: 'veg-menu', component: VegMenuComponent },
   { path: 'sides-menu', component: SideMenuComponent },
+  { path: 'contact-page', component: ContactPageComponent},
   { path: '**', component: ErrorPageComponent },
 ];
 

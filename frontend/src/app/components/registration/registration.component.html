@@ -1,81 +1,77 @@
-<div class="card text-black mb-3 text-center"  style="max-width: 38rem; 
-                    margin:2rem auto;
-                    float: none;
+<div class="card text-black mb-3 text-center" style="max-width: 38rem; margin:2rem auto; float: none;
                     margin-bottom: 10px;
                     border: 2px solid #dc4726;
                      ">
-            
-            <div class="card-header">
-              <h3 class="card-title mb-2 mt-3" style="font-size: 230%; color: #dc4726;" >Registration Form</h3>
-            </div>
+  <div class="card-header">
+    <h3 class="card-title mb-2 mt-3" style="font-size: 230%; color: #dc4726;">Registration Form</h3>
+  </div>
 
-            <div class="card-body">
-              <form id="registration-form" class="form" (ngSubmit)="onSubmit()" #registrationForm="ngForm" >
-            
-              <br>
+  <div class="card-body">
+    <form id="registration-form" class="form" (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      <br>
+      <div class="row form-group">
+        <div class="col">
+          <label for="firstName" style="margin-right: 12.5rem;">First name</label>
+          <input name="firstName" type="text" class="form-control" placeholder="First name" #firstName="ngModel" ngModel
+            required>
+        </div>
 
-              <div class="row">
-                <div class="col">
-                  <label for="firstName" style="margin-right: 12.5rem;">First name</label>
-                  <input name="firstName"type="text" class="form-control" placeholder="First name" #firstName="ngModel"
-                  ngModel required>
-                </div>
-                <div class="col">
-                    <label for="lastName" style="margin-right: 12.5rem;">Last name</label>
-                    <input id="lastName" type="text" class="form-control" placeholder="Last name" #lastName="ngModel"
-                    ngModel required>
-                </div>
-              </div>
+        <div class="col">
+          <label for="lastName" style="margin-right: 12.5rem;">Last name</label>
+          <input name="lastName" type="text" class="form-control" placeholder="Last name" #lastName="ngModel" ngModel
+            required>
+        </div>
+      </div>
+      <br>
+      <div class="row form-group">
+        <div class="col">
+          <label for="email" style="padding-right: 83%;">Email address</label>
+          <input name="email" type="email" class="form-control" placeholder="name@example.com" #email="ngModel" ngModel
+            required>
+        </div>
+      </div>
+      <br>
+      <div class="row form-group">
+        <div class="col">
+          <label for="email" style="padding-right: 84.3%;">Date of Birth</label>
+          <input name="birthDate" type="date" class="form-control" #birthDate="ngModel" ngModel required>
+        </div>
+      </div>
+      <br>
+      <div class="row form-group">
+        <div class="col">
+          <label for="mobile" style="padding-right: 80%;">Mobile number</label>
+          <input name="tel" type="tel" class="form-control" placeholder="+44" #mobile="ngModel" ngModel required>
+        </div>
+      </div>
+      <br>
+      <div class="form-group col-md-4">
+        <label for="gender" style="padding-right: 91%;">Gender</label>
+        <select name="gender" class="form-control" #gender="ngModel" ngModel required>
+          <option selected>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <br>
+      <div class="row form-group">
+        <div class="col">
+          <label for="password" style="margin-right: 12.5rem;">Password</label>
+          <input name="password" type="password" class="form-control" placeholder="********" #password="ngModel" ngModel
+            required>
+        </div>
+        <div class="col">
+          <label for="rePassword" style="margin-right: 9rem;">Retype Password</label>
+          <input name="rePassword" type="password" class="form-control" placeholder="********" #rePassword="ngModel"
+            ngModel required>
+        </div>
+        <div class="col">
+          <br><br>
+          <button class="btn btn-block mb-1" style="padding: 9px 110px; background-color: #dc4726;">Register</button>
+        </div>
+      </div>
 
-              <br>
-              <div class="row">
-                <div class="col">
-                    <label for="email" style="padding-right: 83%;">Email address</label>
-                  <input id="email" type="email" class="form-control" placeholder="name@example.com" #email="ngModel"
-                  ngModel required>
-                </div>
-               </div>
-               <br>
-
-               <div class="row">
-                <div class="col">
-                  <label for="email" style="padding-right: 84.3%;">Date of Birth</label>
-                  <input id="birthDate" type="date" class="form-control" #birthDate="ngModel" ngModel required>
-                </div>
-                </div>
-                <br>
-
-                <div class="row">
-                <div class="col">
-                    <label for="mobile" style="padding-right: 80%;">Mobile number</label>
-                  <input id="tel" type="mobile" class="form-control" placeholder="+44" #mobile="ngModel" ngModel required>
-                </div>
-               </div>
-               <br>
-               
-               <div class="form-group col-md-4">
-                <label for="gender" style="padding-right: 91%;">Gender</label>
-                <select id="gender" class="form-control" #gender="ngModel" ngModel required>
-                  <option selected>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <br>
-
-              <div class="row">
-                <div class="col">
-                  <label for="password" style="margin-right: 12.5rem;">Password</label>
-                  <input id="password"type="password" class="form-control" placeholder="********" #password="ngModel" ngModel required>
-                </div>
-                <div class="col">
-                    <label for="retryPassword" style="margin-right: 9rem;">Retype Password</label>
-                    <input id="retryPassword" type="password" class="form-control" placeholder="********" #retryPassword="ngModel" ngModel required>
-                </div>
-              </div>
-              <br>
-              <button type="button" class="btn btn-block mb-1" style="padding: 9px 110px; background-color: #dc4726;">Register</button>
-              <br><br>
-            </form>
-            </div>
-          </div>
+      <br><br>
+    </form>
+  </div>
+</div>

@@ -3,13 +3,28 @@ const database = require(path.resolve(`./database.js`));
 
 //function to obtain all the users in the database and sort them by id
 async function getUsers() {
-   await database.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
-      if (error) {
-        throw error
-      }
-      return JSON.stringify(results.rows)
-    })
+  try {
+    const users = await database.query(
+      "SELECT * FROM users ORDER BY user_id ASC"
+    );
+    return users.rows;
+  } catch (err) {
+    console.error(err);
+    throw err;
   }
+}
 
+//function to obtain a certain user by their user id
+async function getUserByID(id) {
+  try {
+    const user = await database.query(
+      `SELECT * FROM users WHERE user_id = $1`, [`${id}`]
+    );
+    return user.rows;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
 
-module.exports = { getUsers }
+module.exports = { getUsers, getUserByID };

@@ -40,7 +40,7 @@ export class MenuService implements OnInit{
           title: 'Veggie Pizza ',
           description: 'This is another veg pizza',
           quantity: 1,
-          price: 19.0,
+          price: 19.50,
           picture:
             'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg',
           typeOfFood: 1,
@@ -93,6 +93,7 @@ export class MenuService implements OnInit{
     
       constructor() {
         console.log('Menu Loaded');
+        console.log(typeof(this.menu[2].price))
         this.createMenus();
       }
     

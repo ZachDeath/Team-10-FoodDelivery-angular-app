@@ -12,12 +12,6 @@ a {
     display: none;
 }
 
-.btn {
-  background-color: #dc4726;
-  border: none;
-  color: white;
-}
-
 .btn-secondary {
     color: black;
     background-color: white;

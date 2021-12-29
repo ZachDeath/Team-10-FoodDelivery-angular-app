@@ -1,0 +1,19 @@
+h1 {
+    color: #dc4726;
+ }
+
+h5 {
+   font-weight: bold;
+}
+ 
+ .btn {
+     background-color: #dc4726;
+     border: none;
+     color: white;
+ }
+ 
+ .btn:hover {
+     background-color: #cf2600;
+     border: none;
+     color: white;
+ }

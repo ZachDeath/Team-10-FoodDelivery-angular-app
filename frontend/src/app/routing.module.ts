@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'checkout', component: BasketComponent },
+  { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'meat-menu', component: MeatEaterMenuComponent },
   { path: 'veg-menu', component: VegMenuComponent },

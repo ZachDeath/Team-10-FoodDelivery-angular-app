@@ -1,13 +1,31 @@
 <div class="container">
-    <h1 class="display-6 mt-4 text-center"> Sides</h1>
-    <div *ngFor="let x of sidesMenu">
-        <div class="card w-75 d-flex mt-4 mx-auto" style=" margin:2rem auto; border: 2px solid #dc4726;">
-            <div class="card-body">
-                <h5 class="card-title">{{x.title}}</h5>
-                <p class="card-text">{{x.description}}</p>
-                <button href="#" class="btn btn-primary" (click)="addToBasketFromMenu(x)">Order</button>
-            </div>
+  <div>
+    <h1 class="text-center mt-4">Sides</h1>
+  </div>
+  <div *ngFor="let x of sidesMenu">
+    <div
+      class="card w-75 d-flex mt-4 mx-auto"
+      style="margin: 2rem auto; border: 2px solid #dc4726"
+    >
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <h5 class="card-title">
+            {{ x.title }}: {{ x.price | currency: "GBP" }}
+          </h5>
+          <h6 class="card-text">{{ x.description }}</h6>
+
+          <button
+            href="#"
+            class="btn btn-primary"
+            (click)="addToBasketFromMenu(x)"
+          >
+            Add to basket
+          </button>
         </div>
+        <div width="110px">
+          <img [src]="x.picture" width="100px" height="100px" />
+        </div>
+      </div>
     </div>
-    <div></div>
+  </div>
 </div>

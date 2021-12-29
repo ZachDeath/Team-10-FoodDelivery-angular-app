@@ -18,4 +18,5 @@ node index.js
 ``` 
 npm install express
 npm install pg
+npm install nodemon (not required but allows instant restarting of server upon save)
 ```

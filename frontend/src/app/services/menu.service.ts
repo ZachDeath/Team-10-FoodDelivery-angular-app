@@ -37,7 +37,7 @@ export class MenuService implements OnInit{
         },
     
         {
-          title: 'Veggie Pizza',
+          title: 'Veggie Pizza ',
           description: 'This is another veg pizza',
           quantity: 1,
           price: 19.0,

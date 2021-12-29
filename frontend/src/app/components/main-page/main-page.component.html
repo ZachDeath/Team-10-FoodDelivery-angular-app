@@ -4,7 +4,7 @@
     
     <div class="card d-inline-block mx-4" style="width: 25rem" *ngFor = "let menu of menus">
       <div class="card-body d-flex justify-content-sm-center">
-        <a class="btn btn-primary stretched-link" routerLink = {{menu.url}}>{{ menu.name }}</a>
+        <button class = "btn btn-primary" routerLink = {{menu.url}}>{{ menu.name }}</button>
       </div>
       <div class="card-body d-flex justify-content-sm-center pt-0 px-4">
         <img class="card-img-top mb-2" src="{{ menu.photoPath }}" />

@@ -20,7 +20,7 @@ export class MenuService implements OnInit{
           title: 'Pizza 2',
           description: 'this is a veg pizza',
           quantity: 1,
-          price: 19.0,
+          price: 19.50,
           picture:
             'https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg',
           typeOfFood: 1,
@@ -52,6 +52,7 @@ export class MenuService implements OnInit{
     
       constructor() {
         console.log('Menu Loaded');
+        console.log(typeof(this.menu[2].price))
         this.createMenus();
       }
     

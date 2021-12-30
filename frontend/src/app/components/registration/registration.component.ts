@@ -62,8 +62,6 @@ export class RegistrationComponent implements OnInit {
 
 
     if (this.checkLoginDetails() == 5) {
-      this.registrationForm.form.reset()
-
       this.userSubmitted.firstName = this.registrationForm.value.firstName;
       this.userSubmitted.lastName = this.registrationForm.value.lastName;
       this.userSubmitted.email = this.registrationForm.value.email;
@@ -73,6 +71,7 @@ export class RegistrationComponent implements OnInit {
       this.userSubmitted.password = this.registrationForm.value.password;
 
       this.postsService.submiteUsersDetails(this.userSubmitted);
+      this.registrationForm.form.reset()
     }
 
   }

@@ -15,9 +15,14 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { MeatEaterMenuComponent } from './components/menus/meat-eater-menu/meat-eater-menu.component';
 import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component';
 import { SideMenuComponent } from './components/menus/side-menu/side-menu.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
+
 
 @NgModule({
-  declarations: [appComponent, HeaderComponent, FooterComponent, LoginFormComponent, MainPageComponent, RegistrationComponent, BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent],
+  declarations: [appComponent, HeaderComponent, FooterComponent, 
+    LoginFormComponent, MainPageComponent, RegistrationComponent, 
+    BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, 
+    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule],

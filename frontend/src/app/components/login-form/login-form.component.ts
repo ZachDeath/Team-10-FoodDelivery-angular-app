@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PostsService } from 'src/app/services/post.service';
+import { Registereduser } from 'src/app/shared/registeredUser.model';
 
 @Component({
   selector: 'app-login-form',
@@ -12,12 +14,9 @@ export class LoginFormComponent implements OnInit {
 
   @ViewChild('loginForm') loginForm: NgForm;
 
-  user = {
-    email: "",
-    password: ""
-  }
+  user: Registereduser = {email:"", password:""};
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private postsService: PostsService) { }
 
   ngOnInit(): void {
   }
@@ -25,9 +24,11 @@ export class LoginFormComponent implements OnInit {
   onSubmit(){
 
     this.user.email=this.loginForm.value.email;
-    this.user.password=this.loginForm.value.email;
-    console.log(this.user.email);
+    this.user.password=this.loginForm.value.password;
+    console.log(this.user);
     this.clearForm();
+
+    this.postsService.sendLoginData(this.user);
     
     
     //this.checkLoginDetails();

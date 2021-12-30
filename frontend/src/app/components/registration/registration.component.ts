@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PostsService } from 'src/app/services/post.service';
+import { Registereduser } from 'src/app/shared/registeredUser.model';
+import { UserDetails } from 'src/app/shared/userDetails.model';
 
 @Component({
   selector: 'app-registration',
@@ -24,11 +27,21 @@ export class RegistrationComponent implements OnInit {
 
   }
 
+  userSubmitted: UserDetails = 
+  {
+    firstName: "",
+    lastName: "",
+    email: "",
+    dob: "",
+    mobile: "",
+    gender: "",
+    password: ""}
+
   emailReg = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)| (".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   nameReg = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
   phoneNoReg = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
 
-  constructor() {
+  constructor(private postsService: PostsService) {
     console.log("Registration Page Loaded")
   }
 
@@ -45,8 +58,21 @@ export class RegistrationComponent implements OnInit {
     this.user.password = this.registrationForm.value.password;
     this.user.rePassword = this.registrationForm.value.rePassword;
 
+    console.log(this.user);
+
+
     if (this.checkLoginDetails() == 5) {
       this.registrationForm.form.reset()
+
+      this.userSubmitted.firstName = this.registrationForm.value.firstName;
+      this.userSubmitted.lastName = this.registrationForm.value.lastName;
+      this.userSubmitted.email = this.registrationForm.value.email;
+      this.userSubmitted.dob = this.registrationForm.value.birthDate;
+      this.userSubmitted.mobile = (this.registrationForm.value.mobile);
+      this.userSubmitted.gender = this.registrationForm.value.gender;
+      this.userSubmitted.password = this.registrationForm.value.password;
+
+      this.postsService.submiteUsersDetails(this.userSubmitted);
     }
 
   }

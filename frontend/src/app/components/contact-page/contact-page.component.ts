@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
-  constructor() { console.log("Registration Page Loaded"); }
+  constructor() { console.log("Contact Page Loaded"); }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    
   }
 
 }

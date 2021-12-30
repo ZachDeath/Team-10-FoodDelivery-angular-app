@@ -3,37 +3,47 @@
   <h1 class="display-6 mt-4 text-center">We will try our best to answer your query</h1>
 </div>
 
-<div class="card text-black bg-light mb-3 text-center"  style="max-width: 38rem; 
+<div class="card text-black bg-light mb-3 text-center" style="max-width: 38rem; 
                     margin:2rem auto;
                     float: none;
                     margin-bottom: 10px;
                     border: 2px solid #dc4726;">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <label for="name" style="padding-right: 92%;">Name</label>
-                  <input id="name"type="text" class="form-control" placeholder="Name" #name>
-                </div>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col">
-                    <label for="email" style="padding-right: 83%;">Email address</label>
-                  <input id="email" type="email" class="form-control" placeholder="name@example.com" #email>
-                </div>
-               </div>
-               <br>
-               <div class="row">
-                <div class="col">
-                    <label for="message" style="padding-right: 89%;">Message</label>
-                  <textarea id="message" type="text" rows="10" class="form-control" 
-                  placeholder="Write here.." #message></textarea>
-                </div>
-               </div>
-               <br>
+  <div class="card-body">
+    <form name="contactForm" class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+      <div class="row">
+        <div class="col">
+          <label for="name" style="padding-right: 92%;">Name</label>
+          <input name="name" type="text" class="form-control" placeholder="Name" #name="ngModel" ngModel
+          required>
+          <span class="help-block" style="color: red;" *ngIf="!name.valid && name.touched">Required!</span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="email" style="padding-right: 83%;">Email address</label>
+          <input name="email" type="email" class="form-control" placeholder="name@example.com" #email="ngModel" ngModel
+          required>
+          <span class="help-block" style="color: red;" *ngIf="!email.valid && email.touched">Required!</span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="message" style="padding-right: 89%;">Message</label>
+          <textarea name="message" type="text" rows="10" class="form-control" placeholder="Write here.."
+            #message="ngModel" ngModel
+            required></textarea>
+          <span class="help-block" style="color: red;" *ngIf="!message.valid && message.touched">Message can't be
+            empty</span>
+        </div>
+      </div>
+      <br>
 
-              
-              <button type="button" class="btn btn-block mb-1" style="padding: 9px 110px;  background-color: #dc4726;">Submit</button>
-              <br><br>
-            </div>
-          </div>
+
+      <button type="button" class="btn btn-block mb-1"
+        style="padding: 9px 110px;  background-color: #dc4726;">Submit</button>
+      <br><br>
+    </form>
+  </div>
+</div>

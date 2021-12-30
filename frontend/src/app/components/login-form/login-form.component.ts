@@ -26,7 +26,7 @@ export class LoginFormComponent implements OnInit {
 
     this.user.email=this.loginForm.value.email;
     this.user.password=this.loginForm.value.email;
-
+    console.log(this.user.email);
     this.clearForm();
     
     

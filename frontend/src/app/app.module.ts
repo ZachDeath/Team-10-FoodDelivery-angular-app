@@ -16,6 +16,7 @@ import { MeatEaterMenuComponent } from './components/menus/meat-eater-menu/meat-
 import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component';
 import { SideMenuComponent } from './components/menus/side-menu/side-menu.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
     MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent],
 
   imports: [BrowserModule,
-  FormsModule, RoutingModule],
+  FormsModule, RoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [appComponent],
 })

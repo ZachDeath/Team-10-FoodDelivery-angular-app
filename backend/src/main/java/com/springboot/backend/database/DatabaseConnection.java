@@ -50,7 +50,7 @@ public class DatabaseConnection {
 		// Make the connection to the database
 		try {
 			conn = DriverManager.getConnection(url, username, password);
-			System.out.println("connection to db is successfull");
+			System.out.println("Connection to " + url + " is successfull");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

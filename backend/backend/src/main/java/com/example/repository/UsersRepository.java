@@ -39,10 +39,10 @@ public class UsersRepository {
 		entityManager.merge(user);
 	}
 
-	// Function for deleting a user -- not working currently
+	// Function for deleting a user
 	public void deleteUser(long ID) {
-		Users users = findByID(ID);
-		entityManager.remove(users);
+		Users user = findByID(ID);
+		entityManager.remove(user);
 	}
 
 }

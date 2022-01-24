@@ -29,12 +29,12 @@ public class UsersRepository {
 		return entityManager.find(Users.class, ID);
 	}
 
-	// Function for inserting or updating a user
+	// Function for inserting user (identical to update but insert uses a constructor with no id value)
 	public void insertUser(Users user) {
 		entityManager.merge(user);
 	}
 
-	// Function for inserting or updating a user
+	// Function for updating a user
 	public void updateUser(Users user) {
 		entityManager.merge(user);
 	}

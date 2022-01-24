@@ -10,15 +10,6 @@ ng serve
 
 -- to run backend -- 
 ```
-cd backend
-node index.js
+Run 'BackendApplication.java'
 ```
 
--- list of npm installations for backend to work --
-``` 
-npm install express
-npm install pg
-npm install cors
-npm install body-parser
-npm install nodemon (not required but allows instant restarting of server upon save)
-```

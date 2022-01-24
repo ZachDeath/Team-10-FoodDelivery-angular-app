@@ -1,11 +1,10 @@
-package com.example;
+package com.example.backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.controller.UsersController;
-import com.example.repository.UsersRepository;
 
 @SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller"})
 public class BackendApplication {

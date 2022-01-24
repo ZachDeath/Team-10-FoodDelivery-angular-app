@@ -17,13 +17,15 @@ import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component
 import { SideMenuComponent } from './components/menus/side-menu/side-menu.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
   declarations: [appComponent, HeaderComponent, FooterComponent, 
     LoginFormComponent, MainPageComponent, RegistrationComponent, 
     BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, 
-    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent],
+    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule, HttpClientModule],

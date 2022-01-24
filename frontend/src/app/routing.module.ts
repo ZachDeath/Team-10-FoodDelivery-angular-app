@@ -11,12 +11,16 @@ import { SideMenuComponent } from './components/menus/side-menu/side-menu.compon
 import { MeatEaterMenuComponent } from './components/menus/meat-eater-menu/meat-eater-menu.component';
 import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 //configure route paths
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
+  { path: 'login-dashboard', component: LoginComponent },
+  { path: 'admin-dashboard', component: AdminComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },

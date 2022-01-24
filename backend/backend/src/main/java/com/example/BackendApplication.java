@@ -1,6 +1,5 @@
 package com.example;
 
-import java.net.MalformedURLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class BackendApplication {
 		return UsersRepos.findAll();
 	}
 
-	public static void main(String[] args) throws MalformedURLException {
+	public static void main(String[] args) {
 		String Url = new String("http://localhost:8090/getUsers");
 		SpringApplication.run(BackendApplication.class, args);
 		System.out.println(Url);

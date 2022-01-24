@@ -1,5 +1,7 @@
 package com.example;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,13 @@ public class BackendApplication {
 	UsersRepository UsersRepos;
 
 	@RequestMapping(value = "/getUsers")
-	public List<Users> checkedOut() {
+	public List<Users> getUsers() {
 		return UsersRepos.findAll();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MalformedURLException {
+		URL Url = new URL("http://localhost:8090/getUsers");
 		SpringApplication.run(BackendApplication.class, args);
+		System.out.println(Url);
 	}
 }

@@ -14,6 +14,7 @@ public class UsersRepository {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	// Function for obtaining all users in the database
 	public List<Users> findAll() {
 		return jdbcTemplate.query("Select * from users", new BeanPropertyRowMapper<Users>(Users.class));
 	}

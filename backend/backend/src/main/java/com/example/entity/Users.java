@@ -1,23 +1,44 @@
 package com.example.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="users")
+@NamedQuery(query = "Select u from Users u", name = "findAllUsers")
 public class Users {
 
-	private String user_id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long user_id;
 	private String first_name;
 	private String last_name;
-	private Date date_of_birth;
+	private LocalDate date_of_birth;
 	private String email_address;
 	private String phone_number;
 	private String password;
 
-	public Users(String user_id, String first_name, String last_name, Date date_of_birth, String email_address,
+	public Users(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.user_id = user_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.date_of_birth = date_of_birth;
+		this.email_address = email_address;
+		this.phone_number = phone_number;
+		this.password = password;
+	}
+	
+	public Users(String first_name, String last_name, LocalDate date_of_birth, String email_address,
+			String phone_number, String password) {
+		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
@@ -30,11 +51,11 @@ public class Users {
 		super();
 	}
 
-	public String getUser_id() {
+	public Long getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(String user_id) {
+	public void setUser_id(Long user_id) {
 		this.user_id = user_id;
 	}
 
@@ -54,11 +75,11 @@ public class Users {
 		this.last_name = last_name;
 	}
 
-	public Date getDate_of_birth() {
+	public LocalDate getDate_of_birth() {
 		return date_of_birth;
 	}
 
-	public void setDate_of_birth(Date date_of_birth) {
+	public void setDate_of_birth(LocalDate date_of_birth) {
 		this.date_of_birth = date_of_birth;
 	}
 

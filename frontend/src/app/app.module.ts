@@ -17,7 +17,7 @@ import { VegMenuComponent } from './components/menus/veg-menu/veg-menu.component
 import { SideMenuComponent } from './components/menus/side-menu/side-menu.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/account-components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 
 

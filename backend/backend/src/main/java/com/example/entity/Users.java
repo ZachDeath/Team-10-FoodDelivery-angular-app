@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="users")
 @NamedQuery(query = "Select u from Users u", name = "findAllUsers")
@@ -19,6 +23,7 @@ public class Users {
 	private Long user_id;
 	private String first_name;
 	private String last_name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date_of_birth;
 	private String email_address;
 	private String phone_number;
@@ -75,6 +80,7 @@ public class Users {
 		this.last_name = last_name;
 	}
 
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	public LocalDate getDate_of_birth() {
 		return date_of_birth;
 	}

@@ -29,7 +29,8 @@ public class UsersRepository {
 		return entityManager.find(Users.class, ID);
 	}
 
-	// Function for inserting user (identical to update but insert uses a constructor with no id value)
+	// Function for inserting user (identical to update but insert uses a
+	// constructor with no id value)
 	public void insertUser(Users user) {
 		entityManager.merge(user);
 	}
@@ -40,9 +41,13 @@ public class UsersRepository {
 	}
 
 	// Function for deleting a user
-	public void deleteUser(long ID) {
+	public String deleteUser(long ID) {
 		Users user = findByID(ID);
-		entityManager.remove(user);
+		if (user != null) {
+			entityManager.remove(user);
+			return ("User successfully deleted");
+		} else {
+			return ("User doesnt exist");
+		}
 	}
-
 }

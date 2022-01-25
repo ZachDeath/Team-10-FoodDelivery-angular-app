@@ -35,15 +35,17 @@ public class UsersController {
 	// Route for inserting user into the database
 	@RequestMapping(value = "/insertUser")
 	public String insertUser(Users user) {
-		UsersRepos.insertUser(new Users(user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(), user.getEmail_address(), user.getPhone_number(), user.getPassword()));
+		UsersRepos.insertUser(new Users(user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(),
+				user.getEmail_address(), user.getPhone_number(), user.getPassword()));
 		return ("User Successfully Created");
 	}
 
 	// Route for updating user into the database
 	@RequestMapping(value = "/updateUser")
 	public String updateUser(Users user) {
-		UsersRepos.updateUser(new Users(user.getUser_id(), user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(), user.getEmail_address(), user.getPhone_number(), user.getPassword()));
-		return ("User Successfully Updated");
+		return UsersRepos.updateUser(new Users(user.getUser_id(), user.getFirst_name(), user.getLast_name(),
+				user.getDate_of_birth(), user.getEmail_address(), user.getPhone_number(), user.getPassword()));
+
 	}
 
 	// Route for deleting a user in the database

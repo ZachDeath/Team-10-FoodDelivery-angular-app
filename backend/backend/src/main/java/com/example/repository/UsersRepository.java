@@ -36,8 +36,13 @@ public class UsersRepository {
 	}
 
 	// Function for updating a user
-	public void updateUser(Users user) {
-		entityManager.merge(user);
+	public String updateUser(Users user) {
+		if (findByID(user.getUser_id()) != null) {
+			entityManager.merge(user);
+			return("User updated successfully");
+		} else {
+			return("User does not exist");
+		}
 	}
 
 	// Function for deleting a user

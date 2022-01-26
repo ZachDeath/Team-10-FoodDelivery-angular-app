@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { appComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -19,13 +19,15 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/account-components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
+import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
 
 
 @NgModule({
   declarations: [appComponent, HeaderComponent, FooterComponent, 
     LoginFormComponent, MainPageComponent, RegistrationComponent, 
     BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, 
-    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent],
+    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent, AccountAddressComponent, AccountPaymentComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule, HttpClientModule],

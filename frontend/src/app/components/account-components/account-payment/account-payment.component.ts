@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -9,15 +11,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class AccountPaymentComponent implements OnInit {
 
-
+  @ViewChild('paymentForm') paymentForm: NgForm;
 
   constructor() { }
 
   
-  ngOnInit(): void {
-   
+  cardNumberGroup: FormGroup;
+
+  ngOnInit(){
+  }
+
+  onSubmit():void{
+
   }
 
   
 
 }
+
+

@@ -3,8 +3,8 @@ const { Pool } = require('pg')
 // connection to the database
 const database = new Pool({
   user: 'postgres',
-  host:  'localhost',
-  database:  'foodWebsite',
+  host:  '34.142.80.20',
+  database:  'postgres',
   password: 'root',
   port: 5432,
 })

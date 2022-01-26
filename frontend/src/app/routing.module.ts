@@ -17,6 +17,8 @@ import { AccountDetailsComponent } from './components/account-components/account
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
+import { OverviewComponent } from './components/admin/overview/overview.component';
+
 
 //configure route paths
 const routes: Routes = [
@@ -30,7 +32,10 @@ const routes: Routes = [
         { path: 'address', component : AccountAddressComponent },
         { path: 'orders', component : AccountOrderComponent }
     ] },
-  { path: 'admin-dashboard', component: AdminComponent },
+  { path: 'admin-dashboard', component: AdminComponent ,
+  children : [
+    { path: 'overview', component : OverviewComponent },
+] },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },

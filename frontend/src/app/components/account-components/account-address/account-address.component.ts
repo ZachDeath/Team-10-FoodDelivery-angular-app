@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+
 
 
 @Component({
@@ -9,13 +12,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class AccountAddressComponent implements OnInit {
 
-
+  @ViewChild('addressForm') addressForm: NgForm;
 
   constructor() { }
 
   
   ngOnInit(): void {
    
+  }
+
+  onSubmit(): void {
+
   }
 
   

@@ -3,21 +3,31 @@
 
 <div class="mx-4 mt-5">
     <div class="row m-auto">
-      <div class="col-sm-2">
+      <div class="col-2">
         <div class="card" style="width: 15rem; height: 18rem;">
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-action" href="#" routerLink = "./details">Account Details</li>
-                <li class="list-group-item mt-3 list-group-item-action" routerLink = "./payment">Edit payment method</li>
-                <li class="list-group-item mt-3 list-group-item-action" routerLink = "./address">Edit address</li>
-                <li class="list-group-item mt-3 list-group-item-action" routerLink = "./orders">View previous orders</li>
-                <li class="list-group-item mt-3 list-group-item-action">Log out</li>
+                <li class="list-group-item list-group-item-action" (click)="updateActive(1)" routerLink = "./details" [ngClass]="{
+                  'active': active==1
+                }">Account Details</li>
+                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(2)" routerLink = "./payment" [ngClass]="{
+                  'active': active==2
+                }">Edit payment method</li>
+                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(3)" routerLink = "./address" [ngClass]="{
+                  'active': active==3
+                }">Edit address</li>
+                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(4)" routerLink = "./orders" [ngClass]="{
+                  'active': active==4
+                }">View previous orders</li>
+                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(5)" routerLink = "./logout" [ngClass]="{
+                  'active': active==5
+                }">Log out</li>
                 
               </ul>
             </div>
           </div>
       </div>
-      <div class="col-sm-10" style="padding-left: 10%;">
+      <div id="module-col" class="col">
        
         
         <router-outlet> </router-outlet>

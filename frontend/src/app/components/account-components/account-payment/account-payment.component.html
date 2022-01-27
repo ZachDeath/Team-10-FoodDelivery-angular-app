@@ -5,18 +5,18 @@
         <div class="row gx-3">
             <div class="col-12 mb-4">
                 <div class="d-flex flex-column">
-                    <label class="form-label" for="fullName">Full Name</label>
-                    <input type="text" name="fullName" #fullName="ngModel" class="form-control" placeholder="Name" ngModel required>
+                    <label class="form-label" for="fullname">Full Name</label>
+                    <input type="text" name="fullname" #fullname="ngModel" class="form-control" placeholder="Name" ngModel required>
                     <span class="help-block" style="color: red;"
-                        *ngIf="!fullName.valid && fullName.touched">Full Name Required!</span>
+                        *ngIf="!fullname.valid && fullname.touched">Full Name Required!</span>
                 </div>
             </div>
             <div class="col-12 mb-4">
                 <div class="d-flex flex-column">
-                    <label class="form-label" for="cardNumber">Card Number</label> 
-                    <input type="text" name="cardNumber" #cardNumber="ngModel" class="form-control" placeholder="1234 5678 4356 7891" maxlength="16" minlength="12" ngModel required>
+                    <label class="form-label" for="cardnumber">Card Number</label> 
+                    <input type="text" name="cardnumber" #cardnumber="ngModel" class="form-control" placeholder="1234 5678 4356 7891" maxlength="16" minlength="12" ngModel required>
                     <span class="help-block" style="color: red;"
-                        *ngIf="!cardNumber.valid && cardNumber.touched">Card number not correct</span>
+                        *ngIf="!cardnumber.valid && cardnumber.touched">Card number not correct</span>
                 </div>
             </div>
             <div class="col-6">

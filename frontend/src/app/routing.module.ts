@@ -19,6 +19,8 @@ import { AccountAddressComponent } from './components/account-components/account
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { OverviewComponent } from './components/admin/overview/overview.component';
 import { DetailsComponent } from './components/admin/details/details.component';
+import { LogoutComponent } from './components/account-components/logout/logout.component';
+
 
 
 //configure route paths
@@ -31,7 +33,8 @@ const routes: Routes = [
         { path: 'details', component : AccountDetailsComponent },
         { path: 'payment', component : AccountPaymentComponent },
         { path: 'address', component : AccountAddressComponent },
-        { path: 'orders', component : AccountOrderComponent }
+        { path: 'orders', component : AccountOrderComponent },
+        { path: 'logout', component : LogoutComponent }
     ] },
   { path: 'admin-dashboard', component: AdminComponent ,
   children : [

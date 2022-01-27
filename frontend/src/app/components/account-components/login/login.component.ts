@@ -12,13 +12,20 @@ import { Registereduser } from 'src/app/shared/registeredUser.model';
 
 export class LoginComponent implements OnInit {
 
+  active: number;
 
-
-  constructor() { }
+  constructor() {
+    this.active=0;
+   }
 
 
   ngOnInit(): void {
     
+  }
+
+  updateActive(newVal: number){
+    
+    this.active=newVal;
   }
 
   

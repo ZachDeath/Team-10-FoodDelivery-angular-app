@@ -22,7 +22,18 @@ export class AccountPaymentComponent implements OnInit {
   }
 
   onSubmit():void{
+    console.log(this.paymentForm.value.fullname);
+    console.log(this.paymentForm.value.cardnumber);
+    console.log(this.paymentForm.value.expiry);
+    console.log(this.paymentForm.value.cvv);
 
+    this.clearForm();
+  }
+
+  clearForm(){
+
+    this.paymentForm.form.reset();
+    
   }
 
   

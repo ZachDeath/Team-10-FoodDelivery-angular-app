@@ -8,18 +8,18 @@
                 <div class="row mb-4">
                   <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="firstName">First name</label>
-                        <input type="text" name="firstName" #firstName="ngModel" class="form-control" ngModel required>
+                        <label class="form-label" for="firstname">First name</label>
+                        <input type="text" name="firstname" #firstname="ngModel" class="form-control" ngModel required>
                         <span class="help-block" style="color: red;"
-                            *ngIf="!firstName.valid && firstName.touched">First Name Required!</span>
+                            *ngIf="!firstname.valid && firstname.touched">First Name Required!</span>
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="lastName">Last name</label>
-                        <input type="text" name="lastName" #lastName="ngModel" class="form-control" ngModel required>
+                        <input type="text" name="lastname" #lastname="ngModel" class="form-control" ngModel required>
                         <span class="help-block" style="color: red;"
-                            *ngIf="!lastName.valid && lastName.touched">Last Name Required!</span>
+                            *ngIf="!lastname.valid && lastname.touched">Last Name Required!</span>
                     </div>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="address2">Address line 2 (Optional)</label>
-                    <input type="text"  name="address2" class="form-control">
+                    <input type="text"  name="address2" #address2="ngModel"class="form-control" ngModel>
                 </div>
       
                 

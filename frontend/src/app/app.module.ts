@@ -21,13 +21,15 @@ import { LoginComponent } from './components/account-components/login/login.comp
 import { AdminComponent } from './components/admin/admin.component';
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
+import { LogoutComponent } from './components/account-components/logout/logout.component';
 
 
 @NgModule({
   declarations: [appComponent, HeaderComponent, FooterComponent, 
     LoginFormComponent, MainPageComponent, RegistrationComponent, 
     BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, 
-    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent, AccountAddressComponent, AccountPaymentComponent],
+    MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent, AccountAddressComponent, AccountPaymentComponent,
+  LogoutComponent],
 
   imports: [BrowserModule,
   FormsModule, RoutingModule, HttpClientModule],

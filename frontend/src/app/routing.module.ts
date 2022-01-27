@@ -18,6 +18,7 @@ import { AccountPaymentComponent } from './components/account-components/account
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { OverviewComponent } from './components/admin/overview/overview.component';
+import { DetailsComponent } from './components/admin/details/details.component';
 
 
 //configure route paths
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminComponent ,
   children : [
     { path: 'overview', component : OverviewComponent },
+    { path: 'details', component : DetailsComponent}
 ] },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },

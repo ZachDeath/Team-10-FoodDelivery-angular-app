@@ -1,0 +1,21 @@
+<table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date of birth</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <th scope="row">{{user.user_id}}</th>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name}}</td>
+        <td>{{ user.date_of_birth}}</td>
+        <td>{{ user.email_address}}</td>
+        <td>{{ user.phone_number }}</td>
+    </tbody>
+  </table>

@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  // Works, need to implement method to refresh page after delete still
+  // Works, need to implement method to refresh page after delete though
   deleteUser(id: number) {
     console.log("Working")
     this.userService.deleteUser(id).subscribe();

@@ -15,8 +15,20 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.reloadData();
+  }
+
+  reloadData() {
     this.userService.getAllUsers().subscribe((users: User[]) => {
       this.users = users;
     });
   }
+
+  // Works, need to implement method to refresh page after delete still
+  deleteUser(id: number) {
+    console.log("Working")
+    this.userService.deleteUser(id).subscribe();
+  }
+
+
 }

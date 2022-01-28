@@ -4,7 +4,7 @@ import { Adapter } from '../services/adapter';
 
 export class User {
   constructor(
-    public user_id: BigInteger,
+    public user_id: number,
     public first_name: String,
     public last_name: String,
     public email_address: String,

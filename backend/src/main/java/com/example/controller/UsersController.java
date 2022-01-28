@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.entity.Users;
 import com.example.repository.UsersRepository;
 
-@CrossOrigin
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping(value = "/api/users")
+@CrossOrigin
 public class UsersController {
 
 	@Autowired

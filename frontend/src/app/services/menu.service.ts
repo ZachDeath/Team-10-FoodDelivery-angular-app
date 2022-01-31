@@ -1,10 +1,16 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
+import { map, Observable } from 'rxjs';
+import { MenuItem } from "../common/menuItem";
 import { menuItem } from "../shared/menuItem.model";
 
 @Injectable({
     providedIn: "root"
 })
 export class MenuService implements OnInit{
+
+  private baseURL = 'http://localhost:8080/api/menu-item';
+
     menu: menuItem[] = [
         {
           title: 'Pepperoni Pizza',
@@ -91,7 +97,7 @@ export class MenuService implements OnInit{
       vegMenu = []
       sideMenu = []
     
-      constructor() {
+      constructor(private httpClient: HttpClient) {
         console.log('Menu Loaded');
         console.log(typeof(this.menu[2].price))
         this.createMenus();
@@ -116,7 +122,19 @@ export class MenuService implements OnInit{
         return this.meatEaterMenu, this.vegMenu, this.sideMenu;
       }
 
-      
+
+
+      getMenuList(): Observable<MenuItem[]>{
+        return this.httpClient
+        .get<GetResponse>(this.baseURL)
+        .pipe(map(response => response._embedded.items)
+        );
+      }
     
     }
     
+    interface GetResponse {
+      _embedded: {
+        items: MenuItem[];
+      }
+    }

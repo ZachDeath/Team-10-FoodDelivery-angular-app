@@ -23,6 +23,7 @@ import { AccountAddressComponent } from './components/account-components/account
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
 import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -32,7 +33,7 @@ import { LogoutComponent } from './components/account-components/logout/logout.c
     BannerComponent, BasketComponent, MenuComponent, ErrorPageComponent, 
     MeatEaterMenuComponent,VegMenuComponent,SideMenuComponent, ContactPageComponent, LoginComponent, AdminComponent, AccountAddressComponent, AccountPaymentComponent, DetailsComponent, LogoutComponent],
   imports: [BrowserModule,
-  FormsModule, RoutingModule, HttpClientModule],
+  FormsModule, RoutingModule, HttpClientModule, Ng2SearchPipeModule],
   providers: [],
   bootstrap: [appComponent],
 })

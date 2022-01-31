@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/userConstructor';
 })
 export class DetailsComponent implements OnInit {
   users: User[];
+  term:string
 
   constructor(private userService: UserService) {
     this.users = [];

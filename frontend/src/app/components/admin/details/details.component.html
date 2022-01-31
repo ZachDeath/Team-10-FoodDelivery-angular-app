@@ -1,38 +1,33 @@
-<div class="m-3">
-  <h3>Search for users</h3>
-  <div class="search">
-    <input
-      type="text"
-      [(ngModel)]="term"
-      class="searchTerm mb-3"
-      placeholder="Enter"
-    />
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <th scope="col">User ID</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Date of birth</th>
-          <th scope="col">Email Address</th>
-          <th scope="col">Phone Number</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let user of users | filter:term">
-        <tr>
-          <th scope="row">{{ user.user_id }}</th>
-          <td>{{ user.first_name }}</td>
-          <td>{{ user.last_name }}</td>
-          <td>{{ user.date_of_birth }}</td>
-          <td>{{ user.email_address }}</td>
-          <td>{{ user.phone_number }}</td>
-          <td>
-            <button (click)="deleteUser(user.user_id)" class="btn btn-danger">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table mat-table [dataSource]="users">
+  <ng-container matColumnDef="user_id">
+    <th class = "px-3"  mat-header-cell *matHeaderCellDef>#</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.user_id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="first_name">
+    <th class = "px-3"  mat-header-cell *matHeaderCellDef>First Name</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.first_name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="last_name">
+    <th class = "px-3"  mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.last_name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="date_of_birth">
+    <th mat-header-cell *matHeaderCellDef>Date Of Birth</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.date_of_birth}}</td>
+  </ng-container>
+  <ng-container matColumnDef="email_address">
+    <th class = "px-3" mat-header-cell *matHeaderCellDef>Email</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.email_address }}</td>
+  </ng-container>
+  <ng-container matColumnDef="phone_number">
+    <th class = "px-3" mat-header-cell *matHeaderCellDef>Phone Number</th>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.phone_number }}</td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
+    <td class = "px-3" mat-cell *matCellDef="let user"><button></button></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>

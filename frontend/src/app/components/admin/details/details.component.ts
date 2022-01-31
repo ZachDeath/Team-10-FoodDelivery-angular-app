@@ -9,7 +9,8 @@ import { User } from 'src/app/shared/userConstructor';
 })
 export class DetailsComponent implements OnInit {
   users: User[];
-  term:string
+  term: string;
+  columnsToDisplay = ["user_id", "first_name", "last_name", "date_of_birth", "email_address", "phone_number", "delete"]
 
   constructor(private userService: UserService) {
     this.users = [];
@@ -27,9 +28,9 @@ export class DetailsComponent implements OnInit {
 
   // Works, need to implement method to refresh page after delete though
   deleteUser(id: number) {
-    console.log("Working")
-    this.userService.deleteUser(id).subscribe();
+    console.log('Working');
+    this.userService.deleteUser(id).subscribe((users: User[]) => {
+      this.users = users;
+    });
   }
-
-
 }

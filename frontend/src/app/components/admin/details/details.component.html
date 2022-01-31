@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="users">
+<table mat-table #table [dataSource]="users">
   <ng-container matColumnDef="user_id">
     <th class = "px-3"  mat-header-cell *matHeaderCellDef>#</th>
     <td class = "px-3" mat-cell *matCellDef="let user">{{ user.user_id }}</td>
@@ -25,7 +25,7 @@
   </ng-container>
   <ng-container matColumnDef="delete">
     <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
-    <td class = "px-3" mat-cell *matCellDef="let user"><button></button></td>
+    <td class = "px-3" mat-cell *matCellDef="let user"><button (click)="deleteUser(user.user_id)" class="btn btn-danger">Delete</button></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

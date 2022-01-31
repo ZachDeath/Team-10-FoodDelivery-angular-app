@@ -26,6 +26,7 @@ import { LogoutComponent } from './components/account-components/logout/logout.c
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 
+
 @NgModule({
   declarations: [
     appComponent,

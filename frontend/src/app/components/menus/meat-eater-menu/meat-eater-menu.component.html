@@ -18,4 +18,10 @@
         </div>
       </div>
     </div>
+    
 
+<p *ngFor="let tempItem of items">
+    {{tempItem.title}} -
+    {{tempItem.description}}
+    {{tempItem.unitprice | currency: 'GBP'}}
+</p>

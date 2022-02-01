@@ -15,6 +15,7 @@ export class SideMenuComponent implements OnInit {
   sidesMenu = this.menuService.sideMenu
 
   ngOnInit(): void {
+    //this.menuService.listMenuItems();
   }
 
   addToBasketFromMenu(item:menuItem){

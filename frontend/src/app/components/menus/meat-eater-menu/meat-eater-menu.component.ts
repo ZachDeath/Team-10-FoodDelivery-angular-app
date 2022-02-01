@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { menuItem } from '../../../shared/menuItem.model';
 import { BasketService } from 'src/app/services/basket.service';
+import { MenuItem } from 'src/app/common/menuItem';
+import { testMenuItem } from 'src/app/shared/testMenuItem.model';
 
 @Component({
   selector: 'app-meat-menu',
@@ -10,9 +12,14 @@ import { BasketService } from 'src/app/services/basket.service';
 })
 
 export class MeatEaterMenuComponent implements OnInit {
+
+   items: testMenuItem[]
   
   constructor(private menuService: MenuService, private bService:BasketService) {
     console.log('MeatEater Menu Loaded');
+    //menuService.listMenuItems();
+    //menuService.createMenus();
+    
   }
 
   meatEaterMenu = this.menuService.meatEaterMenu
@@ -23,5 +30,13 @@ export class MeatEaterMenuComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //this.menuService.listMenuItems();
+  }
+
+  // listMenuItems(): void{
+  //   this.menuService.getMenuList().subscribe((items: testMenuItem[]) => {
+  //     this.items = items;
+  //   });
+  // }
 }

@@ -15,6 +15,7 @@ export class VegMenuComponent implements OnInit {
   vegMenu = this.menuService.vegMenu
 
   ngOnInit(): void {
+    //this.menuService.listMenuItems();
   }
 
   addToBasketFromMenu(item:menuItem){

@@ -48,7 +48,7 @@ import { MatTableModule } from '@angular/material/table';
     AccountAddressComponent,
     AccountPaymentComponent,
     DetailsComponent,
-    LogoutComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

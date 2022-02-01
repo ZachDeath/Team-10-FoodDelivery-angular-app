@@ -5,7 +5,7 @@ import { User, UserAdapter } from '../shared/userConstructor';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private apiUrl = 'http://localhost:8090/api/users';
+  private apiUrl = 'http://localhost:8080/api/users';
   constructor(private http: HttpClient, private adapter: UserAdapter) {}
 
   // returns a list of users

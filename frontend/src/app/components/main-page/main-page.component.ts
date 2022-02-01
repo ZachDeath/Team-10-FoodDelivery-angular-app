@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
 import { menuOption } from './menuOptions.model';
 
 
@@ -14,9 +15,12 @@ export class MainPageComponent implements OnInit {
     new menuOption(0,"Meateater","assets/images/meat-pizza.jpg","meat-menu"), new menuOption(1,"Vegetarian","assets/images/vegetarian-pizza.jpg", "veg-menu"), new menuOption(2,"Sides","assets/images/garlicbread.jpg", "sides-menu")
   ];
    
-  constructor() {
+  constructor(private menuService: MenuService) {
+    
     console.log('Main Page Loaded');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menuService.listMenuItems();
+  }
 }

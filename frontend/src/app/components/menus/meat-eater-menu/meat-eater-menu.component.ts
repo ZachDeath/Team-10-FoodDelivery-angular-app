@@ -3,6 +3,7 @@ import { MenuService } from 'src/app/services/menu.service';
 import { menuItem } from '../../../shared/menuItem.model';
 import { BasketService } from 'src/app/services/basket.service';
 import { MenuItem } from 'src/app/common/menuItem';
+import { testMenuItem } from 'src/app/shared/testMenuItem.model';
 
 @Component({
   selector: 'app-meat-menu',
@@ -12,10 +13,13 @@ import { MenuItem } from 'src/app/common/menuItem';
 
 export class MeatEaterMenuComponent implements OnInit {
 
-  items: MenuItem[]
+   items: testMenuItem[]
   
   constructor(private menuService: MenuService, private bService:BasketService) {
     console.log('MeatEater Menu Loaded');
+    //menuService.listMenuItems();
+    //menuService.createMenus();
+    
   }
 
   meatEaterMenu = this.menuService.meatEaterMenu
@@ -27,12 +31,12 @@ export class MeatEaterMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listMenuItems();
-    console.log(this.items);
+    //this.menuService.listMenuItems();
   }
 
-  listMenuItems(): void{
-    this.menuService.getMenuList().subscribe(data =>
-      {this.items=data})
-  }
+  // listMenuItems(): void{
+  //   this.menuService.getMenuList().subscribe((items: testMenuItem[]) => {
+  //     this.items = items;
+  //   });
+  // }
 }

@@ -3,93 +3,20 @@ import { Injectable, OnInit } from "@angular/core";
 import { map, Observable } from 'rxjs';
 import { MenuItem } from "../common/menuItem";
 import { menuItem } from "../shared/menuItem.model";
+import { testMenuItem } from "../shared/testMenuItem.model";
 
 @Injectable({
     providedIn: "root"
 })
 export class MenuService implements OnInit{
 
-  private baseURL = 'http://localhost:8080/api/menu-item';
+  private baseURL = 'http://localhost:8090/menu-item/test';
 
+  items: testMenuItem[]
+
+  //menu: menuItem[];
     menu: menuItem[] = [
-        {
-          title: 'Pepperoni Pizza',
-          description: 'this is a meat pizza',
-          quantity: 1,
-          price: 15.0,
-          picture:
-            'https://www.budgetbytes.com/wp-content/uploads/2010/07/Classic-Homemade-Pizza-Dough-close.jpg',
-          typeOfFood: 0,
-        },
-
-        {
-          title: 'Texas BBQ',
-          description: 'Chicken, bacon, peppers and BBQ sauce',
-          quantity: 1,
-          price: 15.0,
-          picture:
-            'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/216054.jpg',
-          typeOfFood: 0,
-        },
-
-        {
-          title: 'Meat feast',
-          description: 'Chicken, bacon, pepperoni and veg',
-          quantity: 1,
-          price: 15.0,
-          picture:
-            'https://www.recipetineats.com/wp-content/uploads/2020/05/Pizza-Crust-without-yeast_5-SQ.jpg',
-          typeOfFood: 0,
-        },
-    
-        {
-          title: 'Veggie Pizza ',
-          description: 'This is another veg pizza',
-          quantity: 1,
-          price: 19.50,
-          picture:
-            'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg',
-          typeOfFood: 1,
-        },
-
-        {
-          title: 'Veggie supreme',
-          description: 'This is a veg pizza',
-          quantity: 1,
-          price: 19.0,
-          picture:
-            'https://cookieandkate.com/images/2020/10/best-veggie-pizza-recipe-1.jpg',
-          typeOfFood: 1,
-        },
-
-        {
-          title: 'Garlic bread',
-          description: 'first side',
-          quantity: 1,
-          price: 9.0,
-          picture:
-            'https://www.shugarysweets.com/wp-content/uploads/2020/04/garlic-bread-4-720x540.jpg',
-          typeOfFood: 2,
-        },
-        {
-          title: 'Potato wedgies',
-          description: 'A second side',
-          quantity: 1,
-          price: 6.0,
-          picture:
-            'https://healthyfitnessmeals.com/wp-content/uploads/2020/05/instagram-In-Stream_Square___Baked-potato-wedges-4.jpg',
-          typeOfFood: 2,
-        },
-
-        {
-          title: 'Cookies',
-          description: 'A third side',
-          quantity: 1,
-          price: 3.0,
-          picture:
-            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-brownbutterchocolatechipcookie089-210201-sc-1612476612.jpg?crop=0.830xw:0.793xh;0.0816xw,0.140xh&resize=640:*',
-          typeOfFood: 2,
-        },
+        
       ];
       
       menuTypeArray = [];
@@ -99,11 +26,18 @@ export class MenuService implements OnInit{
     
       constructor(private httpClient: HttpClient) {
         console.log('Menu Loaded');
-        console.log(typeof(this.menu[2].price))
-        this.createMenus();
+        //console.log(typeof(this.menu[2].price))
+        //this.listMenuItems();
+        
       }
     
-      ngOnInit(): void {}
+      ngOnInit(): void {
+        console.log("in menu serivce init");
+        //this.listMenuItems();
+        //this.createMenus();
+
+        
+      }
     
       createMenus() {
         for (let i = 0; i < this.menu.length; i++) {
@@ -124,17 +58,45 @@ export class MenuService implements OnInit{
 
 
 
-      getMenuList(): Observable<MenuItem[]>{
+      getMenuList(){
+        
         return this.httpClient
-        .get<GetResponse>(this.baseURL)
-        .pipe(map(response => response._embedded.items)
-        );
+        .get(this.baseURL)
+        .pipe();
       }
+
+
+      listMenuItems(): void{
+        //console.log("in list menu items");
+        this.menu=[];
+        this.items=[];
+        this.menuTypeArray = [];
+        this.meatEaterMenu = []
+        this.vegMenu = [];
+        this.sideMenu = [];
+        
+        //console.log("in if");
+        this.getMenuList().subscribe((items: testMenuItem[]) => {
+          this.items = items;
+          for(let i=0;i<this.items.length;i++){
+            let temp: menuItem = {
+              title: this.items[i].title,
+              description: this.items[i].description,
+              quantity: 1,
+              price: this.items[i].unitprice,
+              picture: this.items[i].picture_url,
+              typeOfFood: this.items[i].food_type
+            }
+            this.menu.push(temp);
+              //console.log("in for loop");
+          }
+          this.createMenus();
+          
+          });
+        
+      }
+      
     
     }
     
-    interface GetResponse {
-      _embedded: {
-        items: MenuItem[];
-      }
-    }
+    

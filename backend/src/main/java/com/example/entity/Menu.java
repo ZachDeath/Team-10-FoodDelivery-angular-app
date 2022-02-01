@@ -1,4 +1,4 @@
-package com.springboot.fooddelivery.entity;
+package com.example.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,13 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "menu")
-@Getter
-@Setter
 public class Menu {
 
 	@Id
@@ -31,9 +26,49 @@ public class Menu {
 		this.picture_url = picture_url;
 		this.food_type = food_type;
 	}
-	
+
 	public Menu() {
-		
+
+	}
+
+	public int getFood_id() {
+		return food_id;
+	}
+
+	public void setFood_id(int food_id) {
+		this.food_id = food_id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPicture_url() {
+		return picture_url;
+	}
+
+	public void setPicture_url(String picture_url) {
+		this.picture_url = picture_url;
+	}
+
+	public int getFood_type() {
+		return food_type;
+	}
+
+	public void setFood_type(int food_type) {
+		this.food_type = food_type;
 	}
 
 	@Override
@@ -41,7 +76,5 @@ public class Menu {
 		return "Menu [food_id=" + food_id + ", title=" + title + ", description=" + description + ", picture_url="
 				+ picture_url + ", food_type=" + food_type + "]";
 	}
-	
-	
 
 }

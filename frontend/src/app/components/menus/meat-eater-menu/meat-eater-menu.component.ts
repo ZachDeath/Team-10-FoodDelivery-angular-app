@@ -22,7 +22,7 @@ export class MeatEaterMenuComponent implements OnInit {
     
   }
 
-  meatEaterMenu = this.menuService.meatEaterMenu
+  meatEaterMenu = []
 
   addToBasketFromMenu(item:menuItem){
 
@@ -31,7 +31,7 @@ export class MeatEaterMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.menuService.listMenuItems();
+  this.meatEaterMenu = this.menuService.meatEaterMenu
   }
 
   // listMenuItems(): void{

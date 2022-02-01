@@ -10,23 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.entity.Menu;
 import com.example.repository.MenuRepository;
 
-
-
-
 @RestController
 @RequestMapping("/menu-item")
 public class MenuController {
-	
+
 	@Autowired
 	MenuRepository menuRepo;
-	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public List<Menu> getAllItems() {
-		Iterable<Menu> items =menuRepo.findAll();
-		
-		
+		Iterable<Menu> items = menuRepo.findAll();
+
 		return (List<Menu>) items;
-		
+
 	}
 
 }

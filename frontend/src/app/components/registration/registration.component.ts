@@ -48,6 +48,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // Need to fix regex so that form only allows local and uk(+44) phone numbers to be entered
   onSubmit() {
     this.user.first_name = this.registrationForm.value.firstName;
     this.user.last_name = this.registrationForm.value.lastName;
@@ -66,6 +67,8 @@ export class RegistrationComponent implements OnInit {
       this.userSubmitted.date_of_birth = this.registrationForm.value.birthDate;
       this.userSubmitted.phone_number = this.registrationForm.value.mobile;
       this.userSubmitted.password = this.registrationForm.value.password
+      
+      console.log(this.userSubmitted);
       
       this.postsService.submiteUsersDetails(this.userSubmitted);
       this.registrationForm.form.reset();

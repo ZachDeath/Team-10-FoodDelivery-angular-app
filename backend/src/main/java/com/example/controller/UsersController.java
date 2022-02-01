@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +38,7 @@ public class UsersController {
 
 	// Route for inserting user into the database
 	@CrossOrigin
-	@RequestMapping(value = "/insertUser")
+	@PostMapping(value = "/insertUser")
 	public String insertUser(@RequestBody Users user) {
 		UsersRepos.insertUser(new Users(user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(),
 				user.getEmail_address(), user.getPhone_number(), user.getPassword()));

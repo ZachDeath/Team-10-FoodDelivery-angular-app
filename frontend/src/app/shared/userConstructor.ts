@@ -5,12 +5,12 @@ import { Adapter } from '../services/adapter';
 export class User {
   constructor(
     public user_id: number,
-    public first_name: String,
-    public last_name: String,
-    public email_address: String,
+    public first_name: string,
+    public last_name: string,
+    public email_address: string,
     public date_of_birth: Date,
-    public phone_number: String,
-    public password: String
+    public phone_number: string,
+    public password: string
   ) {}
 }
 

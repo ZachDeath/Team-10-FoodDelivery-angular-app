@@ -16,8 +16,8 @@ public class MenuController {
 
 	@Autowired
 	MenuRepository menuRepo;
-
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	
+	@RequestMapping(value="/get-menu-items", method=RequestMethod.GET)
 	public List<Menu> getAllItems() {
 		Iterable<Menu> items = menuRepo.findAll();
 

@@ -8,8 +8,9 @@ import { testMenuItem } from '../shared/testMenuItem.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService implements OnInit {
-  private baseURL = 'http://localhost:8090/menu-item/test';
+
+export class MenuService implements OnInit{
+  private baseURL = 'http://localhost:8090/menu-item/get-menu-items';
 
   items: testMenuItem[];
 

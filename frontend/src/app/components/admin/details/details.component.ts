@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/userConstructor';
 
@@ -9,6 +10,18 @@ import { User } from 'src/app/shared/userConstructor';
 })
 export class DetailsComponent implements OnInit {
   users: User[];
+  term: string;
+  columnsToDisplay = [
+    'user_id',
+    'first_name',
+    'last_name',
+    'date_of_birth',
+    'email_address',
+    'phone_number',
+    'delete',
+  ];
+
+  @ViewChild(MatTable) table: MatTable<User>;
 
   constructor(private userService: UserService) {
     this.users = [];
@@ -26,9 +39,15 @@ export class DetailsComponent implements OnInit {
 
   // Works, need to implement method to refresh page after delete though
   deleteUser(id: number) {
-    console.log("Working")
-    this.userService.deleteUser(id).subscribe();
+    let text = 'Are you sure you want to delete this user?';
+    if (confirm(text) == true) {
+      const userDeleted = this.users.findIndex(
+        (element) => element.user_id == id
+      );
+      console.log(userDeleted);
+      this.userService.deleteUser(id).subscribe();
+      this.users.splice(userDeleted, 1);
+      this.table.renderRows();
+    }
   }
-
-
 }

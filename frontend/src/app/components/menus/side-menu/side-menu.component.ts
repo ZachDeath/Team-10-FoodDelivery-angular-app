@@ -12,10 +12,10 @@ export class SideMenuComponent implements OnInit {
   
   constructor(private menuService: MenuService, private bService:BasketService) { }
 
-  sidesMenu = this.menuService.sideMenu
+  sidesMenu = []
 
   ngOnInit(): void {
-    //this.menuService.listMenuItems();
+    this.sidesMenu = this.menuService.sideMenu
   }
 
   addToBasketFromMenu(item:menuItem){

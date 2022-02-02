@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'src/app/common/menuItem';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -9,7 +10,6 @@ import { MenuService } from 'src/app/services/menu.service';
 export class MenuComponent implements OnInit {
   constructor(private menuService: MenuService) {
     console.log('Menu Loaded');
-    
   }
 
   ngOnInit(): void {

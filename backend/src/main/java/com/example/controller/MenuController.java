@@ -13,22 +13,19 @@ import com.example.models.MenuRequestModel;
 import com.example.models.MenuResponseModel;
 import com.example.service.MenuService;
 
-
-
-
 @RestController
 @RequestMapping("/menu-item")
 public class MenuController {
-	
+
 	@Autowired
 	MenuService menuService;
 	
 	@RequestMapping(value="/get-menu-items", method=RequestMethod.GET)
-	public List<MenuResponseModel> getAllItems() {
-		List<MenuResponseModel> returnList = menuService.getAllItems();
-		
-		return returnList;
-		
+	public List<Menu> getAllItems() {
+		Iterable<Menu> items = menuRepo.findAll();
+
+		return (List<Menu>) items;
+
 	}
 	
 	@RequestMapping(value="/delete-menu-item/{id}", method=RequestMethod.GET)

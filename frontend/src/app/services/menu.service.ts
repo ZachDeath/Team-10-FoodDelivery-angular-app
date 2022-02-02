@@ -1,7 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
-import { map, Observable } from 'rxjs';
-import { MenuItem } from "../common/menuItem";
 import { menuItem } from "../shared/menuItem.model";
 import { testMenuItem } from "../shared/testMenuItem.model";
 

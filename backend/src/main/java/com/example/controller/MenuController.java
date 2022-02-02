@@ -3,12 +3,15 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Menu;
-import com.example.repository.MenuRepository;
+import com.example.models.MenuRequestModel;
+import com.example.models.MenuResponseModel;
+import com.example.service.MenuService;
 
 
 
@@ -18,15 +21,30 @@ import com.example.repository.MenuRepository;
 public class MenuController {
 	
 	@Autowired
-	MenuRepository menuRepo;
+	MenuService menuService;
 	
 	@RequestMapping(value="/get-menu-items", method=RequestMethod.GET)
-	public List<Menu> getAllItems() {
-		Iterable<Menu> items =menuRepo.findAll();
+	public List<MenuResponseModel> getAllItems() {
+		List<MenuResponseModel> returnList = menuService.getAllItems();
 		
-		
-		return (List<Menu>) items;
+		return returnList;
 		
 	}
+	
+	@RequestMapping(value="/delete-menu-item/{id}", method=RequestMethod.GET)
+	public void deleteMenuItem(@PathVariable("id") int id) {
+		menuService.deleteMenuItem(id);
+	}
+	
+	@RequestMapping(value="/create-user",  method=RequestMethod.POST, produces ="application/json")
+	public MenuResponseModel createMenuItem(@RequestBody MenuRequestModel requestModel)
+	{
+		MenuResponseModel returnObject = menuService.createMenuItem(requestModel);
+		return returnObject;
+	}
+	
+	
+	
+	
 
 }

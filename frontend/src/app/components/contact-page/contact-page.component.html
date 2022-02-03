@@ -12,10 +12,19 @@
     <form name="contactForm" class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <div class="row">
         <div class="col">
-          <label for="name" style="padding-right: 92%;">Name</label>
-          <input name="name" type="text" class="form-control" placeholder="Name" #name="ngModel" ngModel
-          required>
-          <span class="help-block" style="color: red;" *ngIf="!name.valid && name.touched">Required!</span>
+          <label for="firstName" style="padding-right: 85%;">First Name</label>
+          <input name="firstName" type="text" class="form-control" placeholder="First Name" #firstName="ngModel" ngModel
+            required>
+          <span class="help-block" style="color: red;" *ngIf="!firstName.valid && firstName.touched">Required!</span>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="lastName" style="padding-right: 86%;">Last Name</label>
+          <input name="lastName" type="text" class="form-control" placeholder="Last Name" #lastName="ngModel" ngModel
+            required>
+          <span class="help-block" style="color: red;" *ngIf="!lastName.valid && lastName.touched">Required!</span>
         </div>
       </div>
       <br>
@@ -23,7 +32,7 @@
         <div class="col">
           <label for="email" style="padding-right: 83%;">Email address</label>
           <input name="email" type="email" class="form-control" placeholder="name@example.com" #email="ngModel" ngModel
-          required>
+            required>
           <span class="help-block" style="color: red;" *ngIf="!email.valid && email.touched">Required!</span>
         </div>
       </div>
@@ -32,16 +41,14 @@
         <div class="col">
           <label for="message" style="padding-right: 89%;">Message</label>
           <textarea name="message" type="text" rows="10" class="form-control" placeholder="Write here.."
-            #message="ngModel" ngModel
-            required></textarea>
+            #message="ngModel" ngModel required></textarea>
           <span class="help-block" style="color: red;" *ngIf="!message.valid && message.touched">Message can't be
             empty</span>
         </div>
       </div>
       <br>
 
-
-      <button type="button" class="btn btn-block mb-1"
+      <button class="btn btn-block mb-1" [disabled]="!contactForm.valid"
         style="padding: 9px 110px;  background-color: #dc4726;">Submit</button>
       <br><br>
     </form>

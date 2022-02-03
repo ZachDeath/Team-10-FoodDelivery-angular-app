@@ -27,6 +27,7 @@
     <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
     <td class = "px-3" mat-cell *matCellDef="let user"><button (click)="deleteUser(user.user_id)" class="btn btn-danger">Delete</button></td>
   </ng-container>
+  
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>

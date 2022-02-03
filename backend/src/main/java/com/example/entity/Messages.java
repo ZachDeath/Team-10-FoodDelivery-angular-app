@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.springframework.data.jpa.repository.Query;
+
 @Entity
 @Table(name="messages")
 @NamedQuery(query = "Select m from Messages m", name = "findAllMessages")
@@ -33,13 +35,13 @@ public class Messages {
 	}
 	
 	public Messages(String first_name, String last_name, String email_address,
-			String message, Long user_id) {
+			String message) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email_address = email_address;
 		this.message = message;
-		this.user_id = user_id;
+
 	}
 
 	public Messages() {
@@ -87,6 +89,7 @@ public class Messages {
 	}
 
 	public Long getUser_id() {
+		
 		return user_id;
 	}
 

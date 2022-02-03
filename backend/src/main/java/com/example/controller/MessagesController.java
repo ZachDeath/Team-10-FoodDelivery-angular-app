@@ -41,7 +41,7 @@ public class MessagesController {
 	@PostMapping(value = "/insertMessage")
 	public String insertMessage(@RequestBody Messages message) {
 		MessagesRepository.insertMessage(new Messages(message.getFirst_name(), message.getLast_name(),
-				message.getEmail_address(), message.getMessage(), message.getUser_id()));
+				message.getEmail_address(), message.getMessage()));
 		return ("Message Successfully Created");
 	}
 

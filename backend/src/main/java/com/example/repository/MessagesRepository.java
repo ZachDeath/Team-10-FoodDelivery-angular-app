@@ -13,7 +13,7 @@ import com.example.entity.Messages;
 
 @Repository
 @Transactional
-public class MessagesRepository {
+public class MessagesRepository{
 
 	@PersistenceContext
 	EntityManager entityManager;

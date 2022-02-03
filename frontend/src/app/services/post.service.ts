@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Registereduser } from '../shared/registeredUser.model';
 import { User } from '../shared/userConstructor';
+import { Message } from '../shared/messageConstructor';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -25,6 +26,16 @@ export class PostsService {
       .post<User>('http://localhost:8090/api/users/insertUser', user)
       .subscribe((users: User) => {
         users = users;
+      });
+  }
+
+  submitMessage(message: Message) {
+    console.log(message);
+
+    this.http
+      .post<Message>('http://localhost:8090/api/users/insertMessage', message)
+      .subscribe((messages: Message) => {
+        messages = messages;
       });
   }
 

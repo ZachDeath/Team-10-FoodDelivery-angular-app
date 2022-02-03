@@ -25,6 +25,7 @@ import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
+import { MessagesComponent } from './components/admin/messages/messages.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MatTableModule } from '@angular/material/table';
     AccountAddressComponent,
     AccountPaymentComponent,
     DetailsComponent,
-    LogoutComponent
+    LogoutComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

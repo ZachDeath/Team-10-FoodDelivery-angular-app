@@ -33,7 +33,7 @@ export class PostsService {
     console.log(message);
 
     this.http
-      .post<Message>('http://localhost:8090/api/users/insertMessage', message)
+      .post<Message>('http://localhost:8090/api/messages/insertMessage', message)
       .subscribe((messages: Message) => {
         messages = messages;
       });

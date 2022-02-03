@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Users;
+import com.example.entity.User;
 import com.example.repository.UsersRepository;
 
 @RestController
@@ -39,8 +39,8 @@ public class UsersController {
 
 	// Route for obtaining all users in the database
 	@RequestMapping(method = RequestMethod.GET, path = "/getUsers")
-	public List<Users> getUsers() {
-		return UsersRepos.findUsers();
+	public List<User> getUsers() {
+		return (List<User>) UsersRepos.findAll();
 	}
 
 	// Route for inserting user into the database
@@ -84,5 +84,10 @@ public class UsersController {
 		return UsersRepos.FindByEmail(email, password);
 
 	}
+
+	
+	
+	
+	
 
 }

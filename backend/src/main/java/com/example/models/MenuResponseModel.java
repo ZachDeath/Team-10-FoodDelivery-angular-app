@@ -1,22 +1,16 @@
-package com.example.entity;
+package com.example.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class MenuResponseModel {
 
-@Entity
-@Table(name = "menu")
-public class Menu {
-
-	@Id
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int food_id;
 	private String title;
 	private String description;
 	private String picture_url;
 	private int food_type;
+	
+	
 
-	public Menu(int food_id, String title, String description, String picture_url, int food_type) {
+	public MenuResponseModel(int food_id, String title, String description, String picture_url, int food_type) {
 		super();
 		this.food_id = food_id;
 		this.title = title;
@@ -24,9 +18,9 @@ public class Menu {
 		this.picture_url = picture_url;
 		this.food_type = food_type;
 	}
-
-	public Menu() {
-
+	
+	public MenuResponseModel() {
+		
 	}
 
 	public int getFood_id() {
@@ -67,12 +61,6 @@ public class Menu {
 
 	public void setFood_type(int food_type) {
 		this.food_type = food_type;
-	}
-
-	@Override
-	public String toString() {
-		return "Menu [food_id=" + food_id + ", title=" + title + ", description=" + description + ", picture_url="
-				+ picture_url + ", food_type=" + food_type + "]";
 	}
 
 }

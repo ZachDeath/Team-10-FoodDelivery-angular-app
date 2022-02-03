@@ -1,17 +1,21 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import com.example.controller.UsersController;
+import com.example.controller.MessagesController;
 
 
-@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors", "com.example.service" })
-@EnableSwagger2
+@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors" })
 public class BackendApplication {
 
-//	@Autowired
-//	UsersController UsersController;
+	@Autowired
+	UsersController UsersController;
+
+	@Autowired
+	MessagesController MessagesController;
 
 	public static void main(String[] args) {
 		String Url = new String("http://localhost:8090");

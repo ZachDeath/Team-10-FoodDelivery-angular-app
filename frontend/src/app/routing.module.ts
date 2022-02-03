@@ -20,7 +20,7 @@ import { AccountOrderComponent } from './components/account-components/account-o
 import { OverviewComponent } from './components/admin/overview/overview.component';
 import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
-
+import { MessagesComponent } from './components/admin/messages/messages.component';
 
 
 //configure route paths
@@ -39,7 +39,8 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminComponent ,
   children : [
     { path: 'overview', component : OverviewComponent },
-    { path: 'details', component : DetailsComponent}
+    { path: 'details', component : DetailsComponent},
+    { path: 'messages', component : MessagesComponent}
 ] },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },

@@ -1,10 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { User, UserAdapter } from '../shared/userConstructor';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+
+  private loggedIn: boolean= false;
+
+  loginChanged = new EventEmitter<boolean>();
+  loggedUser = new EventEmitter<User>();
+  userObj:User;
+  
   private apiUrl = 'http://localhost:8090/api/users';
   constructor(private http: HttpClient, private adapter: UserAdapter) {}
 
@@ -21,6 +28,41 @@ export class UserService {
     const url = `${this.apiUrl}/deleteUser/${id}`;
     return this.http.delete(url);
   }
+
+  getUserByEmail(email: String, password: String):Observable<any> {
+    const url = `${this.apiUrl}/getUser/email/${email}/pass/${password}`;
+    let response: Observable<any>=this.http.get(url).pipe();
+    if (response!=null){
+      
+      return response;
+    }
+    return null;
+  }
+
+  userLoggedIn(): void{
+
+    this.loginChanged.emit(true);
+
+  }
+
+  userLoggedOut(): void{
+
+    this.loginChanged.emit(false);
+    this.userObj=null;
+    this.updateLoggeduser(null);
+    
+
+  }
+
+  updateLoggeduser(user: User): void{
+
+    this.loggedUser.emit(user);
+
+  }
+
+
+
+  
 
 
 }

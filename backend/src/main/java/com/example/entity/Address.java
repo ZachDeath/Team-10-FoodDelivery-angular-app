@@ -58,7 +58,7 @@ public class Address {
 		this.post_code = post_code;
 	}
 
-	public long getAddress_id() {
+	public int getAddress_id() {
 		return addressID;
 	}
 

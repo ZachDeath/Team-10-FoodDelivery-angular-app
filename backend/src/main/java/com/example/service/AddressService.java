@@ -14,7 +14,7 @@ public class AddressService {
 	@Autowired
 	AddressRepository AddressRepo;
 
-	public Address findAddressByID(int id) {
+	public Address findAddressByID(long id) {
 		return AddressRepo.findByAddressID(id);
 	}
 
@@ -22,19 +22,19 @@ public class AddressService {
 		return AddressRepo.findByUserID(id);
 	}
 
-	public void deleteAddress(int id) {
+	public void deleteAddress(long id) {
 		AddressRepo.deleteById(id);
 	}
 
 	// This function takes 'User ID' and adds address based off that
-	public Address createAddress(int id, Address address) {
+	public Address createAddress(long id, Address address) {
 		AddressRepo.save(new Address(id, address.getFirst_name(), address.getLast_name(), address.getFirst_name(),
 				address.getLast_name(), address.getCity(), address.getState(), address.getPost_code()));
 		return address;
 	}
 	
 	// This function takes 'Address ID' and changes address based off that
-	public Address updateAddress(int id, int userid, Address address) {
+	public Address updateAddress(long id, long userid, Address address) {
 		AddressRepo.save(new Address(id, userid, address.getFirst_name(), address.getLast_name(), address.getFirst_line(),
 				address.getSecond_line(), address.getCity(), address.getState(), address.getPost_code()));
 		return address;

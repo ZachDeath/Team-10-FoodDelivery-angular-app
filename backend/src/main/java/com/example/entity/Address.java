@@ -15,10 +15,10 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "address_id")
-	private int addressID;
+	private long addressID;
 	@Column(name = "user_id")
 	@JoinColumn(name = "user_id")
-	private int userID;
+	private long userID;
 	private String first_name;
 	private String last_name;
 	private String first_line;
@@ -31,10 +31,10 @@ public class Address {
 		super();
 	}
 
-	public Address(int user_id, String first_name, String last_name, String first_line, String second_line, String city,
+	public Address(long id, String first_name, String last_name, String first_line, String second_line, String city,
 			String state, String post_code) {
 		super();
-		this.userID = user_id;
+		this.userID = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.first_line = first_line;
@@ -44,7 +44,7 @@ public class Address {
 		this.post_code = post_code;
 	}
 
-	public Address(int addressID, int userID, String first_name, String last_name, String first_line,
+	public Address(long addressID, long userID, String first_name, String last_name, String first_line,
 			String second_line, String city, String state, String post_code) {
 		super();
 		this.addressID = addressID;
@@ -58,7 +58,7 @@ public class Address {
 		this.post_code = post_code;
 	}
 
-	public int getAddress_id() {
+	public long getAddress_id() {
 		return addressID;
 	}
 
@@ -66,7 +66,7 @@ public class Address {
 		this.addressID = address_id;
 	}
 
-	public int getUser() {
+	public long getUser() {
 		return userID;
 	}
 

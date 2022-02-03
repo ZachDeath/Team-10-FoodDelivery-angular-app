@@ -1,10 +1,7 @@
 package com.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.example.controller.UsersController;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -13,8 +10,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class BackendApplication {
 
-	@Autowired
-	UsersController UsersController;
+//	@Autowired
+//	UsersController UsersController;
 
 	public static void main(String[] args) {
 		String Url = new String("http://localhost:8090");

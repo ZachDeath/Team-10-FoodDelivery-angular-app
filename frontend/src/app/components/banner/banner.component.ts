@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/userConstructor';
 
 @Component({
   selector: 'app-banner',
@@ -7,14 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
+  loggedUser: User;
+  
   imagePath = "assets/images/pizza.png"
-  user: any = {name: "testUser", age:23,}
+  
 
-  constructor() { 
+  constructor(private userService: UserService) { 
     console.log("Banner Loaded")
+    this.loggedUser=this.userService.userObj;
+
+    this.userService.loggedUser.subscribe((user: User)=>{
+      this.userService.userObj=user;
+      this.loggedUser=user;
+    });
   }
 
   ngOnInit(): void {
+    
+
+
   }
 
 }

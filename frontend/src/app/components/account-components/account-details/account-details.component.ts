@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/shared/userConstructor';
 
 
 @Component({
@@ -9,13 +11,31 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class AccountDetailsComponent implements OnInit {
 
+  loggedUser: User;
 
+  constructor(private userService: UserService) {
+    
+    this.loggedUser=userService.userObj;
 
-  constructor() { }
+    this.userService.loggedUser.subscribe((user: User)=>{
+      userService.userObj=user;
+      
+      this.loggedUser=user;
+      console.log(user);
+      console.log("User in account details^^")
+    });
+  }
 
   
   ngOnInit(): void {
+
+    
    
+  }
+
+  printUser(){
+    console.log("User:")
+    console.log(this.loggedUser);
   }
 
   

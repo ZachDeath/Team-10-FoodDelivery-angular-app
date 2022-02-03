@@ -2,7 +2,8 @@
     height: '300px',
     backgroundImage: 'url(./assets/images/pizzabackground.jpg)'
   }">
-  <h1 class="display-3 mx-5 my-auto pt-4">Welcome {{ this.user.name }}!</h1>
+  <h1 *ngIf="loggedUser==undefined || loggedUser==null" class="display-3 mx-5 my-auto pt-4">Welcome!</h1>
+  <h1 *ngIf="loggedUser!=undefined && loggedUser!=null" class="display-3 mx-5 my-auto pt-4">Welcome {{ loggedUser.first_name }}!</h1>
   <h2 class="mx-5">What will you be ordering with us today?</h2>
 </div>
 

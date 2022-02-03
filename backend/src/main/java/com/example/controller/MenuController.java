@@ -21,10 +21,10 @@ public class MenuController {
 	MenuService menuService;
 	
 	@RequestMapping(value="/get-menu-items", method=RequestMethod.GET)
-	public List<Menu> getAllItems() {
-		Iterable<Menu> items = menuRepo.findAll();
+	public List<MenuResponseModel> getAllItems() {
+		
 
-		return (List<Menu>) items;
+		return menuService.getAllItems();
 
 	}
 	
@@ -33,7 +33,7 @@ public class MenuController {
 		menuService.deleteMenuItem(id);
 	}
 	
-	@RequestMapping(value="/create-user",  method=RequestMethod.POST, produces ="application/json")
+	@RequestMapping(value="/create-item",  method=RequestMethod.POST, produces ="application/json")
 	public MenuResponseModel createMenuItem(@RequestBody MenuRequestModel requestModel)
 	{
 		MenuResponseModel returnObject = menuService.createMenuItem(requestModel);

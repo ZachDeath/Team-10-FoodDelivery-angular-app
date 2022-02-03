@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
     //console.log(this.loginForm.value.email);
     this.clearForm();
 
-    this.postsService.sendLoginData(this.user);
+    //this.postsService.sendLoginData(this.user);
     
     
     //this.checkLoginDetails();

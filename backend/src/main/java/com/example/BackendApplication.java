@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.controller.UsersController;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors", "com.example.service" })
+@EnableSwagger2
 public class BackendApplication {
 
 	@Autowired

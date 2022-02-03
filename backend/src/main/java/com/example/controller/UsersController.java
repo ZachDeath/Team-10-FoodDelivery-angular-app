@@ -46,9 +46,9 @@ public class UsersController {
 	}
 
 	// Route for updating user into the database
-	@RequestMapping(value = "/updateUser")
-	public String updateUser(Users user) {
-		return UsersRepos.updateUser(new Users(user.getUser_id(), user.getFirst_name(), user.getLast_name(),
+	@RequestMapping(value = "/updateUser/{id}")
+	public String updateUser(@PathVariable("id") long id, Users user) {
+		return UsersRepos.updateUser(new Users(id, user.getFirst_name(), user.getLast_name(),
 				user.getDate_of_birth(), user.getEmail_address(), user.getPhone_number(), user.getPassword()));
 
 	}

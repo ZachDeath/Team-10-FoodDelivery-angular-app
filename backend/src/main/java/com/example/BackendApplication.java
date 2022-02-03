@@ -8,7 +8,7 @@ import com.example.controller.UsersController;
 import com.example.controller.MessagesController;
 
 
-@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors" })
+@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors", "com.example.service" })
 public class BackendApplication {
 
 	@Autowired

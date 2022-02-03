@@ -1,0 +1,35 @@
+<table mat-table #table [dataSource]="messages">
+    <ng-container matColumnDef="message_id">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>#</th>
+      <td class = "px-3" mat-cell *matCellDef="let message">{{ message.message_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="user_id">
+        <th class = "px-3"  mat-header-cell *matHeaderCellDef>User #</th>
+        <td class = "px-3" mat-cell *matCellDef="let message">{{ message.user_id }}</td>
+      </ng-container>
+    <ng-container matColumnDef="first_name">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>First Name</th>
+      <td class = "px-3" mat-cell *matCellDef="let message">{{ message.first_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="last_name">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td class = "px-3" mat-cell *matCellDef="let message">{{ message.last_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email_address">
+        <th class = "px-3" mat-header-cell *matHeaderCellDef>Email</th>
+        <td class = "px-3" mat-cell *matCellDef="let message">{{ message.email_address }}</td>
+      </ng-container>
+    <ng-container matColumnDef="message">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef>Message</th>
+      <td class = "px-3" mat-cell *matCellDef="let message">{{ message.message}}</td>
+    </ng-container>
+    <!--<ng-container matColumnDef="delete">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
+      <td class = "px-3" mat-cell *matCellDef="let message">
+          <button (click)="deleteUser(user.user_id)" class="btn btn-danger">Delete</button></td>
+    </ng-container>-->
+  
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+  

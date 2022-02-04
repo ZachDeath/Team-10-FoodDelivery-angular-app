@@ -11,6 +11,7 @@ export class UserService {
   loginChanged = new EventEmitter<boolean>();
   loggedUser = new EventEmitter<User>();
   userObj:User;
+  islogged:boolean;
   
   private apiUrl = 'http://localhost:8090/api/users';
   constructor(private http: HttpClient, private adapter: UserAdapter) {}
@@ -42,6 +43,7 @@ export class UserService {
   userLoggedIn(): void{
 
     this.loginChanged.emit(true);
+    this.islogged=true;
 
   }
 
@@ -50,12 +52,13 @@ export class UserService {
     this.loginChanged.emit(false);
     this.userObj=null;
     this.updateLoggeduser(null);
+    this.islogged=false;
     
 
   }
 
   updateLoggeduser(user: User): void{
-
+    this.loggedUser.emit(user);
     this.userObj=user;
 
   }

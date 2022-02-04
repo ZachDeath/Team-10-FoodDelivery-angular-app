@@ -18,11 +18,15 @@ export class AccountDetailsComponent implements OnInit {
 
   constructor(private userService: UserService, private paymentService: PaymentService) {
     
+    
     this.loggedUser=userService.userObj;
+      
+  
 
     this.paymentService.getPayment(this.loggedUser.user_id).subscribe((payment:Payment)=>{
       this.payment=payment;
     })
+    
   
   }
 

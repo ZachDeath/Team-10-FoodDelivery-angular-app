@@ -44,8 +44,6 @@ export class LoginFormComponent implements OnInit {
       else{
         this.loginFailed=false;
         this.userService.userLoggedIn();
-        console.log(this.users)
-        console.log(users)
         this.userService.updateLoggeduser(this.users);
         this.router.navigate(['/'])
       }

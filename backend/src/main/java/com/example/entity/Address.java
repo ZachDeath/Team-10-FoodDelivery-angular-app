@@ -1,23 +1,26 @@
 package com.example.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "address", schema = "public")
-public class Address {
+public class Address implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "address_id")
-	private long addressID;
 	@Column(name = "user_id")
-	@JoinColumn(name = "user_id")
 	private long userID;
 	private String first_name;
 	private String last_name;
@@ -27,51 +30,17 @@ public class Address {
 	private String state;
 	private String post_code;
 
-	public Address() {
-		super();
-	}
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@MapsId()
+	@JoinColumn(name = "user_id")
+	private User user;
 
-	public Address(long id, String first_name, String last_name, String first_line, String second_line, String city,
-			String state, String post_code) {
-		super();
-		this.userID = id;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.first_line = first_line;
-		this.second_line = second_line;
-		this.city = city;
-		this.state = state;
-		this.post_code = post_code;
-	}
-
-	public Address(long addressID, long userID, String first_name, String last_name, String first_line,
-			String second_line, String city, String state, String post_code) {
-		super();
-		this.addressID = addressID;
-		this.userID = userID;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.first_line = first_line;
-		this.second_line = second_line;
-		this.city = city;
-		this.state = state;
-		this.post_code = post_code;
-	}
-
-	public long getAddress_id() {
-		return addressID;
-	}
-
-	public void setAddress_id(int address_id) {
-		this.addressID = address_id;
-	}
-
-	public long getUser() {
+	public long getUserID() {
 		return userID;
 	}
 
-	public void setUser(int user_id) {
-		this.userID = user_id;
+	public void setUserID(long userID) {
+		this.userID = userID;
 	}
 
 	public String getFirst_name() {
@@ -128,6 +97,24 @@ public class Address {
 
 	public void setPost_code(String post_code) {
 		this.post_code = post_code;
+	}
+
+	public Address(long userID, String first_name, String last_name, String first_line, String second_line, String city,
+			String state, String post_code) {
+		super();
+		this.userID = userID;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.first_line = first_line;
+		this.second_line = second_line;
+		this.city = city;
+		this.state = state;
+		this.post_code = post_code;
+	}
+
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }

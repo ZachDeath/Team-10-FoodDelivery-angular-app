@@ -47,8 +47,8 @@ public class UsersController {
 	@CrossOrigin
 	@PostMapping(value = "/insertUser")
 	public String insertUser(@ModelAttribute User user) {
-		User temp = new User(user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(),
-				user.getEmail_address(), user.getPhone_number(), user.getPassword());
+		User temp = new User(null, user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(), user.getEmail(),
+				user.getPhone_number(), user.getPassword());
 		UsersRepos.save(temp);
 		return ("User Successfully Created");
 	}
@@ -59,7 +59,7 @@ public class UsersController {
 	public String updateUser(@PathVariable("id") long id, @ModelAttribute User user) {
 		if (getUsersByID(id) != null) {
 			User temp = new User(id, user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(),
-					user.getEmail_address(), user.getPhone_number(), user.getPassword());
+					user.getEmail(), user.getPhone_number(), user.getPassword());
 			UsersRepos.save(temp);
 			return ("User Successfully updated");
 		} else {
@@ -84,10 +84,5 @@ public class UsersController {
 		return UsersRepos.FindByEmail(email, password);
 
 	}
-
-	
-	
-	
-	
 
 }

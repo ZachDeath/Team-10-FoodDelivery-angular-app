@@ -1,0 +1,39 @@
+<h1 class="display-3">Employees</h1>
+<br>
+<button class="btn btn-success">Create</button>
+<br>
+<table mat-table #table [dataSource]="employees">
+    <ng-container matColumnDef="employee_id">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>#</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.employee_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="first_name">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>First Name</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.first_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="last_name">
+      <th class = "px-3"  mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.last_name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date_of_birth">
+      <th mat-header-cell *matHeaderCellDef>Date Of Birth</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.date_of_birth | date:"shortDate"}}</td>
+    </ng-container>
+    <ng-container matColumnDef="email_address">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef>Email</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.email_address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone_number">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef>Phone Number</th>
+      <td class = "px-3" mat-cell *matCellDef="let employee">{{ employee.phone_number }}</td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
+      <td class = "px-3" mat-cell *matCellDef="let employee"><button (click)="deleteEmployee(employee.employee_id)" class="btn btn-danger">Delete</button></td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+  

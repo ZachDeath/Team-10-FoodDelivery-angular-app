@@ -21,7 +21,7 @@ import { OverviewComponent } from './components/admin/overview/overview.componen
 import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
-
+import { EmployeesComponent } from './components/admin/employees/employees.component';
 
 //configure route paths
 const routes: Routes = [
@@ -40,7 +40,8 @@ const routes: Routes = [
   children : [
     { path: 'overview', component : OverviewComponent },
     { path: 'details', component : DetailsComponent},
-    { path: 'messages', component : MessagesComponent}
+    { path: 'messages', component : MessagesComponent},
+    { path: 'employees', component : EmployeesComponent}
 ] },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },

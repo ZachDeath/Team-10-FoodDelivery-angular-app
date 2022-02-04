@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Address;
-import com.example.entity.Users;
+import com.example.entity.User;
 import com.example.repository.UsersRepository;
 import com.example.service.AddressService;
 
@@ -32,7 +33,7 @@ public class AddressController {
 	}
 
 	@RequestMapping(value = "/getAddressByID/{id}", method = RequestMethod.GET)
-	public Address getAddress(@PathVariable("id") int id) {
+	public Address getAddress(@PathVariable("id") long id) {
 		return AddressService.findAddressByID(id);
 
 	}
@@ -49,9 +50,9 @@ public class AddressController {
 	}
 
 	@RequestMapping(value = "/createAddress/{id}", method=RequestMethod.POST, produces ="application/json") 
-	public String createAddress(@PathVariable("id") int id, @ModelAttribute Address requestModel) {
-		Users user = userRepostiory.findByID(id);
-		if (user != null) {
+	public String createAddress(@PathVariable("id") long id, @ModelAttribute Address requestModel) {
+		Optional<User> user = userRepostiory.findById(id);
+		if (user.isPresent() != false) {
 		AddressService.createAddress(id, requestModel);
 		return ("Address Created Successfully");
 		} else  {
@@ -60,10 +61,10 @@ public class AddressController {
 	}
 
 	@RequestMapping(value = "/updateAddress/{id}", method=RequestMethod.POST, produces ="application/json")
-	public String editAddress(@PathVariable("id") int id, @ModelAttribute Address requestModel) {
+	public String editAddress(@PathVariable("id") long id, @ModelAttribute Address requestModel) {
 		Address address = getAddress(id);
 		if (address != null) {
-			int userid = address.getUser();
+			long userid = address.getUser();
 			AddressService.updateAddress(id, userid, requestModel);
 			return ("Address Updated Successfully");
 		} else {

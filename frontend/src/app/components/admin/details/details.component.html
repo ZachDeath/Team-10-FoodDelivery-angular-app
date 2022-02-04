@@ -13,7 +13,7 @@
   </ng-container>
   <ng-container matColumnDef="date_of_birth">
     <th mat-header-cell *matHeaderCellDef>Date Of Birth</th>
-    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.date_of_birth}}</td>
+    <td class = "px-3" mat-cell *matCellDef="let user">{{ user.date_of_birth | date:"shortDate"}}</td>
   </ng-container>
   <ng-container matColumnDef="email_address">
     <th class = "px-3" mat-header-cell *matHeaderCellDef>Email</th>

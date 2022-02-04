@@ -56,7 +56,7 @@ export class UserService {
 
   updateLoggeduser(user: User): void{
 
-    this.loggedUser.emit(user);
+    this.userObj=user;
 
   }
 

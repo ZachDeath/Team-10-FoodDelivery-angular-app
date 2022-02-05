@@ -26,7 +26,7 @@ import { LogoutComponent } from './components/account-components/logout/logout.c
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
-
+import { EmployeesComponent } from './components/admin/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
     AccountPaymentComponent,
     DetailsComponent,
     LogoutComponent,
-    MessagesComponent
+    MessagesComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

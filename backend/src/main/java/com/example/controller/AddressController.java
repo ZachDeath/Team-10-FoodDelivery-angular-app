@@ -28,6 +28,7 @@ public class AddressController {
 
 	}
 
+	// Need to add a check to make sure the user exists but for now this works fine
 	@RequestMapping(value = "/editAddress/{id}", method = RequestMethod.POST)
 	public Address editAddress(@PathVariable("id") int id, @ModelAttribute Address address) {
 		return AddressService.updateAddress(id, address);

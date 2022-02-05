@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +20,8 @@ import javax.persistence.Table;
 public class Address implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private long userID;
+	private Long userID;
 	private String first_name;
 	private String last_name;
 	private String first_line;
@@ -29,13 +29,12 @@ public class Address implements Serializable {
 	private String city;
 	private String state;
 	private String post_code;
+	
+	@OneToOne
+    @PrimaryKeyJoinColumn(name="user_id", referencedColumnName="user_id")
+    private User user;
 
-	@OneToOne(optional = false, cascade = CascadeType.ALL)
-	@MapsId()
-	@JoinColumn(name = "user_id")
-	private User user;
-
-	public long getUserID() {
+	public Long getUserID() {
 		return userID;
 	}
 

@@ -7,6 +7,8 @@ import { Address, AddressAdapter } from '../shared/addressConstructor';
 export class AddressService {
   private apiUrl = 'http://localhost:8090/api/address';
 
+  addressObj: Address;
+
   constructor(private http: HttpClient, private adapter: AddressAdapter) {}
 
   // deletes a address based on id
@@ -21,15 +23,13 @@ export class AddressService {
     return this.http
       .post<Address>(url, address)
       .subscribe((address: Address) => {
-        address = address;
+        console.log(address);
       });
   }
 
-  getUserByID(id: number): Observable<Address> {
+  getUserByID(id: number): Observable<any> {
     const url = `${this.apiUrl}/getAddressByUser/${id}`;
-    let response: Observable<Address> = this.http
-      .get(url)
-      .pipe(map((data: any) => data.map((item) => this.adapter.adapt(item))));
+    let response: Observable<any> = this.http.get(url).pipe();
     if (response != null) {
       return response;
     }

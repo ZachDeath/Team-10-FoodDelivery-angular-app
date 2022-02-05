@@ -21,7 +21,7 @@ export class AccountDetailsComponent implements OnInit {
       userService.userObj=user;
       
       this.loggedUser=user;
-      console.log(user);
+      console.log(user.user_id);
       console.log("User in account details^^")
     });
   }

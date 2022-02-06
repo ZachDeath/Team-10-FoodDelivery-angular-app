@@ -31,7 +31,7 @@ export class AccountPaymentComponent implements OnInit {
 
     //console.log(temp);
 
-      this.paymentService.updatePayment(temp);
+    this.paymentService.updatePayment(temp);
 
     this.clearForm();
   }

@@ -26,12 +26,13 @@ export class PaymentService {
       this.userPayment=pay;
   }
 
-  updatePayment(pay: Payment): Observable<any> {
-    const url = `${this.apiUrl}payment/find-payment/update-payment/${pay.user_id}`;
+  updatePayment(pay: Payment): void {
+    const url = `${this.apiUrl}/find-payment/update-payment/${pay.user_id}`;
+    console.log(url);
     console.log("in payment");
-    return this.http
-      .post(url, pay)
-      .pipe();
+    this.http
+      .put(url, pay)
+      .pipe().subscribe();
   }
 
 

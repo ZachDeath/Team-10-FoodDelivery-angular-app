@@ -28,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 
+import { EmployeesComponent } from './components/admin/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AccountDetailsComponent } from './components/account-components/account
     DetailsComponent,
     LogoutComponent,
     MessagesComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

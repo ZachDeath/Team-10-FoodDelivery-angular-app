@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Registereduser } from '../shared/registeredUser.model';
 import { User } from '../shared/userConstructor';
 import { Message } from '../shared/messageConstructor';
+import { Employee } from '../shared/employeeConstructor';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -38,6 +39,18 @@ export class PostsService {
         messages = messages;
       });
   }
+
+  createEmployee(employee: Employee) {
+    console.log(employee);
+
+    this.http
+      .post<Employee>('http://localhost:8090/api/users/insertEmployee', employee)
+      .subscribe((employees: Employee) => {
+        employees = employees;
+      });
+  }
+
+
 
   // getRegisteredUsers(){
 

@@ -14,11 +14,8 @@ import com.example.entity.Address;
 @Transactional
 
 @CrossOrigin("http://localhost:4200")
-public interface AddressRepository extends CrudRepository<Address, Integer> {
-
-	Address findByAddressID(int id);
+public interface AddressRepository extends CrudRepository<Address, Long> {
 	
-	List<Address> findByUserID(int id);
-
+	Address findByUserID(long id);
 
 }

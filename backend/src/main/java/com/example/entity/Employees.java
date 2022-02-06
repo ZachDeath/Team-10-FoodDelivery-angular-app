@@ -2,70 +2,64 @@ package com.example.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="employees")
+@NamedQuery(query = "Select e from Employees e", name = "findAllEmployees")
+public class Employees {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
-	private Long user_id;
+	private Long employee_id;
 	private String first_name;
 	private String last_name;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date_of_birth;
-	@Column(name = "email_address")
-	private String email;
+	private String email_address;
 	private String phone_number;
 	private String password;
-	
 
-	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public Employees(Long employee_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
-		this.user_id = user_id;
+		this.employee_id = employee_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
-		this.email = email_address;
+		this.email_address = email_address;
 		this.phone_number = phone_number;
 		this.password = password;
 	}
 	
-	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public Employees(String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
-		this.email = email_address;
+		this.email_address = email_address;
 		this.phone_number = phone_number;
 		this.password = password;
 	}
 
-	public User() {
+	public Employees() {
 		super();
 	}
 
-	public Long getUser_id() {
-		return user_id;
+	public Long getEmployee_id() {
+		return employee_id;
 	}
 
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
+	public void setEmployee_id(Long employee_id) {
+		this.employee_id = employee_id;
 	}
 
 	public String getFirst_name() {
@@ -94,11 +88,11 @@ public class User {
 	}
 
 	public String getEmail_address() {
-		return email;
+		return email_address;
 	}
 
 	public void setEmail_address(String email_address) {
-		this.email = email_address;
+		this.email_address = email_address;
 	}
 
 	public String getPhone_number() {
@@ -119,8 +113,8 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email + ", phone_number="
+		return "\nUser: [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email_address + ", phone_number="
 				+ phone_number + ", password=" + password + "]";
 	}
 

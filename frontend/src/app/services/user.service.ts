@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { User, UserAdapter } from '../shared/userConstructor';
 
+
 @Injectable({ providedIn: 'root' })
 export class UserService {
 

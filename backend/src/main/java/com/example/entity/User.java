@@ -2,11 +2,15 @@ package com.example.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,6 +30,7 @@ public class User {
 	private String email;
 	private String phone_number;
 	private String password;
+	
 
 	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {

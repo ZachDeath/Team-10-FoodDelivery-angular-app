@@ -1,12 +1,14 @@
 package com.example.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,6 +28,9 @@ public class Employees {
 	private String email_address;
 	private String phone_number;
 	private String password;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<Orders> order;
 
 	public Employees(Long employee_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {

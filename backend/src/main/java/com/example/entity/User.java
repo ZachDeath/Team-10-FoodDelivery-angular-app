@@ -1,23 +1,28 @@
 package com.example.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long user_id;
+	@Column(name = "id")
+	private Long ID;
 	private String first_name;
 	private String last_name;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -27,10 +32,13 @@ public class User {
 	private String phone_number;
 	private String password;
 
+	@OneToMany(mappedBy = "user")
+	private List<Orders> order;
+
 	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
-		this.user_id = user_id;
+		this.ID = user_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
@@ -38,9 +46,9 @@ public class User {
 		this.phone_number = phone_number;
 		this.password = password;
 	}
-	
-	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address,
-			String phone_number, String password) {
+
+	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address, String phone_number,
+			String password) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -55,11 +63,11 @@ public class User {
 	}
 
 	public Long getUser_id() {
-		return user_id;
+		return ID;
 	}
 
 	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
+		this.ID = user_id;
 	}
 
 	public String getFirst_name() {
@@ -110,12 +118,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email + ", phone_number="
-				+ phone_number + ", password=" + password + "]";
+		return "\nUser: [user_id=" + ID + ", first_name=" + first_name + ", last_name=" + last_name + ", date_of_birth="
+				+ date_of_birth + ", email_address=" + email + ", phone_number=" + phone_number + ", password="
+				+ password + "]";
 	}
 
 }

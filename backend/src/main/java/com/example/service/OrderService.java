@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,12 @@ public class OrderService {
 	public void deleteOrder(long id) {
 		orderRepo.deleteById(id);
 
+	}
+
+	public Orders createOrder(Orders order) {
+		LocalDateTime now = LocalDateTime.now();
+		Orders savedOrder = new Orders(order.getUser_id(), order.getEmployee_id(), now);
+			return orderRepo.save(savedOrder);
 	}
 
 }

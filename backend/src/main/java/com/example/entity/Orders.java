@@ -2,6 +2,7 @@ package com.example.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,10 +26,19 @@ public class Orders implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
 	private Long ID;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate order_date;
 	private Long user_id;
 	private Long employee_id;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
+	private Employees employee;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDateTime order_date;
 
 	public Long getID() {
 		return ID;
@@ -38,11 +48,11 @@ public class Orders implements Serializable {
 		ID = iD;
 	}
 
-	public LocalDate getOrder_date() {
+	public LocalDateTime getOrder_date() {
 		return order_date;
 	}
 
-	public void setOrder_date(LocalDate order_date) {
+	public void setOrder_date(LocalDateTime order_date) {
 		this.order_date = order_date;
 	}
 
@@ -62,12 +72,19 @@ public class Orders implements Serializable {
 		this.employee_id = employee_id;
 	}
 
-	public Orders(Long iD, LocalDate order_date, Long user_id, Long employee_id) {
+	public Orders(Long user_id, Long employee_id, LocalDateTime order_date) {
 		super();
-		ID = iD;
-		this.order_date = order_date;
 		this.user_id = user_id;
 		this.employee_id = employee_id;
+		this.order_date = order_date;
+	}
+
+	public Orders(Long iD, Long user_id, Long employee_id, LocalDateTime order_date) {
+		super();
+		ID = iD;
+		this.user_id = user_id;
+		this.employee_id = employee_id;
+		this.order_date = order_date;
 	}
 
 	public Orders() {

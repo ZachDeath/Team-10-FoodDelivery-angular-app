@@ -29,10 +29,10 @@ public class Address implements Serializable {
 	private String city;
 	private String state;
 	private String post_code;
-	
+
 	@OneToOne
-    @PrimaryKeyJoinColumn(name="user_id", referencedColumnName="user_id")
-    private User user;
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	private User user;
 
 	public Long getUserID() {
 		return userID;

@@ -12,9 +12,10 @@ import { menuItem } from '../../shared/menuItem.model';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  itemsInBasket: menuItem[] = [];
+  
   basketPrice: number = 0;
   imagePath = 'assets/images/pizza.png';
+  noItemsInBasket: number;
 
   constructor(private bService: BasketService, private userService: UserService, private router: Router) {
     console.log('Header Loaded');
@@ -23,13 +24,15 @@ export class HeaderComponent implements OnInit {
   loginStatus: boolean;
 
   ngOnInit(): void {
-    this.itemsInBasket = this.bService.getItems();
+    
+    this.noItemsInBasket=this.bService.noItems
 
     this.bService.itemsChanged.subscribe((items:menuItem[])=>{
 
-      this.itemsInBasket=items;
+    
       this.bService.totalPrice();
       this.basketPrice =this.bService.basketPrice;
+      this.noItemsInBasket=this.bService.noItems
       
 
   })

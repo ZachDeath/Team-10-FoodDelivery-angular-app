@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { EventEmitter } from "@angular/core";
-import { BasketCompositeId } from "../shared/basketCompositeId";
-import { basketRecord } from "../shared/basketRecord";
+
+
 import { menuItem } from "../shared/menuItem.model";
 
 
@@ -13,6 +13,7 @@ export class BasketService implements OnInit{
 
     itemsChanged = new EventEmitter<menuItem[]>();
     itemsInBasket:menuItem[]=[];
+    noItems:number;
 
     private apiUrl = 'http://localhost:8091/basket';
     basketPrice: number=0;
@@ -32,9 +33,29 @@ export class BasketService implements OnInit{
 
     addItem(menuItem:menuItem){
 
-        this.itemsInBasket.push(menuItem);
+        if (this.itemsInBasket.length>0){
+
+            for(let i=0; i<this.itemsInBasket.length;i++){
+
+                if (this.itemsInBasket[i].food_id==menuItem.food_id){
+                    
+                    this.itemsInBasket[i].quantity+=1;
+                    break;
+                }
+                else if ((this.itemsInBasket[i].food_id!=menuItem.food_id)&& (this.itemsInBasket.length-1==i)){
+                    
+                    this.itemsInBasket.push(menuItem);
+                    break;
+                }
+            }
+        }
+        else{
+            
+            this.itemsInBasket.push(menuItem);
+        }
         //console.log(this.itemsInBasket);
         this.itemsChanged.emit(this.itemsInBasket.slice());
+        
         this.totalPrice();
 
     }
@@ -56,27 +77,60 @@ export class BasketService implements OnInit{
 
     saveBasketToDatabase(){
         const url = `${this.apiUrl}/add-to-basket`;
-        let temp = new BasketCompositeId(157, 5);
-        let temp2= new basketRecord(temp, 33);
 
-        this.http.put(url, temp2).pipe().subscribe();
-        // for (let i; i<this.itemsInBasket.length;i++){
+        for(let i=0; i<this.itemsInBasket.length;i++){
+        
+            let temp= {
+                "id": {
+                    "user": 112,
+                    "food": this.itemsInBasket[i].food_id
+                },
+                "quantity":this.itemsInBasket[i].quantity
+            }
+        
+            this.http.post(url, temp).pipe().subscribe();
+        }
 
-        // }
+        this.itemsInBasket=[];
+        this.itemsChanged.emit(this.itemsInBasket.slice());
 
+    }
+
+    getBasketFromDatabase(userId: number){
+        const url = `${this.apiUrl}/items-from-user/${userId}`;
+
+        this.http.get(url).pipe().subscribe((menuItems: any[])=>{
+            for (let i=0;i<menuItems.length;i++){
+            
+                let temp = new menuItem(menuItems[i].menu.food_id,menuItems[i].menu.title,menuItems[i].menu.description,menuItems[i].menu.picture_url,menuItems[i].menu.food_type,1,menuItems[i].menu.unitprice);
+                
+                this.addItem(temp);
+            }
+           
+            
+        });
+
+        console.log(this.itemsInBasket);
+
+
+    }
+
+    deleteBasketItems(userId: number){
+        const url = `${this.apiUrl}/delete-basket/${userId}`;
+
+        this.http.get(url).pipe().subscribe();
     }
 
     totalPrice(){
         let sum=0;
+        let noItems =0;
         this.itemsInBasket.forEach((element: menuItem) => {
             sum +=(element.unitprice*element.quantity);
-            console.log("Price:")
-            console.log(element.unitprice);
-            console.log("Element")
-            console.log(element);
+            noItems+=element.quantity;
         });
 
         this.basketPrice=sum;
+        this.noItems=noItems;
 
 
     }

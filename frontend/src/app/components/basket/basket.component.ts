@@ -12,6 +12,7 @@ export class BasketComponent implements OnInit {
 
     itemsInBasket:menuItem[]=[];
     basketPrice:number=0;
+    noItemsInBasket:number;
 
 
     constructor(private bService:BasketService) { 
@@ -21,6 +22,7 @@ export class BasketComponent implements OnInit {
 
             this.itemsInBasket=items;
             this.basketPrice =this.bService.basketPrice;
+            this.noItemsInBasket=this.bService.noItems
 
         })
     }
@@ -28,6 +30,7 @@ export class BasketComponent implements OnInit {
     ngOnInit(): void {
 
         this.basketPrice=this.bService.basketPrice;
+        this.noItemsInBasket=this.bService.noItems
         
 
     }
@@ -39,14 +42,14 @@ export class BasketComponent implements OnInit {
     }
 
 
-
-
-
     addDuplicate(item: menuItem){
-        console.log("adding dup");
-        console.log(item);
+     
         this.bService.addItem(item);
 
+    }
+
+    testing(){
+        this.bService.getBasketFromDatabase(112);
     }
 
 }

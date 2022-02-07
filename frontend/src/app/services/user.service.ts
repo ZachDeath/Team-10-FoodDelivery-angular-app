@@ -61,6 +61,8 @@ export class UserService {
   updateLoggeduser(user: User): void{
     this.loggedUser.emit(user);
     this.userObj=user;
+    var test = "test item"
+    localStorage.setItem("test item", test);
 
   }
 

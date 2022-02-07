@@ -4,6 +4,7 @@ import { EventEmitter } from "@angular/core";
 
 
 import { menuItem } from "../shared/menuItem.model";
+import { UserService } from "./user.service";
 
 
 @Injectable({
@@ -75,14 +76,14 @@ export class BasketService implements OnInit{
 
     }
 
-    saveBasketToDatabase(){
+    saveBasketToDatabase(userId: number){
         const url = `${this.apiUrl}/add-to-basket`;
 
         for(let i=0; i<this.itemsInBasket.length;i++){
         
             let temp= {
                 "id": {
-                    "user": 112,
+                    "user": userId,
                     "food": this.itemsInBasket[i].food_id
                 },
                 "quantity":this.itemsInBasket[i].quantity

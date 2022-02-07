@@ -54,10 +54,11 @@ export class UserService {
   userLoggedOut(): void{
 
     this.loginChanged.emit(false);
+    this.basketService.saveBasketToDatabase(this.userObj.user_id);
     this.userObj=null;
     this.updateLoggeduser(null);
     this.islogged=false;
-    this.basketService.saveBasketToDatabase();
+    
     
 
   }
@@ -65,7 +66,7 @@ export class UserService {
   updateLoggeduser(user: User): void{
     this.loggedUser.emit(user);
     this.userObj=user;
-    //this.basketService.deleteBasketItems(user.user_id);
+    
     
 
   }

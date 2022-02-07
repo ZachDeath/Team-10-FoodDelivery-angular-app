@@ -17,8 +17,8 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private Long ID;
+	@Column(name ="id")
+	private Long user_id;
 	private String first_name;
 	private String last_name;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

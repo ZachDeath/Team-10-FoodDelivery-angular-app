@@ -24,32 +24,21 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemsInBasket = this.bService.getItems();
-    this.totalPrice();
-    this.bService.itemsChanged.subscribe((items: menuItem[]) => {
-      this.itemsInBasket = items;
-      console.log("before sum");
-      console.log(items);
-      this.totalPrice();
-    });
+
+    this.bService.itemsChanged.subscribe((items:menuItem[])=>{
+
+      this.itemsInBasket=items;
+      this.bService.totalPrice();
+      this.basketPrice =this.bService.basketPrice;
+      
+
+  })
 
     this.userService.loginChanged.subscribe((update:boolean)=>{
       console.log("Change happened");
       this.loginStatus=update;
       
     });
-  }
-
-  totalPrice() {
-    let sum = 0;
-    this.itemsInBasket.forEach((element) => {
-      sum += element.unitprice * element.quantity;
-      console.log("sum elements");
-      console.log(element.quantity);
-      console.log(element.unitprice)
-      console.log(element)
-    });
-
-    this.basketPrice = sum;
   }
 
   logOut(){

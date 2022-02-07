@@ -21,14 +21,13 @@ export class BasketComponent implements OnInit {
 
             this.itemsInBasket=items;
             this.basketPrice =this.bService.basketPrice;
-            console.log(this.bService.basketPrice);
-            console.log("price^^");
 
         })
     }
 
     ngOnInit(): void {
 
+        this.basketPrice=this.bService.basketPrice;
         
 
     }

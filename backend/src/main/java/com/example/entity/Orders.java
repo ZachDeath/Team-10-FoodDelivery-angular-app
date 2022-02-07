@@ -27,21 +27,15 @@ public class Orders implements Serializable {
 	private Long ID;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate order_date;
+	private Long user_id;
+	private Long employee_id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "user_id")
-	private User user;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
-	private Employees employee;
-
-	public Long getOrder_id() {
+	public Long getID() {
 		return ID;
 	}
 
-	public void setOrder_id(Long order_id) {
-		this.ID = order_id;
+	public void setID(Long iD) {
+		ID = iD;
 	}
 
 	public LocalDate getOrder_date() {
@@ -52,24 +46,33 @@ public class Orders implements Serializable {
 		this.order_date = order_date;
 	}
 
-	public Orders() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Long getUser_id() {
-		return ID;
+		return user_id;
 	}
 
 	public void setUser_id(Long user_id) {
-		this.ID = user_id;
+		this.user_id = user_id;
 	}
 
-	public Orders(Long iD, LocalDate order_date, Long user_id) {
+	public Long getEmployee_id() {
+		return employee_id;
+	}
+
+	public void setEmployee_id(Long employee_id) {
+		this.employee_id = employee_id;
+	}
+
+	public Orders(Long iD, LocalDate order_date, Long user_id, Long employee_id) {
 		super();
 		ID = iD;
 		this.order_date = order_date;
-		this.ID = user_id;
+		this.user_id = user_id;
+		this.employee_id = employee_id;
+	}
+
+	public Orders() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }

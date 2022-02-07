@@ -21,7 +21,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "user_id")
 	private Long ID;
 	private String first_name;
 	private String last_name;
@@ -31,9 +31,6 @@ public class User {
 	private String email;
 	private String phone_number;
 	private String password;
-
-	@OneToMany(mappedBy = "user")
-	private List<Orders> order;
 
 	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {

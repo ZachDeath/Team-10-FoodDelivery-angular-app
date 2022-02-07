@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 @NamedQuery(query = "Select e from Employees e", name = "findAllEmployees")
 public class Employees {
 
@@ -28,12 +28,9 @@ public class Employees {
 	private String email_address;
 	private String phone_number;
 	private String password;
-	
-	@OneToMany(mappedBy = "employee")
-	private List<Orders> order;
 
-	public Employees(Long employee_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
-			String phone_number, String password) {
+	public Employees(Long employee_id, String first_name, String last_name, LocalDate date_of_birth,
+			String email_address, String phone_number, String password) {
 		super();
 		this.employee_id = employee_id;
 		this.first_name = first_name;
@@ -43,7 +40,7 @@ public class Employees {
 		this.phone_number = phone_number;
 		this.password = password;
 	}
-	
+
 	public Employees(String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
@@ -115,7 +112,7 @@ public class Employees {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "\nUser: [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name

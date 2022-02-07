@@ -1,0 +1,23 @@
+package com.example.repository;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.example.entity.Orders;
+
+@Repository
+@Transactional
+@CrossOrigin("http://localhost:4200")
+public interface OrderRepository extends CrudRepository<Orders, Long> {
+	
+	@Query(value="SELECT * FROM ORDERS where user_id=:user_id",nativeQuery=true)
+	List<Orders> FindByUserID(@Param("user_id") Long user_id);
+
+}

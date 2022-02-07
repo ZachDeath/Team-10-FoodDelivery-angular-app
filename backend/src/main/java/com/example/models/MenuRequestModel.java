@@ -7,7 +7,7 @@ public class MenuRequestModel {
 	private String description;
 	private String picture_url;
 	private int food_type;
-
+	private int unitprice;
 	
 
 	public MenuRequestModel() {
@@ -52,6 +52,14 @@ public class MenuRequestModel {
 
 	public void setFood_id(int food_id) {
 		this.food_id = food_id;
+	}
+
+	public int getUnitprice() {
+		return unitprice;
+	}
+
+	public void setUnitprice(int unitprice) {
+		this.unitprice = unitprice;
 	}
 	
 	

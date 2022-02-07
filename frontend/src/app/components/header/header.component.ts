@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasketService } from 'src/app/services/basket.service';
 import { UserService } from 'src/app/services/user.service';
+
+
 import { menuItem } from '../../shared/menuItem.model';
 
 @Component({
@@ -25,6 +27,8 @@ export class HeaderComponent implements OnInit {
     this.totalPrice();
     this.bService.itemsChanged.subscribe((items: menuItem[]) => {
       this.itemsInBasket = items;
+      console.log("before sum");
+      console.log(items);
       this.totalPrice();
     });
 
@@ -38,7 +42,11 @@ export class HeaderComponent implements OnInit {
   totalPrice() {
     let sum = 0;
     this.itemsInBasket.forEach((element) => {
-      sum += element.price * element.quantity;
+      sum += element.unitprice * element.quantity;
+      console.log("sum elements");
+      console.log(element.quantity);
+      console.log(element.unitprice)
+      console.log(element)
     });
 
     this.basketPrice = sum;

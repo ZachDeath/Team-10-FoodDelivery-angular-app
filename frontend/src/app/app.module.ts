@@ -21,6 +21,7 @@ import { LoginComponent } from './components/account-components/login/login.comp
 import { AdminComponent } from './components/admin/admin.component';
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
+import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -48,6 +49,7 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     AdminComponent,
     AccountAddressComponent,
     AccountPaymentComponent,
+    AccountOrderComponent,
     DetailsComponent,
     LogoutComponent,
     MessagesComponent,
@@ -62,6 +64,6 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     MatTableModule
   ],
   providers: [],
-  bootstrap: [appComponent],
+  bootstrap: [appComponent]
 })
 export class appModule {}

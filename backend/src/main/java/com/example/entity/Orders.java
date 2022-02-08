@@ -38,7 +38,7 @@ public class Orders implements Serializable {
 	private Employees employee;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDateTime order_date;
+	private String order_date;
 
 	public Long getID() {
 		return ID;
@@ -48,11 +48,11 @@ public class Orders implements Serializable {
 		ID = iD;
 	}
 
-	public LocalDateTime getOrder_date() {
+	public String getOrder_date() {
 		return order_date;
 	}
 
-	public void setOrder_date(LocalDateTime order_date) {
+	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
 
@@ -72,14 +72,14 @@ public class Orders implements Serializable {
 		this.employee_id = employee_id;
 	}
 
-	public Orders(Long user_id, Long employee_id, LocalDateTime order_date) {
+	public Orders(Long user_id, Long employee_id, String formattedDate) {
 		super();
 		this.user_id = user_id;
 		this.employee_id = employee_id;
-		this.order_date = order_date;
+		this.order_date = formattedDate;
 	}
 
-	public Orders(Long iD, Long user_id, Long employee_id, LocalDateTime order_date) {
+	public Orders(Long iD, Long user_id, Long employee_id, String order_date) {
 		super();
 		ID = iD;
 		this.user_id = user_id;

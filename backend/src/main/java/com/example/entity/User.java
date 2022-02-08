@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
 	@Id
@@ -40,9 +40,9 @@ public class User {
 		this.phone_number = phone_number;
 		this.password = password;
 	}
-	
-	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address,
-			String phone_number, String password) {
+
+	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address, String phone_number,
+			String password) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -112,12 +112,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email + ", phone_number="
-				+ phone_number + ", password=" + password + "]";
+		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name + ", date_of_birth="
+				+ date_of_birth + ", email_address=" + email + ", phone_number=" + phone_number + ", password="
+				+ password + "]";
 	}
 
 }

@@ -3,8 +3,15 @@
         <h4 class="h8 py-3 text-center">Edit Payment Details</h4>
         <form id="payment-form" class="form" (ngSubmit)="onSubmit()" #paymentForm="ngForm">
         <div class="row gx-3">
-            
-            <div class="col-6 mb-4">
+            <div class="col-12 mb-4">
+                <div class="d-flex flex-column">
+                    <label class="form-label" for="fullname">Full Name</label>
+                    <input type="text" name="fullname" #fullname="ngModel" class="form-control" placeholder="Name" ngModel required>
+                    <span class="help-block" style="color: red;"
+                        *ngIf="!fullname.valid && fullname.touched">Full Name Required!</span>
+                </div>
+            </div>
+            <div class="col-12 mb-4">
                 <div class="d-flex flex-column">
                     <label class="form-label" for="cardnumber">Card Number</label> 
                     <input type="text" name="cardnumber" #cardnumber="ngModel" class="form-control" placeholder="1234 5678 4356 7891" maxlength="16" minlength="12" ngModel required>
@@ -14,38 +21,18 @@
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
-                    <label class="form-label" for="expiryM">Expiry Month</label> 
-                    <input type="text" name="expiryM" #expiryM="ngModel" class="form-control" placeholder="MM" maxlength="2" minlength="2" ngModel required>
-                    <span class="help-block" style="color: red;"
-                        *ngIf="!expiryM.valid && expiryM.touched">Expiry Month Incorrect!</span>
+                    <label class="form-label" for="expiry">Expiry</label> 
+                    <input type="text" name="expiry" #expiry="ngModel" class="form-control" placeholder="MM/YYYY" ngModel required>
                 </div>
             </div>
             <div class="col-6">
                 <div class="d-flex flex-column">
-                    <label class="form-label" for="expiryY">Expiry Year</label> 
-                    <input type="text" name="expiryY" #expiryY="ngModel" class="form-control" placeholder="YYYY" maxlength="4" minlength="4" ngModel required>
+                    <label class="form-label" for="cvv">CVV/CVC</label> 
+                    <input name="cvv" #cvv="ngModel" class="form-control" type="password" placeholder="***" maxlength="3" minlength="3" ngModel required>
                     <span class="help-block" style="color: red;"
-                        *ngIf="!expiryY.valid && expiryY.touched">Expiry Year Incorrect!</span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="d-flex flex-column">
-                    <label class="form-label" for="vcc">CVV/CVC</label> 
-                    <input name="vcc" #vcc="ngModel" class="form-control" type="password" placeholder="***" maxlength="3" minlength="3" ngModel required>
-                    <span class="help-block" style="color: red;"
-                        *ngIf="!vcc.valid && vcc.touched">CVV Incorrect!</span>
+                        *ngIf="!cvv.valid && cvv.touched">CVV Incorrect!</span>
                 
                 </div>
-            </div>
-            <div class="col-6 mt-4">
-                <label class="form-label" for="cardType">Card Type</label> 
-                <select name="cardType" #cardType="ngModel" class="form-select" aria-label="Default select example"  ngModel required>
-                    <option value="1">Visa</option>
-                    <option value="2">Mastercard</option>
-                    <option value="3">Visa debit</option>
-                  </select>
-                  <span class="help-block" style="color: red;"
-                        *ngIf="!cardType.valid && cardType.touched">Select a card type!</span>
             </div>
             <div class="row">
                 <div class="col text-center">

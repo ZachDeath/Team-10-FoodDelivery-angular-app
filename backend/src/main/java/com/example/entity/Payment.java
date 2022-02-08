@@ -13,13 +13,13 @@ public class Payment {
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private int user;
-	private int payment_type;
+	private String payment_type;
 	private String long_card_number;
 	private String vcc;
 	private String expiry_month;
 	private String expiry_year;
 
-	public Payment(int user_id, int payment_type, String long_card_number, String vcc, String expiry_month,
+	public Payment(int user_id, String payment_type, String long_card_number, String vcc, String expiry_month,
 			String expiry_year) {
 		super();
 		this.user = user_id;
@@ -34,6 +34,13 @@ public class Payment {
 		
 	}
 
+	public int getPayment_id() {
+		return id;
+	}
+
+	public void setPayment_id(int payment_id) {
+		this.id = payment_id;
+	}
 
 	public int getUser_id() {
 		return user;
@@ -43,11 +50,11 @@ public class Payment {
 		this.user = user_id;
 	}
 
-	public int getPayment_type() {
+	public String getPayment_type() {
 		return payment_type;
 	}
 
-	public void setPayment_type(int payment_type) {
+	public void setPayment_type(String payment_type) {
 		this.payment_type = payment_type;
 	}
 

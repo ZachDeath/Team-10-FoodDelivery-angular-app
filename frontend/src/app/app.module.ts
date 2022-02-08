@@ -26,6 +26,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     AccountPaymentComponent,
     DetailsComponent,
     MessagesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

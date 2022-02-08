@@ -23,7 +23,7 @@ import { LogoutComponent } from './components/account-components/logout/logout.c
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
-
+import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 
 //configure route paths
 const routes: Routes = [
@@ -44,8 +44,10 @@ const routes: Routes = [
     { path: 'overview', component : OverviewComponent },
     { path: 'details', component : DetailsComponent},
     { path: 'messages', component : MessagesComponent},
-    { path: 'employees', component : EmployeesComponent}
-] },
+    { path: 'employees', component : EmployeesComponent,
+    children : [
+      { path: 'addEmployee', component: AddEmployeeComponent} ]},
+    ]},
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },

@@ -28,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
+import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AdminFormComponent } from './components/admin-form/admin-form.component
     DetailsComponent,
     LogoutComponent,
     MessagesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

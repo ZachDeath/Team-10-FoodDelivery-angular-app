@@ -1,6 +1,7 @@
 <h1 class="display-3">Employees</h1>
 <br>
-<button class="btn btn-success">Create</button>
+<button class="btn btn-success" routerLink="/addEmployee">Create</button>
+
 <br>
 <table mat-table #table [dataSource]="employees">
     <ng-container matColumnDef="employee_id">

@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AddressService } from 'src/app/services/address.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { UserService } from 'src/app/services/user.service';
 import { Address } from 'src/app/shared/addressConstructor';
 import { Payment } from 'src/app/shared/paymentConstructor';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/shared/userConstructor';
 
 @Component({
@@ -47,8 +46,4 @@ export class AccountDetailsComponent implements OnInit {
     })
   }
 
-  printUser() {
-    console.log('User:');
-    console.log(this.loggedUser);
-  }
 }

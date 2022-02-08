@@ -13,7 +13,7 @@ export class SideMenuComponent implements OnInit {
   
   constructor(private menuService: MenuService, private bService:BasketService) { }
 
-  sidesMenu = []
+  sidesMenu:menuItem[] = []
 
   ngOnInit(): void {
     this.sidesMenu = this.menuService.sideMenu

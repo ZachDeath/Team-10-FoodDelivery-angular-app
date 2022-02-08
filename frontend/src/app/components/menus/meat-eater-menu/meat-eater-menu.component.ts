@@ -13,7 +13,7 @@ import { BasketService } from 'src/app/services/basket.service';
 
 export class MeatEaterMenuComponent implements OnInit {
 
-   items: menuItem[]
+  
   
   constructor(private menuService: MenuService, private bService:BasketService) {
     console.log('MeatEater Menu Loaded');
@@ -22,7 +22,7 @@ export class MeatEaterMenuComponent implements OnInit {
     
   }
 
-  meatEaterMenu = []
+  meatEaterMenu: menuItem[] = []
 
   addToBasketFromMenu(item:menuItem){
     

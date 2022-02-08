@@ -16,7 +16,7 @@ export class VegMenuComponent implements OnInit {
     private bService: BasketService
   ) {}
 
-  vegMenu = []
+  vegMenu: menuItem[] = []
 
   ngOnInit(): void {
     this.vegMenu = this.menuService.vegMenu;

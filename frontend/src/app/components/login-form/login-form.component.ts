@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BasketService } from 'src/app/services/basket.service';
-import { PaymentService } from 'src/app/services/payment.service';
-import { PostsService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 import { Registereduser } from 'src/app/shared/registeredUser.model';
 import { User } from 'src/app/shared/userConstructor';
@@ -50,21 +48,8 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/'])
       }
     });
-
-    
-
-    //this.postsService.sendLoginData(this.user);
-    
-    
-    //this.checkLoginDetails();
-    
   }
 
-  routeToHome(){
-
-    this.router.navigate(['/home']);
-
-  }
 
   clearForm(){
 

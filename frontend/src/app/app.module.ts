@@ -22,7 +22,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
 import { DetailsComponent } from './components/admin/details/details.component';
-import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
@@ -51,7 +50,6 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     AccountAddressComponent,
     AccountPaymentComponent,
     DetailsComponent,
-    LogoutComponent,
     MessagesComponent,
     AccountDetailsComponent,
     EmployeesComponent

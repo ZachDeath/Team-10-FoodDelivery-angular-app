@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { PostsService } from 'src/app/services/post.service';
-import { Registereduser } from 'src/app/shared/registeredUser.model';
+import { Component, OnInit} from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,13 +11,20 @@ import { Registereduser } from 'src/app/shared/registeredUser.model';
 export class LoginComponent implements OnInit {
 
   active: number;
+  isLogged: boolean;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.active=0;
+   
    }
 
 
   ngOnInit(): void {
+
+    
+      this.isLogged=this.userService.islogged;
+      
+    
     
   }
 

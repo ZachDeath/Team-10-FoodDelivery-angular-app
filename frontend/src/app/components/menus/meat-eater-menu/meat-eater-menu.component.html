@@ -7,7 +7,7 @@
                     <img [src]="x.picture_url" width="100px"  height="100px">
                 </div>
                 <div class="col-6 text-right">
-                    <h5 class="text-right"><b>{{x.title}}: {{x.price | currency: 'GBP'}}</b></h5>
+                    <h5 class="text-right"><b>{{x.title}}: {{x.unitprice | currency: 'GBP'}}</b></h5>
                     <h6>{{x.description}}</h6>
                 </div>
                 <div class="col justify-content-right">
@@ -20,8 +20,3 @@
     </div>
     
 
-<p *ngFor="let tempItem of items">
-    {{tempItem.title}} -
-    {{tempItem.description}}
-    {{tempItem.unitprice | currency: 'GBP'}}
-</p>

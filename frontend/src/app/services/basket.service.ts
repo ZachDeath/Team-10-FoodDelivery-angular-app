@@ -1,10 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { EventEmitter } from "@angular/core";
-
-
 import { menuItem } from "../shared/menuItem.model";
-import { UserService } from "./user.service";
 
 
 @Injectable({
@@ -69,9 +66,6 @@ export class BasketService implements OnInit{
             }
         })
 
-        
-        
-        
         this.itemsChanged.emit(this.itemsInBasket.slice());
 
     }
@@ -106,14 +100,8 @@ export class BasketService implements OnInit{
                 let temp = new menuItem(menuItems[i].menu.food_id,menuItems[i].menu.title,menuItems[i].menu.description,menuItems[i].menu.picture_url,menuItems[i].menu.food_type,1,menuItems[i].menu.unitprice);
                 
                 this.addItem(temp);
-            }
-           
-            
+            }   
         });
-
-        console.log(this.itemsInBasket);
-
-
     }
 
     deleteBasketItems(userId: number){
@@ -132,8 +120,6 @@ export class BasketService implements OnInit{
 
         this.basketPrice=sum;
         this.noItems=noItems;
-
-
     }
 
 }

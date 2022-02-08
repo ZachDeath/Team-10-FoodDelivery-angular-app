@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.OrderDetails;
@@ -20,10 +21,24 @@ public class OrderDetailsController {
 	@Autowired
 	OrderDetailsService OrderDetailsService;
 
-	@RequestMapping(value = "/getOrderDetails/{order} + {food}", method = RequestMethod.GET)
-	public List<OrderDetails> getOrderDetailsByID(@PathVariable("order") Long order, @PathVariable("food") Long food) {
-		return OrderDetailsService.findOrderDetailsByOrderID(order, food);
+	@RequestMapping(value = "/getOrderDetails/{order}/{food}", method = RequestMethod.GET)
+	public OrderDetails getOrderDetailsByID(@PathVariable("order") Long order, @PathVariable("food") Long food) {
+		return OrderDetailsService.findOrderDetailsByID(order, food);
 
 	}
+	
+	@RequestMapping(value = "/getOrderDetails/{order}", method = RequestMethod.GET)
+	public List<OrderDetails> getOrderDetailsByOrderID(@PathVariable("order") Long order) {
+		return OrderDetailsService.findOrderDetailsByOrderID(order);
+
+	}
+	
+	@RequestMapping(value = "/createOrderDetails", method = RequestMethod.POST)
+	public OrderDetails CreateOrderDetails(@RequestParam Long order, @RequestParam Long food, int quantity) {
+		return OrderDetailsService.createOrderDetails(order, food, quantity);
+
+	}
+
+
 
 }

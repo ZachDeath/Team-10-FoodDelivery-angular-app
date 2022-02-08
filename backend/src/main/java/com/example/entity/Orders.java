@@ -35,7 +35,7 @@ public class Orders implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "employee_id", referencedColumnName = "employee_id", insertable = false, updatable = false)
-	private Employees employee;
+	private Employee employee;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDateTime order_date;

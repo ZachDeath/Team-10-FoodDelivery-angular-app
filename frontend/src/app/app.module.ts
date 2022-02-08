@@ -26,6 +26,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
+import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 
 @NgModule({
@@ -34,6 +36,7 @@ import { AccountDetailsComponent } from './components/account-components/account
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
+    AdminFormComponent,
     MainPageComponent,
     RegistrationComponent,
     BannerComponent,
@@ -51,6 +54,7 @@ import { AccountDetailsComponent } from './components/account-components/account
     DetailsComponent,
     MessagesComponent,
     EmployeesComponent,
+    AddEmployeeComponent,
     AccountDetailsComponent
   ],
   imports: [

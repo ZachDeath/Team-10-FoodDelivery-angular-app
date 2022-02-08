@@ -1,6 +1,7 @@
 <h1 class="display-3">Employees</h1>
 <br>
-<button class="btn btn-success">Create</button>
+<button class="btn btn-success" routerLink="/addEmployee">Create</button>
+
 <br>
 <table mat-table #table [dataSource]="employees">
     <ng-container matColumnDef="employee_id">
@@ -29,7 +30,7 @@
     </ng-container>
     <ng-container matColumnDef="delete">
       <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
-      <td class = "px-3" mat-cell *matCellDef="let employee"><button (click)="deleteEmployee(employee.employee_id)" class="btn btn-danger">Delete</button></td>
+      <td class = "px-3" mat-cell *matCellDef="let employee"><button (click)="deleteEmployee(employee.employee_id)" style="background-color: #ba1e1e;" class="btn btn-danger">Delete</button></td>
     </ng-container>
     
   

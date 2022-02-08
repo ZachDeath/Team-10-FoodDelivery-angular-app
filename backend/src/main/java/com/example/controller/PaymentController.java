@@ -30,7 +30,7 @@ public class PaymentController {
 	//use PUT HEREERERERE
 	@RequestMapping(value="/find-payment/update-payment/{id}", method=RequestMethod.PUT)
 	public PaymentResponseModel updatePaymentByUser(@PathVariable("id") int id, @RequestBody PaymentRequestModel updatedPay) {
-		System.out.println("Updating payment");
+		
 		return paymentService.updatePaymentByUser(id, updatedPay);
 	}
 	

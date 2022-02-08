@@ -57,13 +57,13 @@ export class UserService {
     this.basketService.saveBasketToDatabase(this.userObj.user_id);
     this.userObj=null;
     this.updateLoggeduser(null);
-    this.islogged=false;
     
     
 
   }
 
   updateLoggeduser(user: User): void{
+
     this.loggedUser.emit(user);
     this.userObj=user;
     

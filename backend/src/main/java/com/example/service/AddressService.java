@@ -23,7 +23,6 @@ public class AddressService {
 	}
 
 	public Address updateAddress(long userid, Address address) {
-		Address addressExists = findAddressByID(userid);
 		Address savedAddress = new Address(userid, address.getFirst_name(), address.getLast_name(),
 				address.getFirst_line(), address.getSecond_line(), address.getCity(), address.getState(),
 				address.getPost_code());

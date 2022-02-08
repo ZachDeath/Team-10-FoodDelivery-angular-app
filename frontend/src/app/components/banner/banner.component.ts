@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
-=======
 import { EmployeeService } from 'src/app/services/employee.service';
 import { UserService } from 'src/app/services/user.service';
 import { Employee } from 'src/app/shared/employeeConstructor';
 import { User } from 'src/app/shared/userConstructor';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-banner',
@@ -14,16 +11,6 @@ import { User } from 'src/app/shared/userConstructor';
 })
 export class BannerComponent implements OnInit {
 
-<<<<<<< Updated upstream
-  imagePath = "assets/images/pizza.png"
-  user: any = {name: "testUser", age:23,}
-
-  constructor() { 
-    console.log("Banner Loaded")
-  }
-
-  ngOnInit(): void {
-=======
   loggedUser: User;
   loggedAdmin: Employee;
 
@@ -61,7 +48,6 @@ export class BannerComponent implements OnInit {
     
 
 
->>>>>>> Stashed changes
   }
 
 }

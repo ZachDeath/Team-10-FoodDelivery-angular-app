@@ -1,10 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { User, UserAdapter } from '../shared/userConstructor';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+
+  private loggedIn: boolean= false;
+
+  loginChanged = new EventEmitter<boolean>();
+  loggedUser = new EventEmitter<User>();
+  userObj:User;
+
+
   private apiUrl = 'http://localhost:8090/api/users';
   constructor(private http: HttpClient, private adapter: UserAdapter) {}
 
@@ -22,8 +30,6 @@ export class UserService {
     return this.http.delete(url);
   }
 
-<<<<<<< Updated upstream
-=======
   getUserByEmail(email: String, password: String):Observable<any> {
     const url = `${this.apiUrl}/getUser/email/${email}/pass/${password}`;
     let response: Observable<any>=this.http.get(url).pipe();
@@ -52,6 +58,5 @@ export class UserService {
     this.loggedUser.emit(user);
   }
 
->>>>>>> Stashed changes
 
 }

@@ -2,16 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { NgForm } from '@angular/forms';
 import { Data, Router } from '@angular/router';
 import { PostsService } from 'src/app/services/post.service';
-<<<<<<< Updated upstream
-import { Registereduser } from 'src/app/shared/registeredUser.model';
-=======
 import { UserService } from 'src/app/services/user.service';
 import { HeaderColorService } from 'src/app/services/header-color.service';
 import { Registereduser } from 'src/app/shared/registeredUser.model';
 import { User } from 'src/app/shared/userConstructor';
 import { HeaderComponent } from '../header/header.component';
 import { AdminFormComponent } from '../admin-form/admin-form.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-login-form',
@@ -26,14 +22,9 @@ export class LoginFormComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<String>();
 
 
-<<<<<<< Updated upstream
-  constructor(private router: Router, private postsService: PostsService) { }
-
-=======
   user: Registereduser = { email: "", password: "" };
 
-  constructor(private router: Router, private postsService: PostsService, private userService: UserService,
-    private hService:HeaderColorService) { 
+  constructor(private router: Router, private postsService: PostsService, private userService: UserService) { 
     
   }
 
@@ -46,7 +37,6 @@ export class LoginFormComponent implements OnInit {
   }
 
 
->>>>>>> Stashed changes
   ngOnInit(): void {
     
   }
@@ -67,11 +57,6 @@ export class LoginFormComponent implements OnInit {
     //console.log(this.loginForm.value.email);
     this.clearForm();
 
-<<<<<<< Updated upstream
-    this.postsService.sendLoginData(this.user);
-    
-    
-=======
     this.userService.getUserByEmail(this.user.email, this.user.password).subscribe((users: User) => {
       this.users = users;
 
@@ -93,7 +78,6 @@ export class LoginFormComponent implements OnInit {
     //this.postsService.sendLoginData(this.user);
 
 
->>>>>>> Stashed changes
     //this.checkLoginDetails();
 
   }

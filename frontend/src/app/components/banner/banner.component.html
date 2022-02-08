@@ -1,15 +1,10 @@
 <div class="container-flex my-auto py-0 border-bottom border-3 border-dark" [ngStyle]="{
     height: '300px', 'background-image': 'url(' + imagePath + ')'
   }">
-<<<<<<< Updated upstream
-  <h1 class="display-3 mx-5 my-auto pt-4">Welcome {{ this.user.name }}!</h1>
-  <h2 class="mx-5">What will you be ordering with us today?</h2>
-=======
   <h1 *ngIf="(loggedUser==undefined || loggedUser==null) && (loggedAdmin==undefined || loggedAdmin==null)" class="display-3 mx-5 my-auto pt-4">Welcome!</h1>
   <h1 *ngIf="loggedUser!=undefined && loggedUser!=null" class="display-3 mx-5 my-auto pt-4">Welcome {{ loggedUser.first_name }}!</h1>
   <h1 *ngIf="loggedAdmin!=undefined && loggedAdmin!=null" class="display-3 mx-5 my-auto pt-4">Welcome {{ loggedAdmin.first_name }}!</h1>
   <h2 *ngIf="loggedUser!=undefined && loggedUser!=null" class="mx-5">What will you be ordering with us today?</h2>
   <h2 *ngIf="loggedAdmin!=undefined && loggedAdmin!=null" class="mx-5">Look at the Admin Dashboard for new orders</h2>
->>>>>>> Stashed changes
 </div>
 

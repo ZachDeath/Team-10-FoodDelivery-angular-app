@@ -22,12 +22,15 @@ import { DetailsComponent } from './components/admin/details/details.component';
 import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
+
 
 //configure route paths
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
+  { path: 'adminLogin', component: AdminFormComponent},
   { path: 'login-dashboard', component: LoginComponent,
   children : [
         { path: 'details', component : AccountDetailsComponent },

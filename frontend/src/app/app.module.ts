@@ -27,6 +27,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
+    AdminFormComponent,
     MainPageComponent,
     RegistrationComponent,
     BannerComponent,

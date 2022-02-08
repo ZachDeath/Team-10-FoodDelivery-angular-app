@@ -22,5 +22,36 @@ export class UserService {
     return this.http.delete(url);
   }
 
+<<<<<<< Updated upstream
+=======
+  getUserByEmail(email: String, password: String):Observable<any> {
+    const url = `${this.apiUrl}/getUser/email/${email}/pass/${password}`;
+    let response: Observable<any>=this.http.get(url).pipe();
+    if (response!=null){
+      
+      return response;
+    }
+    return null;
+  }
+
+  userLoggedIn(): void{
+
+    this.loginChanged.emit(true);
+
+  }
+
+  userLoggedOut(): void{
+
+    this.loginChanged.emit(false);
+    this.userObj=null;
+    this.updateLoggeduser(null);
+    
+  }
+
+  updateLoggeduser(user: User): void{
+    this.loggedUser.emit(user);
+  }
+
+>>>>>>> Stashed changes
 
 }

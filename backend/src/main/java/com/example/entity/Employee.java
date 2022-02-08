@@ -13,8 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="employees")
-@NamedQuery(query = "Select e from Employees e", name = "findAllEmployees")
-public class Employees {
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +26,7 @@ public class Employees {
 	private String phone_number;
 	private String password;
 
-	public Employees(Long employee_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public Employee(Long employee_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.employee_id = employee_id;
@@ -39,7 +38,7 @@ public class Employees {
 		this.password = password;
 	}
 	
-	public Employees(String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public Employee(String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.first_name = first_name;
@@ -50,7 +49,7 @@ public class Employees {
 		this.password = password;
 	}
 
-	public Employees() {
+	public Employee() {
 		super();
 	}
 

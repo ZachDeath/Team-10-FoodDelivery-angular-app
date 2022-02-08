@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { MenuItem } from '../common/menuItem';
+
+
 import { menuItem } from '../shared/menuItem.model';
-import { testMenuItem } from '../shared/testMenuItem.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ import { testMenuItem } from '../shared/testMenuItem.model';
 export class MenuService implements OnInit{
   private baseURL = 'http://localhost:8090/menu-item/get-menu-items';
 
-  items: testMenuItem[];
+  //items: menuItem[];
 
   //menu: menuItem[];
   menu: menuItem[];
@@ -34,13 +35,13 @@ export class MenuService implements OnInit{
 
   createMenus() {
     for (let i = 0; i < this.menu.length; i++) {
-      if (this.menu[i].typeOfFood == 0) {
+      if (this.menu[i].food_type == 0) {
         this.meatEaterMenu.push(this.menu[i]);
       }
-      if (this.menu[i].typeOfFood == 1) {
+      if (this.menu[i].food_type == 1) {
         this.vegMenu.push(this.menu[i]);
       }
-      if (this.menu[i].typeOfFood == 2) {
+      if (this.menu[i].food_type == 2) {
         this.sideMenu.push(this.menu[i]);
       }
     }
@@ -56,27 +57,23 @@ export class MenuService implements OnInit{
   listMenuItems(): void {
     //console.log("in list menu items");
     this.menu = [];
-    this.items = [];
+    //this.items = [];
     this.menuTypeArray = [];
     this.meatEaterMenu = [];
     this.vegMenu = [];
     this.sideMenu = [];
 
     //console.log("in if");
-    this.getMenuList().subscribe((items: testMenuItem[]) => {
-      this.items = items;
-      for (let i = 0; i < this.items.length; i++) {
-        let temp: menuItem = {
-          title: this.items[i].title,
-          description: this.items[i].description,
-          quantity: 1,
-          price: this.items[i].unitprice,
-          picture: this.items[i].picture_url,
-          typeOfFood: this.items[i].food_type,
-        };
+    this.getMenuList().subscribe((items: menuItem[]) => {
+      //this.items = items;
+      console.log("getting menu items");
+      console.log(items);
+      for (let i = 0; i < items.length; i++) {
+        let temp = new menuItem(items[i].food_id,items[i].title,items[i].description,items[i].picture_url,items[i].food_type,1,items[i].unitprice);
         this.menu.push(temp);
         //console.log("in for loop");
       }
+
       this.createMenus();
     });
   }

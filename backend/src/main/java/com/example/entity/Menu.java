@@ -15,6 +15,7 @@ public class Menu {
 	private String description;
 	private String picture_url;
 	private int food_type;
+	private int unitprice;
 
 	public Menu(int food_id, String title, String description, String picture_url, int food_type) {
 		super();
@@ -73,6 +74,14 @@ public class Menu {
 	public String toString() {
 		return "Menu [food_id=" + food_id + ", title=" + title + ", description=" + description + ", picture_url="
 				+ picture_url + ", food_type=" + food_type + "]";
+	}
+
+	public int getUnitprice() {
+		return unitprice;
+	}
+
+	public void setUnitprice(int unitprice) {
+		this.unitprice = unitprice;
 	}
 
 }

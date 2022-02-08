@@ -8,7 +8,7 @@
                     <div class="container p-0">
                         <div class="card px-4" style="border: 0px;">
                             <h6 class="h8 py-2">Current address:</h6>
-                            <div >
+                            <div *ngIf="address!=null">
                                 {{address.first_name}} {{address.last_name}}<br>
                                 {{address.first_line}}<br>
                                 {{address.second_line}}<br>

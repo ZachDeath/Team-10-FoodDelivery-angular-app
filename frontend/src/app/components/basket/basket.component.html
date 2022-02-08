@@ -5,7 +5,7 @@
 
 <div class="text-center" style="color: #dc4726; max-width: 50rem; margin:2rem auto;" *ngIf="itemsInBasket.length>0">
     <hr>
-    <h6>You currently have <b>{{itemsInBasket.length}} {{itemsInBasket.length !==1 ? 'items' : 'item' }} </b> in your order</h6>
+    <h6>You currently have <b>{{noItemsInBasket}} {{noItemsInBasket !==1 ? 'items' : 'item' }} </b> in your order</h6>
     <hr>
 </div>
 
@@ -14,11 +14,12 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-auto" width="110px">
-                <img [src]="item.picture" width="100px"  height="100px">
+                <img [src]="item.picture_url" width="100px"  height="100px">
             </div>
             <div class="col-6 text-right">
-                <h5 class="text-right"><b>{{item.title}}: {{item.price | currency: 'GBP'}}</b></h5>
+                <h5 class="text-right"><b>{{item.title}}: {{item.unitprice | currency: 'GBP'}}</b></h5>
                 <h6>{{item.description}}</h6>
+                <h6>Quantity: {{item.quantity}}</h6>
             </div>
             <div class="col justify-content-right">
                 <a class="btn" style="background-color: #dc4726; margin-left: 50%;" (click)="addDuplicate(item)">Add Another</a>
@@ -47,6 +48,8 @@
         
     </div>
 </div>
+
+<button (click)="testing()"> TESTING</button>
 
 
 <!-- <div class="row justify-content-center mt-5">

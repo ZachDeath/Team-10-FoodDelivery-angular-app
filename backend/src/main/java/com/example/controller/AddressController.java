@@ -2,7 +2,6 @@ package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Address;
-import com.example.entity.User;
-import com.example.repository.UsersRepository;
 import com.example.service.AddressService;
 
 @RestController
@@ -24,6 +21,7 @@ public class AddressController {
 
 	@RequestMapping(value = "/getAddressByUser/{id}", method = RequestMethod.GET)
 	public Address getUserAddress(@PathVariable("id") int id) {
+		System.out.println("Getting address by user");
 		return AddressService.findAddressByID(id);
 
 	}

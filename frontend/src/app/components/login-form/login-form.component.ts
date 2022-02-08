@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BasketService } from 'src/app/services/basket.service';
 import { PostsService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 import { Registereduser } from 'src/app/shared/registeredUser.model';
@@ -18,7 +19,7 @@ export class LoginFormComponent implements OnInit {
 
   user: Registereduser = {email:"", password:""};
 
-  constructor(private router: Router, private postsService: PostsService, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private basketService: BasketService) { }
 
   users: User;
   loginFailed: boolean;
@@ -46,6 +47,7 @@ export class LoginFormComponent implements OnInit {
         console.log(this.users)
         console.log(users)
         this.userService.updateLoggeduser(this.users);
+        this.basketService.getBasketFromDatabase(users.user_id);
         this.router.navigate(['/'])
       }
     });

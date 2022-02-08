@@ -7,7 +7,7 @@ public class MenuResponseModel {
 	private String description;
 	private String picture_url;
 	private int food_type;
-	
+	private int unitprice;
 	
 
 	public MenuResponseModel(int food_id, String title, String description, String picture_url, int food_type) {
@@ -61,6 +61,14 @@ public class MenuResponseModel {
 
 	public void setFood_type(int food_type) {
 		this.food_type = food_type;
+	}
+
+	public int getUnitprice() {
+		return unitprice;
+	}
+
+	public void setUnitprice(int unitprice) {
+		this.unitprice = unitprice;
 	}
 
 }

@@ -43,7 +43,7 @@ public class PaymentService {
 			response.setLong_card_number(payment.getLong_card_number());
 			response.setPayment_type(payment.getPayment_type());
 			response.setUser(payment.getUser_id());
-			response.setId(payment.getPayment_id());
+			
 			
 			
 			

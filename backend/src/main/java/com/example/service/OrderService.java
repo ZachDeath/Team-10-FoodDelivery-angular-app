@@ -19,6 +19,10 @@ public class OrderService {
 	public List<Orders> findOrderByUserID(long id) {
 		return orderRepo.FindByUserID(id);
 	}
+	
+	public Iterable<Orders> findAllOrders() {
+		return orderRepo.findAll();
+	}
 
 	public Optional<Orders> findOrderByOrderID(long id) {
 		return orderRepo.findById(id);

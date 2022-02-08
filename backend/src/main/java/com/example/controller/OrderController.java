@@ -30,6 +30,12 @@ public class OrderController {
 		return OrderService.findOrderByOrderID(id);
 
 	}
+	
+	@RequestMapping(value = "/getAllOrders", method = RequestMethod.GET)
+	public Iterable<Orders> getAllOrders() {
+		return OrderService.findAllOrders();
+
+	}
 
 	@RequestMapping(value = "/getOrderByUser/{id}", method = RequestMethod.GET)
 	public List<Orders> getOrderByUserID(@PathVariable("id") int id) {

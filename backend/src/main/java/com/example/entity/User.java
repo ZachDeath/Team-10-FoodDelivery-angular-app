@@ -31,7 +31,7 @@ public class User {
 	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
-		this.ID = user_id;
+		this.user_id = user_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
@@ -56,11 +56,11 @@ public class User {
 	}
 
 	public Long getUser_id() {
-		return ID;
+		return user_id;
 	}
 
 	public void setUser_id(Long user_id) {
-		this.ID = user_id;
+		this.user_id = user_id;
 	}
 
 	public String getFirst_name() {
@@ -114,7 +114,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "\nUser: [user_id=" + ID + ", first_name=" + first_name + ", last_name=" + last_name + ", date_of_birth="
+		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name + ", date_of_birth="
 				+ date_of_birth + ", email_address=" + email + ", phone_number=" + phone_number + ", password="
 				+ password + "]";
 	}

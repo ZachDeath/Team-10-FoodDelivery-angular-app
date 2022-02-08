@@ -1,5 +1,6 @@
 package com.example.entity;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 public class OrderDetails {
 
 	@EmbeddedId
+	@Column(name="id")
 	private OrderDetailsID ID;
 
 	@OneToOne

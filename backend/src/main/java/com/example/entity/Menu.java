@@ -15,15 +15,18 @@ public class Menu {
 	private String description;
 	private String picture_url;
 	private int food_type;
-	private int unitprice;
+	private double unitprice;
 
-	public Menu(int food_id, String title, String description, String picture_url, int food_type) {
+	
+
+	public Menu(int food_id, String title, String description, String picture_url, int food_type, double unitprice) {
 		super();
 		this.food_id = food_id;
 		this.title = title;
 		this.description = description;
 		this.picture_url = picture_url;
 		this.food_type = food_type;
+		this.unitprice = unitprice;
 	}
 
 	public Menu() {
@@ -76,11 +79,11 @@ public class Menu {
 				+ picture_url + ", food_type=" + food_type + "]";
 	}
 
-	public int getUnitprice() {
+	public double getUnitprice() {
 		return unitprice;
 	}
 
-	public void setUnitprice(int unitprice) {
+	public void setUnitprice(double unitprice) {
 		this.unitprice = unitprice;
 	}
 

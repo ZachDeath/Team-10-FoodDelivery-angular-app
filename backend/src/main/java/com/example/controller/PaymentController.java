@@ -20,11 +20,7 @@ public class PaymentController {
 	@Autowired
 	PaymentService paymentService;
 	
-	@RequestMapping(value="/find-payment/id/{id}", method=RequestMethod.GET)
-	public <List>Payment findPayment(@PathVariable("id") int id) {
-		return paymentService.findPayment(id);
-	}
-	
+
 	@RequestMapping(value="/find-payment/user-id/{id}", method=RequestMethod.GET)
 	public <List>Payment findPaymentUser(@PathVariable("id") int id) {
 		return paymentService.findPaymentUser(id);

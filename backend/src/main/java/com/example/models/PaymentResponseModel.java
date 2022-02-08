@@ -4,13 +4,13 @@ public class PaymentResponseModel {
 
 	private int id;
 	private int user;
-	private String payment_type;
+	private int payment_type;
 	private String long_card_number;
 	private String vcc;
 	private String expiry_month;
 	private String expiry_year;
 
-	public PaymentResponseModel(int id, int user, String payment_type, String long_card_number, String vcc,
+	public PaymentResponseModel(int id, int user, int payment_type, String long_card_number, String vcc,
 			String expiry_month, String expiry_year) {
 		super();
 		this.id = id;
@@ -42,11 +42,11 @@ public class PaymentResponseModel {
 		this.user = user;
 	}
 
-	public String getPayment_type() {
+	public int getPayment_type() {
 		return payment_type;
 	}
 
-	public void setPayment_type(String payment_type) {
+	public void setPayment_type(int payment_type) {
 		this.payment_type = payment_type;
 	}
 

@@ -11,6 +11,8 @@ import { menuOption } from './menuOptions.model';
 
 export class MainPageComponent implements OnInit {
   
+
+
   menus: menuOption[] = [
     new menuOption(0,"Meateater","assets/images/meat-pizza.jpg","meat-menu"), new menuOption(1,"Vegetarian","assets/images/vegetarian-pizza.jpg", "veg-menu"), new menuOption(2,"Sides","assets/images/garlicbread.jpg", "sides-menu")
   ];
@@ -22,5 +24,9 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuService.listMenuItems();
+
+    
   }
+
+
 }

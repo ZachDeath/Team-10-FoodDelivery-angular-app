@@ -19,7 +19,6 @@ import { AccountAddressComponent } from './components/account-components/account
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { OverviewComponent } from './components/admin/overview/overview.component';
 import { DetailsComponent } from './components/admin/details/details.component';
-import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
@@ -36,8 +35,7 @@ const routes: Routes = [
         { path: 'details', component : AccountDetailsComponent },
         { path: 'payment', component : AccountPaymentComponent },
         { path: 'address', component : AccountAddressComponent },
-        { path: 'orders', component : AccountOrderComponent },
-        { path: 'logout', component : LogoutComponent }
+        { path: 'orders', component : AccountOrderComponent }
     ] },
   { path: 'admin-dashboard', component: AdminComponent ,
   children : [

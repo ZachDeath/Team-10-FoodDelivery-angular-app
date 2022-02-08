@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, map, Observable } from 'rxjs';
 import { User, UserAdapter } from '../shared/userConstructor';
+import { BasketService } from './basket.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -11,10 +13,10 @@ export class UserService {
   loginChanged = new EventEmitter<boolean>();
   loggedUser = new EventEmitter<User>();
   userObj:User;
-
-
+  islogged:boolean;
+  
   private apiUrl = 'http://localhost:8090/api/users';
-  constructor(private http: HttpClient, private adapter: UserAdapter) {}
+  constructor(private http: HttpClient, private adapter: UserAdapter, private basketService: BasketService) {}
 
   // returns a list of users
   getAllUsers(): Observable<User[]> {
@@ -43,20 +45,35 @@ export class UserService {
   userLoggedIn(): void{
 
     this.loginChanged.emit(true);
+    this.islogged=true;
+    
+    
 
   }
 
   userLoggedOut(): void{
 
     this.loginChanged.emit(false);
+    this.basketService.saveBasketToDatabase(this.userObj.user_id);
     this.userObj=null;
     this.updateLoggeduser(null);
+    this.islogged=false;
     
+    
+
   }
 
   updateLoggeduser(user: User): void{
     this.loggedUser.emit(user);
+    this.userObj=user;
+    
+    
+
   }
+
+
+
+  
 
 
 }

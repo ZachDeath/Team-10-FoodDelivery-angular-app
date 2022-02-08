@@ -10,4 +10,6 @@ export class menuOption {
         this.photoPath = photoPath;
         this.url = url;
     }
+
+    
 }

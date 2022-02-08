@@ -7,18 +7,18 @@ import { UserService } from 'src/app/services/user.service';
 import { HeaderColorService } from 'src/app/services/header-color.service';
 import { menuItem } from '../../shared/menuItem.model';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+
   itemsInBasket: menuItem[] = [];
   basketPrice: number = 0;
   imagePath = 'assets/images/pizza.png';
   color = '#dc4726'
-
-
 
 
 
@@ -52,21 +52,20 @@ export class HeaderComponent implements OnInit {
       console.log("Admin logged in/logged out");
       this.isAdmin = update;
       this.color = '#ba1e1e'
-    })
-
-
-
+    });
 
   }
 
   totalPrice() {
     let sum = 0;
     this.itemsInBasket.forEach((element) => {
-      sum += element.price * element.quantity;
+      sum += element.unitprice * element.quantity;
     });
 
     this.basketPrice = sum;
   }
+
+
 
   logOut() {
     this.userService.userLoggedOut();
@@ -81,3 +80,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+

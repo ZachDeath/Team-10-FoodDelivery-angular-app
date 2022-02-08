@@ -1,8 +1,6 @@
 package com.example.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,12 +9,13 @@ import javax.persistence.Table;
 public class Menu {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int food_id;
 	private String title;
 	private String description;
 	private String picture_url;
 	private int food_type;
+	private int unitprice;
 
 	public Menu(int food_id, String title, String description, String picture_url, int food_type) {
 		super();
@@ -75,6 +74,14 @@ public class Menu {
 	public String toString() {
 		return "Menu [food_id=" + food_id + ", title=" + title + ", description=" + description + ", picture_url="
 				+ picture_url + ", food_type=" + food_type + "]";
+	}
+
+	public int getUnitprice() {
+		return unitprice;
+	}
+
+	public void setUnitprice(int unitprice) {
+		this.unitprice = unitprice;
 	}
 
 }

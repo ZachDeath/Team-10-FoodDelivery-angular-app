@@ -45,7 +45,7 @@
             </li>
             <li *ngIf="isAdmin!=true" class="nav-item navbar-brand py-0 ms-3">
                 <div>
-                <a style = "border: double;" class = "nav-link active mr-4" routerLink = "/basket"> <i class="bi bi-basket3"></i> {{itemsInBasket.length}} | {{basketPrice | currency: 'GBP'}}</a>
+                <a style = "border: double;" class = "nav-link active mr-4" routerLink = "/basket"> <i class="bi bi-basket3"></i> {{noItemsInBasket}} | {{basketPrice | currency: 'GBP'}}</a>
             </div>
         </ul>
     </nav>

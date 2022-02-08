@@ -1,56 +1,63 @@
 package com.example.entity;
 
 import java.time.LocalDate;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="users")
-@NamedQuery(query = "Select u from Users u", name = "findAllUsers")
-public class Users {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="user_id")
 	private Long user_id;
 	private String first_name;
 	private String last_name;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date_of_birth;
-	private String email_address;
+	@Column(name = "email_address")
+	private String email;
 	private String phone_number;
 	private String password;
+	
+	@OneToMany(mappedBy="user")
+	private Set<Basket> basketItems;
+	
 
-	public Users(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public User(Long user_id, String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.user_id = user_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
-		this.email_address = email_address;
+		this.email = email_address;
 		this.phone_number = phone_number;
 		this.password = password;
 	}
 	
-	public Users(String first_name, String last_name, LocalDate date_of_birth, String email_address,
+	public User(String first_name, String last_name, LocalDate date_of_birth, String email_address,
 			String phone_number, String password) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.date_of_birth = date_of_birth;
-		this.email_address = email_address;
+		this.email = email_address;
 		this.phone_number = phone_number;
 		this.password = password;
 	}
 
-	public Users() {
+	public User() {
 		super();
 	}
 
@@ -88,11 +95,11 @@ public class Users {
 	}
 
 	public String getEmail_address() {
-		return email_address;
+		return email;
 	}
 
 	public void setEmail_address(String email_address) {
-		this.email_address = email_address;
+		this.email = email_address;
 	}
 
 	public String getPhone_number() {
@@ -114,7 +121,7 @@ public class Users {
 	@Override
 	public String toString() {
 		return "\nUser: [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email_address + ", phone_number="
+				+ ", date_of_birth=" + date_of_birth + ", email_address=" + email + ", phone_number="
 				+ phone_number + ", password=" + password + "]";
 	}
 

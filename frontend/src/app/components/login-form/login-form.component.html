@@ -19,10 +19,14 @@
             </div>
 
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-center mt-3">
                     <button class="btn btn-block mb-1" [disabled]="!loginForm.valid"
                         style="background-color: #dc4726;">Submit</button>
                 </div>
+            </div>
+            <div>
+                <span class="text-center" style="color: red;"
+                    *ngIf="loginFailed">Login Incorrect! Try Again</span>
             </div>
         </form>
     </div>

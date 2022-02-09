@@ -1,6 +1,7 @@
 package com.example.service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +20,7 @@ public class OrderService {
 	public List<Orders> findOrderByUserID(long id) {
 		return orderRepo.FindByUserID(id);
 	}
-	
+
 	public Iterable<Orders> findAllOrders() {
 		return orderRepo.findAll();
 	}
@@ -34,9 +35,11 @@ public class OrderService {
 	}
 
 	public Orders createOrder(Orders order) {
-		LocalDateTime now = LocalDateTime.now();
-		Orders savedOrder = new Orders(order.getUser_id(), order.getEmployee_id(), now);
-			return orderRepo.save(savedOrder);
+		LocalDateTime myDateObj = LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		String formattedDate = myDateObj.format(myFormatObj);
+		Orders savedOrder = new Orders(order.getUser_id(), order.getEmployee_id(), formattedDate);
+		return orderRepo.save(savedOrder);
 	}
 
 }

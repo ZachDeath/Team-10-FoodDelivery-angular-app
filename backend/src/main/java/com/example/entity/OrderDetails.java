@@ -14,7 +14,8 @@ import javax.persistence.Table;
 public class OrderDetails {
 
 	@EmbeddedId
-	@Column(name="id")
+	@MapsId("order_id")
+	@Column(name = "id")
 	private OrderDetailsID ID;
 
 	@OneToOne
@@ -29,17 +30,22 @@ public class OrderDetails {
 
 	private int quantity;
 
-	public OrderDetails(OrderDetailsID iD, Orders order, Menu menu, int quantity) {
-		super();
-		ID = iD;
-		this.order = order;
-		this.menu = menu;
-		this.quantity = quantity;
-	}
-
 	public OrderDetails() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public OrderDetails(OrderDetailsID iD, int quantity) {
+		super();
+		ID = iD;
+		this.quantity = quantity;
+	}
+
+	public OrderDetails(Orders order, Menu menu, int quantity) {
+		super();
+		this.order = order;
+		this.menu = menu;
+		this.quantity = quantity;
 	}
 
 	public OrderDetailsID getID() {

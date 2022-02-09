@@ -1,0 +1,29 @@
+<h1 class="display-3">Orders</h1>
+<br>
+
+<table mat-table #table [dataSource]="orders">
+    <ng-container matColumnDef="id">
+        <th class="px-3" mat-header-cell *matHeaderCellDef>#</th>
+        <td class="px-3" mat-cell *matCellDef="let order">{{ order.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="user_id">
+        <th class="px-3" mat-header-cell *matHeaderCellDef>User #</th>
+        <td class="px-3" mat-cell *matCellDef="let order">{{ order.user_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="employee_id">
+        <th class="px-3" mat-header-cell *matHeaderCellDef>Employee #</th>
+        <td class="px-3" mat-cell *matCellDef="let order">{{ order.employee_id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="order_date">
+        <th mat-header-cell *matHeaderCellDef>Order Date</th>
+        <td class="px-3" mat-cell *matCellDef="let order">{{ order.order_date }}</td>
+    </ng-container>
+    <!--   <ng-container matColumnDef="delete">
+      <th class = "px-3" mat-header-cell *matHeaderCellDef></th>
+      <td class = "px-3" mat-cell *matCellDef="let order"><button (click)="deleteEmployee(order.order_id)" style="background-color: #ba1e1e;" class="btn btn-danger">Delete</button></td>
+    </ng-container>
+     -->
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>

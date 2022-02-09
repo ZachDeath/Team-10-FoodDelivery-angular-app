@@ -11,7 +11,7 @@ export class BasketService implements OnInit{
 
     itemsChanged = new EventEmitter<menuItem[]>();
     itemsInBasket:menuItem[]=[];
-    noItems:number;
+    noItems:number=0;
 
     private apiUrl = 'http://localhost:8091/basket';
     basketPrice: number=0;
@@ -102,6 +102,7 @@ export class BasketService implements OnInit{
                 this.addItem(temp);
             }   
         });
+        this.deleteBasketItems(userId);
     }
 
     deleteBasketItems(userId: number){
@@ -116,6 +117,7 @@ export class BasketService implements OnInit{
         this.itemsInBasket.forEach((element: menuItem) => {
             sum +=(element.unitprice*element.quantity);
             noItems+=element.quantity;
+            
         });
 
         this.basketPrice=sum;

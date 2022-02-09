@@ -1,8 +1,9 @@
 package com.example.controller;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,73 +15,58 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.User;
-import com.example.repository.UsersRepository;
+import com.example.service.UsersService;
 
 @RestController
 @RequestMapping(value = "/api/users")
 @CrossOrigin
 public class UsersController {
+	
+	Logger logger = LoggerFactory.getLogger(UsersController.class);
 
 	@Autowired
-	UsersRepository UsersRepos;
+	UsersService usersService;
 
 	// -- User Routes --
 
 	// Route for obtaining a single user in the database
 	@RequestMapping(value = "/getUser/{id}")
 	public User getUsersByID(@PathVariable("id") long id) {
-		try {
-			User user = UsersRepos.findById(id).get();
-			return user;
-		} catch (NoSuchElementException e) {
-			return null;
-		}
+		return usersService.getUsersByID(id);
 	}
 
 	// Route for obtaining all users in the database
 	@RequestMapping(method = RequestMethod.GET, path = "/getUsers")
 	public List<User> getUsers() {
-		return (List<User>) UsersRepos.findAll();
+		logger.info("Finding all Users");
+		return usersService.getUsers();
 	}
 
 	// Route for inserting user into the database
 	@PostMapping(value = "/insertUser")
 	public String insertUser(@RequestBody User user) {
-		User temp = new User(null, user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(), user.getEmail_address(),
-				user.getPhone_number(), user.getPassword());
-		UsersRepos.save(temp);
-		return ("User Successfully Created");
+		logger.info("Inserting User into database");
+		return usersService.insertUser(user);
 	}
 
 	// Route for updating user into the database
 	@RequestMapping(value = "/updateUser/{id}")
-
 	public String updateUser(@PathVariable("id") long id, @ModelAttribute User user) {
-		if (getUsersByID(id) != null) {
-			User temp = new User(id, user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(),
-					user.getEmail_address(), user.getPhone_number(), user.getPassword());
-			UsersRepos.save(temp);
-			return ("User Successfully updated");
-		} else {
-			return ("User does not exist");
-		}
+		logger.info("Updating user from database");
+		return usersService.updateUser(id, user);
 	}
 
 	// Route for deleting a user in the database
 	@RequestMapping(value = "/deleteUser/{id}")
 	public String deleteUser(@PathVariable("id") long id) {
-		if (getUsersByID(id) != null) {
-			UsersRepos.deleteById(id);
-			return ("User Successfully Deleted");
-		} else {
-			return ("User doesnt exist");
-		}
+		logger.info("Deleting user using userId");
+		return usersService.deleteUser(id);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/getUser/email/{email}/pass/{password}")
 	public User FindByEmail(@PathVariable("email") String email, @PathVariable("password") String password) {
-		System.out.println("finding user by email");
-		return UsersRepos.FindByEmail(email, password);
+		logger.info("Finding user by email");
+		return usersService.FindByEmail(email, password);
 
 	}
 

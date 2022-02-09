@@ -30,7 +30,7 @@ export class BasketComponent implements OnInit {
     ngOnInit(): void {
 
         this.basketPrice=this.bService.basketPrice;
-        this.noItemsInBasket=this.bService.noItems
+        this.noItemsInBasket=this.bService.noItems;
         
 
     }

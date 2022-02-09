@@ -42,10 +42,9 @@ const routes: Routes = [
     { path: 'overview', component : OverviewComponent },
     { path: 'details', component : DetailsComponent},
     { path: 'messages', component : MessagesComponent},
-    { path: 'employees', component : EmployeesComponent,
-    children : [
-      { path: 'addEmployee', component: AddEmployeeComponent} ]},
-    ]},
+    { path: 'employees', component : EmployeesComponent},
+    { path: 'addEmployee', component: AddEmployeeComponent}  
+  ]},
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },

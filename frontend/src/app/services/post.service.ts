@@ -33,7 +33,7 @@ export class PostsService {
     console.log(employee);
 
     this.http
-      .post<Employee>('http://localhost:8090/api/users/insertEmployee', employee)
+      .post<Employee>('http://localhost:8090/api/employees/insertEmployee', employee)
       .subscribe((employees: Employee) => {
         employees = employees;
       });

@@ -15,10 +15,11 @@ import { menuItem } from '../../shared/menuItem.model';
 })
 export class HeaderComponent implements OnInit {
 
-  itemsInBasket: menuItem[] = [];
+  noItemsInBasket: number;
   basketPrice: number = 0;
   imagePath = 'assets/images/pizza.png';
   color = '#dc4726'
+  
 
 
 
@@ -35,12 +36,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    this.itemsInBasket = this.bService.getItems();
-    this.totalPrice();
-    this.bService.itemsChanged.subscribe((items: menuItem[]) => {
-      this.itemsInBasket = items;
-      this.totalPrice();
-    });
+    this.noItemsInBasket=this.bService.noItems
+
+    this.bService.itemsChanged.subscribe((items:menuItem[])=>{
+
+    
+      this.bService.totalPrice();
+      this.basketPrice =this.bService.basketPrice;
+      this.noItemsInBasket=this.bService.noItems
+      
+
+  })
 
     this.userService.loginChanged.subscribe((update: boolean) => {
       console.log("Change happened");
@@ -56,14 +62,6 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  totalPrice() {
-    let sum = 0;
-    this.itemsInBasket.forEach((element) => {
-      sum += element.unitprice * element.quantity;
-    });
-
-    this.basketPrice = sum;
-  }
 
 
 

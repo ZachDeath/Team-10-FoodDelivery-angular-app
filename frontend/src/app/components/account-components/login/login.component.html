@@ -1,36 +1,40 @@
 <h3 class="m-3 text-center" style="color: #dc4726;">Login Dashboard</h3>
 <hr>
 <div *ngIf="isLogged">
-<div class="mx-4 mt-5">
+  <div class="mx-4 mt-5">
     <div class="row m-auto">
       <div class="col-2">
         <div class="card" style="width: 15rem; height: 18rem;">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-action" (click)="updateActive(1)" routerLink = "./details" [ngClass]="{
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-action" (click)="updateActive(1)" routerLink="./details"
+                [ngClass]="{
                   'active': active==1
                 }">Account Details</li>
-                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(2)" routerLink = "./payment" [ngClass]="{
+              <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(2)" routerLink="./payment"
+                [ngClass]="{
                   'active': active==2
                 }">Edit payment method</li>
-                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(3)" routerLink = "./address" [ngClass]="{
+              <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(3)" routerLink="./address"
+                [ngClass]="{
                   'active': active==3
                 }">Edit address</li>
-                <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(4)" routerLink = "./orders" [ngClass]="{
+              <li class="list-group-item mt-3 list-group-item-action" (click)="updateActive(4)" routerLink="./orders"
+                [ngClass]="{
                   'active': active==4
                 }">View previous orders</li>
-                
-              </ul>
-            </div>
+
+            </ul>
           </div>
+        </div>
       </div>
       <div id="module-col" class="col">
-       
-        
+
+
         <router-outlet> </router-outlet>
-          
-        
-      
+
+
+
       </div>
     </div>
   </div>

@@ -23,35 +23,41 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
+import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
 
 //configure route paths
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
-  { path: 'adminLogin', component: AdminFormComponent},
-  { path: 'login-dashboard', component: LoginComponent,
-  children : [
-        { path: 'details', component : AccountDetailsComponent },
-        { path: 'payment', component : AccountPaymentComponent },
-        { path: 'address', component : AccountAddressComponent },
-        { path: 'orders', component : AccountOrderComponent }
-    ] },
-  { path: 'admin-dashboard', component: AdminComponent ,
-  children : [
-    { path: 'overview', component : OverviewComponent },
-    { path: 'details', component : DetailsComponent},
-    { path: 'messages', component : MessagesComponent},
-    { path: 'employees', component : EmployeesComponent},
-    { path: 'addEmployee', component: AddEmployeeComponent}  
-  ]},
+  { path: 'adminLogin', component: AdminFormComponent },
+  {
+    path: 'login-dashboard', component: LoginComponent,
+    children: [
+      { path: 'details', component: AccountDetailsComponent },
+      { path: 'payment', component: AccountPaymentComponent },
+      { path: 'address', component: AccountAddressComponent },
+      { path: 'orders', component: AccountOrderComponent }
+    ]
+  },
+  {
+    path: 'admin-dashboard', component: AdminComponent,
+    children: [
+      { path: 'overview', component: OverviewComponent },
+      { path: 'details', component: DetailsComponent },
+      { path: 'messages', component: MessagesComponent },
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'addEmployee', component: AddEmployeeComponent },
+      { path: 'addUser', component: AddUserComponent }
+    ]
+  },
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'meat-menu', component: MeatEaterMenuComponent },
   { path: 'veg-menu', component: VegMenuComponent },
   { path: 'sides-menu', component: SideMenuComponent },
-  { path: 'contact-page', component: ContactPageComponent},
+  { path: 'contact-page', component: ContactPageComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 
@@ -59,10 +65,10 @@ const routes: Routes = [
   imports: [CommonModule,
     RouterModule.forRoot(routes),],
   exports: [RouterModule]
-  
-})
-export class RoutingModule { 
 
-  constructor(){
+})
+export class RoutingModule {
+
+  constructor() {
   }
 }

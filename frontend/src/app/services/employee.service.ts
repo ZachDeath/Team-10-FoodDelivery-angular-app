@@ -11,6 +11,8 @@ export class EmployeeService {
   loginChanged = new EventEmitter<boolean>();
   loggedEmployee = new EventEmitter<Employee>();
   employeeObj:Employee;
+  isLogged:boolean;
+  atAdminPage:boolean;
 
   private apiUrl = 'http://localhost:8090/api/employees';
   constructor(private http: HttpClient, private adapter: EmployeeAdapter) {}
@@ -42,6 +44,7 @@ export class EmployeeService {
   employeeLoggedIn(): void{
 
     this.loginChanged.emit(true);
+    this.isLogged=true;
 
   }
 
@@ -50,6 +53,7 @@ export class EmployeeService {
     this.loginChanged.emit(false);
     this.employeeObj=null;
     this.updateLoggedEmployee(null);
+    this.isLogged=false;
     
 
   }
@@ -57,6 +61,7 @@ export class EmployeeService {
   updateLoggedEmployee(employee: Employee): void{
 
     this.loggedEmployee.emit(employee);
+    this.employeeObj=employee;
 
   }
 

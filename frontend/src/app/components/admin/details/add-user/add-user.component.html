@@ -1,0 +1,82 @@
+<div class="card text-black mb-3 text-center" style="max-width: 65rem; margin:2rem auto; float: none;
+                    margin-bottom: 2px;
+                    height: 35rem;
+                    border: 2px solid #ba1e1e;
+                     ">
+        <br>
+        <h3 class="" style="font-size: 230%; color: #ba1e1e;">Add New User</h3>
+    
+
+<div class="card-body">
+    <form name="newUserForm" class="form" (ngSubmit)="onSubmit()" #newUserForm="ngForm">
+        <br>
+        <div class="row form-group">
+            <div class="col">
+                <label for="firstName" style="margin-right: 22.4rem;">First name</label>
+                <input name="firstName" type="text" class="form-control" placeholder="First name" #firstName="ngModel"
+                    ngModel required>
+                <span class="help-block" style="color: #ba1e1e;"
+                    *ngIf="!firstName.valid && firstName.touched">Required!</span>
+            </div>
+
+            <div class="col">
+                <label for="lastName" style="margin-right: 22.4rem;">Last name</label>
+                <input name="lastName" type="text" class="form-control" placeholder="Last name" #lastName="ngModel"
+                    ngModel required>
+                <span class="help-block" style="color: #ba1e1e;"
+                    *ngIf="!lastName.valid && lastName.touched">Required!</span>
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col">
+                <label for="email" style="padding-right: 76%;">Email address</label>
+                <input name="email" type="email" class="form-control" placeholder="name@admin.com" #email="ngModel"
+                    ngModel required>
+                <span class="help-block" style="color: #ba1e1e;" *ngIf="!email.valid && email.touched">Please enter a
+                    valid
+                    email!</span>
+            </div>
+
+            <div class="col">
+                <label for="email" style="padding-right: 76%;">Date of Birth</label>
+                <input name="birthDate" type="date" class="form-control" #birthDate="ngModel" ngModel required>
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col">
+                <label for="mobile" style="padding-right: 87%;">Mobile number</label>
+                <input name="mobile" type="tel" class="form-control" placeholder="07" #mobile="ngModel" ngModel
+                    required>
+                <span class="help-block" style="color: #ba1e1e;"
+                    *ngIf="!mobile.valid && mobile.touched">Required!</span>
+            </div>
+        </div>
+        <br>
+        <div class="row form-group">
+            <div class="col">
+                <label for="password" style="margin-right: 23rem;">Password</label>
+                <input name="password" type="password" class="form-control" placeholder="********" #password="ngModel"
+                    ngModel required><span class="help-block" style="color: #ba1e1e;"
+                    *ngIf="!password.valid && password.touched">Required!</span>
+            </div>
+            <div class="col">
+                <label for="rePassword" style="margin-right: 19.4rem;">Retype Password</label>
+                <input name="rePassword" type="password" class="form-control" placeholder="********"
+                    #rePassword="ngModel" ngModel required><span class="help-block" style="color: #ba1e1e;"
+                    *ngIf="!rePassword.valid && rePassword.touched && rePassword !== password">Required!
+                </span>
+            </div>
+            <div class="col">
+                <br><br>
+                <button class="btn btn-block mb-1" [disabled]="!newUserForm.valid"
+                    style="padding: 9px 110px; background-color: #ba1e1e;">Register</button>
+
+            </div>
+        </div>
+
+        <br><br>
+    </form>
+</div>
+</div>

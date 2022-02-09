@@ -3,7 +3,6 @@ package com.example.tests;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,13 +28,13 @@ public class OrderRepositoryTest {
 	}
 	
 	
-	@Test
-	public void testCreateOrder() {
-		LocalDateTime now = LocalDateTime.now();
-		Orders testOrder = new Orders(9999l,114l, 9l, now);
-		orderRepo.save(testOrder);
-	}
-	
+//	@Test
+//	public void testCreateOrder() {
+//		LocalDateTime now = LocalDateTime.now();
+//		Orders testOrder = new Orders(9999l,114l, 9l, now);
+//		orderRepo.save(testOrder);
+//	}
+//	
 	
 	
 	@Test

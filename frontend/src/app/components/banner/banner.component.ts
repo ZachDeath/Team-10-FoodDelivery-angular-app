@@ -19,7 +19,7 @@ export class BannerComponent implements OnInit {
 
   constructor(private userService: UserService, private eService: EmployeeService) { 
     console.log("Banner Loaded")
-    console.log(window.location.pathname)
+    
     this.loggedUser=this.userService.userObj;
 
     this.userService.loggedUser.subscribe((user: User)=>{

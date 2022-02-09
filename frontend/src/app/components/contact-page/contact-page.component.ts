@@ -1,7 +1,11 @@
+import { NgStyle } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { PostsService } from 'src/app/services/post.service';
 import { Message } from 'src/app/shared/messageConstructor';
+
 
 @Component({
   selector: 'app-contact-page',
@@ -10,6 +14,9 @@ import { Message } from 'src/app/shared/messageConstructor';
 })
 export class ContactPageComponent implements OnInit{
   @ViewChild('contactForm') contactForm: NgForm;
+
+  color = '#dc4726';
+  isAdmin = false;
   
   message: Message = {
     message_id:null,
@@ -29,15 +36,22 @@ export class ContactPageComponent implements OnInit{
     user_id: null,
   };
   
-  constructor(private postsService: PostsService) {
-    console.log('Registration Page Loaded');
+  constructor(private postsService: PostsService, private eService: EmployeeService, private router: Router) {
+    console.log('Contact Form Loaded');
+  
   } 
 
+
   ngOnInit(): void {
+    if (this.eService.isLogged) {
+      this.color = '#ba1e1e';
+      this.isAdmin = true;
+    }
   }
 
+
+
   onSubmit() {
-    console.log("BUTTON PRESSED!")
     this.messageSubmitted.first_name = this.contactForm.value.firstName;
     this.messageSubmitted.last_name = this.contactForm.value.lastName;
     this.messageSubmitted.email_address = this.contactForm.value.email;

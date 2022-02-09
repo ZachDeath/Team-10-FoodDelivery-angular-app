@@ -23,14 +23,14 @@ public class OrderDetailsRepositoryTesting {
 		assertNotNull("Can't find any items",findAll);
 	}
 	
-//	@Test
-//	public void testFindByID() {
-//		List<OrderDetails> findByID = orderDetailsRepo.findByID(7l, 2l);
-//		
-//		assertNotNull(findByID);
-//		
-//	}
-//	
+	@Test
+	public void testFindByID() {
+		//List<OrderDetails> findByID = orderDetailsRepo.findByID(7l, 2l);
+		
+		//assertNotNull(findByID);
+		
+	}
+	
 	
 
 }

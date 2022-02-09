@@ -33,10 +33,8 @@ export class PostsService {
     console.log(employee);
 
     this.http
-      .post<Employee>('http://localhost:8090/api/employees/insertEmployee', employee)
-      .subscribe((employees: Employee) => {
-        employees = employees;
-      });
+      .post<Employee>('http://localhost:8090/api/employees/insertEmployee', employee).pipe()
+      .subscribe();
   }
 
 

@@ -29,27 +29,29 @@ export class BasketService implements OnInit{
     }
 
 
-    addItem(menuItem:menuItem){
+    addItem(menuitem:menuItem){
 
         if (this.itemsInBasket.length>0){
 
             for(let i=0; i<this.itemsInBasket.length;i++){
 
-                if (this.itemsInBasket[i].food_id==menuItem.food_id){
+                if (this.itemsInBasket[i].food_id==menuitem.food_id){
                     
-                    this.itemsInBasket[i].quantity+=1;
+                    this.itemsInBasket[i].quantity+=menuitem.quantity;
                     break;
                 }
-                else if ((this.itemsInBasket[i].food_id!=menuItem.food_id)&& (this.itemsInBasket.length-1==i)){
-                    
-                    this.itemsInBasket.push(menuItem);
+                else if ((this.itemsInBasket[i].food_id!=menuitem.food_id)&& (this.itemsInBasket.length-1==i)){
+                    let temp = new menuItem(menuitem.food_id,menuitem.title,menuitem.description,menuitem.picture_url,menuitem.food_type,menuitem.quantity,menuitem.unitprice);
+                
+                    this.itemsInBasket.push(temp);
                     break;
                 }
             }
         }
         else{
-            
-            this.itemsInBasket.push(menuItem);
+            let temp = new menuItem(menuitem.food_id,menuitem.title,menuitem.description,menuitem.picture_url,menuitem.food_type,menuitem.quantity,menuitem.unitprice);
+                
+            this.itemsInBasket.push(temp);
         }
         //console.log(this.itemsInBasket);
         this.itemsChanged.emit(this.itemsInBasket.slice());
@@ -97,7 +99,7 @@ export class BasketService implements OnInit{
         this.http.get(url).pipe().subscribe((menuItems: any[])=>{
             for (let i=0;i<menuItems.length;i++){
             
-                let temp = new menuItem(menuItems[i].menu.food_id,menuItems[i].menu.title,menuItems[i].menu.description,menuItems[i].menu.picture_url,menuItems[i].menu.food_type,1,menuItems[i].menu.unitprice);
+                let temp = new menuItem(menuItems[i].menu.food_id,menuItems[i].menu.title,menuItems[i].menu.description,menuItems[i].menu.picture_url,menuItems[i].menu.food_type,menuItems[i].quantity,menuItems[i].menu.unitprice);
                 
                 this.addItem(temp);
             }   

@@ -34,11 +34,12 @@ public class OrderService {
 
 	}
 
-	public Orders createOrder(Orders order) {
+	public Orders createOrder(Orders order, long id) {
+		
 		LocalDateTime myDateObj = LocalDateTime.now();
 		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDate = myDateObj.format(myFormatObj);
-		Orders savedOrder = new Orders(order.getUser_id(), order.getEmployee_id(), formattedDate);
+		Orders savedOrder = new Orders(id, order.getEmployee_id(), formattedDate);
 		return orderRepo.save(savedOrder);
 	}
 

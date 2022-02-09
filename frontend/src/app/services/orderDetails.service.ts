@@ -18,4 +18,18 @@ export class OrderDetailsService {
       .pipe(map((data: any[]) => data.map((item) => this.adapter.adapt(item))));
   }
 
-}
+  //Gets every order under a paticular ID in the table
+  createNewOrderDetails(order_id:number, food_id:number, quantity: number): void {
+    const url = `${this.apiUrl}/createOrderDetails/${order_id}/${food_id}/${quantity}`;
+    let temp = new OrderDetails(order_id,food_id,quantity);
+    console.log(temp);
+    this.http
+      .get(url)
+      .pipe().subscribe();
+
+        
+       }
+
+
+  }
+

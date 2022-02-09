@@ -8,35 +8,35 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class OrderDetailsID implements Serializable {
 	@Column(name = "order_id")
-	private int order;
+	private Long order;
 
 	@Column(name = "food_id")
-	private int food;
+	private Long food;
 
 	public OrderDetailsID() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDetailsID(int order, int food) {
+	public OrderDetailsID(Long order, Long food) {
 		super();
 		this.order = order;
 		this.food = food;
 	}
 
-	public int getOrder() {
+	public Long getOrder() {
 		return order;
 	}
 
-	public void setOrder(int order) {
+	public void setOrder(Long order) {
 		this.order = order;
 	}
 
-	public int getFood() {
+	public Long getFood() {
 		return food;
 	}
 
-	public void setFood(int food) {
+	public void setFood(Long food) {
 		this.food = food;
 	}
 

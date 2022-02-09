@@ -10,8 +10,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.example.entity.Menu;
 import com.example.entity.OrderDetails;
 import com.example.entity.OrderDetailsID;
+import com.example.entity.Orders;
 
 @Repository
 @Transactional
@@ -19,6 +21,9 @@ import com.example.entity.OrderDetailsID;
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long> {
 	
 	@Query(value="SELECT * FROM ORDER_DETAILS where order_id=:order AND food_id=:food",nativeQuery=true)
-	List<OrderDetails> findByID(@Param("order") Long ID, @Param("food")Long Food);
+	OrderDetails findByID(@Param("order") Long ID, @Param("food")Long Food);
+	
+	@Query(value="SELECT * FROM ORDER_DETAILS where order_id=:order",nativeQuery=true)
+	List<OrderDetails> findByOrderID(@Param("order") Long ID);
 
 }

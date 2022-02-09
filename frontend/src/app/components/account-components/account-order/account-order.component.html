@@ -1,6 +1,23 @@
 <div class="container p-0">
-    <div class="card px-4">
-        <h4 class="h8 py-3 text-center">Previous Account Orders</h4>
-        
-    </div>
+    <h4 class="h8 py-3 text-center">Previous Account Orders</h4>
+    <table mat-table #table [dataSource]="orders">
+        <ng-container matColumnDef="id">
+            <th class="px-3" mat-header-cell *matHeaderCellDef>#</th>
+            <td class="px-3" mat-cell *matCellDef="let order">{{ order.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="employee_id">
+            <th class="px-3" mat-header-cell *matHeaderCellDef>Employee ID</th>
+            <td class="px-3" mat-cell *matCellDef="let order">{{ order.employee_id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="order_date">
+            <th mat-header-cell *matHeaderCellDef>Order Date</th>
+            <td class="px-3" mat-cell *matCellDef="let order">{{ order.order_date | date: "short" }}</td>
+        </ng-container>
+        <ng-container matColumnDef="order_details">
+            <th mat-header-cell *matHeaderCellDef>Order Details</th>
+            <td class="px-3" mat-cell *matCellDef="let ordersDetails">{{ordersDetails.quantity}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
 </div>

@@ -21,6 +21,7 @@ import { LoginComponent } from './components/account-components/login/login.comp
 import { AdminComponent } from './components/admin/admin.component';
 import { AccountAddressComponent } from './components/account-components/account-address/account-address.component';
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
+import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { DetailsComponent } from './components/admin/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
@@ -51,6 +52,7 @@ import { AccountDetailsComponent } from './components/account-components/account
     AdminComponent,
     AccountAddressComponent,
     AccountPaymentComponent,
+    AccountOrderComponent,
     DetailsComponent,
     MessagesComponent,
     EmployeesComponent,
@@ -66,6 +68,6 @@ import { AccountDetailsComponent } from './components/account-components/account
     MatTableModule
   ],
   providers: [],
-  bootstrap: [appComponent],
+  bootstrap: [appComponent]
 })
 export class appModule {}

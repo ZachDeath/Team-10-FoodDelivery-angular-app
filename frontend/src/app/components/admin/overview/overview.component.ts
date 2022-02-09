@@ -1,9 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
+import { Employee } from 'src/app/shared/employeeConstructor';
 import { Message } from 'src/app/shared/messageConstructor';
 import { User } from 'src/app/shared/userConstructor';
+
 
 @Component({
   selector: 'app-overview',
@@ -13,10 +17,13 @@ import { User } from 'src/app/shared/userConstructor';
 export class OverviewComponent implements OnInit {
   users: User[];
   messages: Message[];
+  loggedAdmin: Employee;
 
-  constructor(private userService: UserService, private messageService: MessageService) {
+  constructor(private userService: UserService, private messageService: MessageService,
+    private eService: EmployeeService) {
     this.users = [];
     this.messages = [];
+    this.loggedAdmin=this.eService.employeeObj;
   }
 
   ngOnInit(): void {

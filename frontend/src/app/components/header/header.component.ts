@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { BasketService } from 'src/app/services/basket.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { UserService } from 'src/app/services/user.service';
-import { HeaderColorService } from 'src/app/services/header-color.service';
 import { menuItem } from '../../shared/menuItem.model';
 
 
@@ -35,6 +34,7 @@ export class HeaderComponent implements OnInit {
   isAdmin: boolean;
 
   ngOnInit() {
+  
 
     this.noItemsInBasket=this.bService.noItems
 

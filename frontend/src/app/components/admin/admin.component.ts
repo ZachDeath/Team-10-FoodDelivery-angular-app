@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/shared/employeeConstructor';
 
 @Component({
   selector: 'app-admin',
@@ -6,7 +8,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  constructor() {}
+  constructor(private eService: EmployeeService) {}
 
-  ngOnInit(): void {}
+  isLogged: boolean;
+
+  ngOnInit(): void {
+    this.isLogged=this.eService.isLogged;
+  }
 }

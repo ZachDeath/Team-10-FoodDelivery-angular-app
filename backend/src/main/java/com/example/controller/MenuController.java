@@ -28,6 +28,7 @@ public class MenuController {
 
 	}
 	
+	//Delete item
 	@RequestMapping(value="/delete-menu-item/{id}", method=RequestMethod.GET)
 	public void deleteMenuItem(@PathVariable("id") int id) {
 		menuService.deleteMenuItem(id);

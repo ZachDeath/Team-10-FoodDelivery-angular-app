@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AddressService } from 'src/app/services/address.service';
 import { UserService } from 'src/app/services/user.service';
 import { Address } from 'src/app/shared/addressConstructor';
@@ -50,15 +49,15 @@ export class AccountAddressComponent implements OnInit {
     this.address.state = this.addressForm.value.state;
     this.address.post_code = this.addressForm.value.post;
 
-    console.log(this.address.user_id);
+    // console.log(this.address.user_id);
     
-    console.log(this.addressForm.value.firstname);
-    console.log(this.addressForm.value.lastname);
-    console.log(this.addressForm.value.address1);
-    console.log(this.addressForm.value.address2);
-    console.log(this.addressForm.value.city);
-    console.log(this.addressForm.value.state);
-    console.log(this.addressForm.value.post);
+    // console.log(this.addressForm.value.firstname);
+    // console.log(this.addressForm.value.lastname);
+    // console.log(this.addressForm.value.address1);
+    // console.log(this.addressForm.value.address2);
+    // console.log(this.addressForm.value.city);
+    // console.log(this.addressForm.value.state);
+    // console.log(this.addressForm.value.post);
 
     this.addressService.editUser(this.loggedUser.user_id, this.address);
     this.clearForm();

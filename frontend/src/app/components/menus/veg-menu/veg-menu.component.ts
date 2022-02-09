@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { BasketService } from 'src/app/services/basket.service';
 import { menuItem } from '../../../shared/menuItem.model';
-import { MenuItem } from 'src/app/common/menuItem';
+
+
 
 @Component({
   selector: 'app-veg-menu',
@@ -15,7 +16,7 @@ export class VegMenuComponent implements OnInit {
     private bService: BasketService
   ) {}
 
-  vegMenu = []
+  vegMenu: menuItem[] = []
 
   ngOnInit(): void {
     this.vegMenu = this.menuService.vegMenu;

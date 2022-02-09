@@ -19,30 +19,33 @@ import { AccountAddressComponent } from './components/account-components/account
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { OverviewComponent } from './components/admin/overview/overview.component';
 import { DetailsComponent } from './components/admin/details/details.component';
-import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
+import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 
 //configure route paths
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
+  { path: 'adminLogin', component: AdminFormComponent},
   { path: 'login-dashboard', component: LoginComponent,
   children : [
         { path: 'details', component : AccountDetailsComponent },
         { path: 'payment', component : AccountPaymentComponent },
         { path: 'address', component : AccountAddressComponent },
-        { path: 'orders', component : AccountOrderComponent },
-        { path: 'logout', component : LogoutComponent }
+        { path: 'orders', component : AccountOrderComponent }
     ] },
   { path: 'admin-dashboard', component: AdminComponent ,
   children : [
     { path: 'overview', component : OverviewComponent },
     { path: 'details', component : DetailsComponent},
     { path: 'messages', component : MessagesComponent},
-    { path: 'employees', component : EmployeesComponent}
-] },
+    { path: 'employees', component : EmployeesComponent,
+    children : [
+      { path: 'addEmployee', component: AddEmployeeComponent} ]},
+    ]},
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'menu', component: MenuComponent },

@@ -23,11 +23,13 @@ import { AccountAddressComponent } from './components/account-components/account
 import { AccountPaymentComponent } from './components/account-components/account-payment/account-payment.component';
 import { AccountOrderComponent } from './components/account-components/account-order/account-order.component';
 import { DetailsComponent } from './components/admin/details/details.component';
-import { LogoutComponent } from './components/account-components/logout/logout.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule } from '@angular/material/table';
 import { MessagesComponent } from './components/admin/messages/messages.component';
 import { EmployeesComponent } from './components/admin/employees/employees.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
+import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
+import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
+    AdminFormComponent,
     MainPageComponent,
     RegistrationComponent,
     BannerComponent,
@@ -51,9 +54,10 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
     AccountPaymentComponent,
     AccountOrderComponent,
     DetailsComponent,
-    LogoutComponent,
     MessagesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    AddEmployeeComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

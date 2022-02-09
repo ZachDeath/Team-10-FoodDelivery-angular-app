@@ -44,6 +44,7 @@ export class AccountOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadData();
+    
   }
 
   reloadData() {

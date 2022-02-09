@@ -16,9 +16,7 @@ public class PaymentService {
 	@Autowired
 	PaymentRepository paymentRepo;
 	
-	public <List>Payment findPayment(@PathVariable("id") int id) {
-		return paymentRepo.findById(id);
-	}
+
 	
 	public <List>Payment findPaymentUser(@PathVariable("id") int id) {
 		return paymentRepo.findByUser(id);
@@ -45,7 +43,7 @@ public class PaymentService {
 			response.setLong_card_number(payment.getLong_card_number());
 			response.setPayment_type(payment.getPayment_type());
 			response.setUser(payment.getUser_id());
-			response.setId(payment.getPayment_id());
+			
 			
 			
 			
@@ -55,11 +53,29 @@ public class PaymentService {
 		}catch (NullPointerException e) {
 			
 			System.out.println("Item doesnt exist");
+			PaymentResponseModel response = new PaymentResponseModel();
+			Payment pay = new Payment();
+			pay.setUser_id(id);
+			pay.setExpiry_month(updatedPay.getExpiry_month());
+			pay.setVcc(updatedPay.getVcc());
+			pay.setExpiry_year(updatedPay.getExpiry_year());
+			pay.setLong_card_number(updatedPay.getLong_card_number());
+			pay.setPayment_type(updatedPay.getPayment_type());
 			
+			paymentRepo.save(pay);
+			
+			response.setExpiry_month(pay.getExpiry_month());
+			response.setVcc(pay.getVcc());
+			response.setExpiry_year(pay.getExpiry_year());
+			response.setLong_card_number(pay.getLong_card_number());
+			response.setPayment_type(pay.getPayment_type());
+			response.setUser(pay.getUser_id());
+			
+			return response;
 		}
 		
 		
-		return null;
+		
 		
 	}
 

@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
+import {Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Address, AddressAdapter } from '../shared/addressConstructor';
 
 @Injectable({ providedIn: 'root' })

@@ -28,7 +28,7 @@
   </ng-container>
   <ng-container matColumnDef="delete">
     <th class="px-3" mat-header-cell *matHeaderCellDef></th>
-    <td class="px-3" mat-cell *matCellDef="let message"><button (click)="deleteMessage(message.message_id)" class="btn btn-danger">Delete</button></td>
+    <td class="px-3" mat-cell *matCellDef="let message"><button (click)="deleteMessage(message.message_id)" style="background-color: #ba1e1e;" class="btn btn-danger">Delete</button></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

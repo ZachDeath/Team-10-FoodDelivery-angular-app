@@ -44,9 +44,8 @@ public class UsersController {
 	}
 
 	// Route for inserting user into the database
-	@CrossOrigin
 	@PostMapping(value = "/insertUser")
-	public String insertUser(@ModelAttribute User user) {
+	public String insertUser(@RequestBody User user) {
 		User temp = new User(null, user.getFirst_name(), user.getLast_name(), user.getDate_of_birth(), user.getEmail_address(),
 				user.getPhone_number(), user.getPassword());
 		UsersRepos.save(temp);

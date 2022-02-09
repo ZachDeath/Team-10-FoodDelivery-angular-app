@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Pipe, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { OrderService } from 'src/app/services/order.service';
 import { OrderDetailsService } from 'src/app/services/orderDetails.service';
@@ -12,13 +12,19 @@ import { User } from 'src/app/shared/userConstructor';
   templateUrl: './account-order.component.html',
   styleUrls: ['./account-order.component.css'],
 })
+
+
+
 export class AccountOrderComponent implements OnInit {
   orders: Order[];
   ordersDetails: OrderDetails[];
   term: string;
   loggedUser: User;
+  orderNumber:number;
+  
 
-  columnsToDisplay = ['id', 'employee_id', 'order_date', 'order_details'];
+  columnsToDisplay = ['id', 'employee_id', 'order_date'];
+  columnsToDisplay2 = ['order_details'];
   @ViewChild(MatTable) table: MatTable<Order>;
 
   constructor(
@@ -31,8 +37,8 @@ export class AccountOrderComponent implements OnInit {
     this.userService.loggedUser.subscribe((user: User) => {
       userService.userObj = user;
 
-      this.loggedUser = user;
-      console.log(user);
+      this.loggedUser = user; 
+      
     });
   }
 
@@ -56,6 +62,7 @@ export class AccountOrderComponent implements OnInit {
         .getOrderDetails(id)
         .subscribe((ordersDetails) => {
           this.ordersDetails = ordersDetails;
+          console.log(this.ordersDetails);
         })
     );
   }

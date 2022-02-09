@@ -8,6 +8,7 @@ import { Registereduser } from 'src/app/shared/registeredUser.model';
 import { User } from 'src/app/shared/userConstructor';
 import { HeaderComponent } from '../header/header.component';
 import { AdminFormComponent } from '../admin-form/admin-form.component';
+import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
   selector: 'app-login-form',
@@ -24,7 +25,7 @@ export class LoginFormComponent implements OnInit {
 
   user: Registereduser = { email: "", password: "" };
 
-  constructor(private router: Router, private postsService: PostsService, private userService: UserService) { 
+  constructor(private router: Router,private basketService: BasketService, private userService: UserService) { 
     
   }
 
@@ -68,9 +69,8 @@ export class LoginFormComponent implements OnInit {
       else {
         this.loginFailed = false;
         this.userService.userLoggedIn();
-        console.log(this.users)
-        console.log(users)
         this.userService.updateLoggeduser(this.users);
+        this.basketService.getBasketFromDatabase(this.users.user_id);
         this.router.navigate(['/'])
       }
     });
@@ -83,13 +83,6 @@ export class LoginFormComponent implements OnInit {
     //this.checkLoginDetails();
 
   }
-
-  routeToHome() {
-
-    this.router.navigate(['/home']);
-
-  }
-
   clearForm() {
 
     this.loginForm.form.reset();

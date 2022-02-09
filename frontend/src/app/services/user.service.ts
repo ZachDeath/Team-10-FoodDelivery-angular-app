@@ -46,10 +46,6 @@ export class UserService {
 
     this.loginChanged.emit(true);
     this.islogged=true;
-    
-    
-    
-
   }
 
   userLoggedOut(): void{

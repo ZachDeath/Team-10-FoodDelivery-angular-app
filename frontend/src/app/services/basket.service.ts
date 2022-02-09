@@ -102,6 +102,7 @@ export class BasketService implements OnInit{
                 this.addItem(temp);
             }   
         });
+        this.deleteBasketItems(userId);
     }
 
     deleteBasketItems(userId: number){

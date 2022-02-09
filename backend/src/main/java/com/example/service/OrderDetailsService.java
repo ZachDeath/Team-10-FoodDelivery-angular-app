@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.entity.Menu;
 import com.example.entity.OrderDetails;
 import com.example.entity.OrderDetailsID;
-import com.example.entity.Orders;
 import com.example.repository.OrderDetailsRepository;
 
 @Service

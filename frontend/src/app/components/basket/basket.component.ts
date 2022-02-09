@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/services/basket.service';
+import { OrderService } from 'src/app/services/order.service';
+import { UserService } from 'src/app/services/user.service';
 
 import { menuItem } from '../../shared/menuItem.model';
 
@@ -15,7 +17,7 @@ export class BasketComponent implements OnInit {
     noItemsInBasket:number;
 
 
-    constructor(private bService:BasketService) { 
+    constructor(private bService:BasketService, private orderService: OrderService, private userService: UserService) { 
 
         this.itemsInBasket=this.bService.getItems();
         this.bService.itemsChanged.subscribe((items:menuItem[])=>{
@@ -48,8 +50,10 @@ export class BasketComponent implements OnInit {
 
     }
 
-    testing(){
-        this.bService.getBasketFromDatabase(112);
+    onCheckout(){
+
+        //this.orderService.createNewOrder(this.userService.userObj.user_id, 8);
+        this.orderService.createNewOrder(211, 8);
     }
 
 }

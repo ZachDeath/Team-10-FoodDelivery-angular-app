@@ -20,8 +20,7 @@ export class AccountOrderComponent implements OnInit {
   loggedUser: User;
   orderNumber: number;
 
-  columnsToDisplay = ['id', 'employee_id', 'order_date'];
-  columnsToDisplay2 = ['order_details'];
+  columnsToDisplay = ['id', 'employee_id', 'order_date', 'order_details'];
   @ViewChild(MatTable) table: MatTable<Order>;
 
   constructor(

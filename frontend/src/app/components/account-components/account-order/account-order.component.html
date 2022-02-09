@@ -14,17 +14,13 @@
                 <th mat-header-cell *matHeaderCellDef>Order Date</th>
                 <td class="px-3" mat-cell *matCellDef="let order">{{ order.order_date | date: "short" }}</td>
             </ng-container>
+            <ng-container matColumnDef="order_details">
+                <th mat-header-cell *matHeaderCellDef>Order Details</th>
+                <td class="px-3" mat-cell *matCellDef="let order"><div class="d-flex" *ngFor = "let items of order.items">{{ order.quantity }}x {{ items.title }}</div></td>
+            </ng-container>
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
             <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
-        </table>
-        <table mat-table #table [dataSource]="ordersDetails">
-            <ng-container matColumnDef="order_details">
-                <th mat-header-cell *matHeaderCellDef>Order Details</th>
-                <td class="px-3" mat-cell *matCellDef="let elements"></td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="columnsToDisplay2"></tr>
-            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay2"></tr>
         </table>
     </div>
 </div>

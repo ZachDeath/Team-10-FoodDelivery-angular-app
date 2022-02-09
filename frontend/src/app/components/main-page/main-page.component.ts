@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/userConstructor';
 import { menuOption } from './menuOptions.model';
 
 

@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit} from '@angular/core';
 import { AddressService } from 'src/app/services/address.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { UserService } from 'src/app/services/user.service';
 import { Address } from 'src/app/shared/addressConstructor';
+import { Payment } from 'src/app/shared/paymentConstructor';
 import { User } from 'src/app/shared/userConstructor';
 
 @Component({
@@ -12,24 +13,21 @@ import { User } from 'src/app/shared/userConstructor';
 })
 export class AccountDetailsComponent implements OnInit {
   loggedUser: User;
+  payment: Payment;
   address: Address;
 
-  constructor(
-    private userService: UserService,
-    private addressService: AddressService
-  ) {
-    this.loggedUser = userService.userObj;
-
-    this.userService.loggedUser.subscribe((user: User) => {
-      userService.userObj = user;
-
-      this.loggedUser = user;
-      console.log(user.user_id);
-      console.log('User in account details^^');
-    });
-
+  constructor(private userService: UserService, private paymentService: PaymentService,
+    private addressService: AddressService) {
+    
+    
+    this.loggedUser=userService.userObj;
     this.address = null;
+  
+
+    
+    
   }
+  
 
   ngOnInit(): void {
     this.reloadData();
@@ -43,10 +41,9 @@ export class AccountDetailsComponent implements OnInit {
           this.address = address;
         })
     );
+    this.paymentService.getPayment(this.loggedUser.user_id).subscribe((payment:Payment)=>{
+      this.payment=payment;
+    })
   }
 
-  printUser() {
-    console.log('User:');
-    console.log(this.loggedUser);
-  }
 }

@@ -38,6 +38,8 @@ public class OrderDetailsController {
 	
 	@RequestMapping(value = "/createOrderDetails/{order-id}/{food-id}/{quantity}", method = RequestMethod.GET)
 	public OrderDetails CreateOrderDetails(@PathVariable("order-id") Long order, @PathVariable("food-id") Long food, @PathVariable("quantity") int quantity) {
+		System.out.println("creating order details");
+		System.out.println(order);
 		return OrderDetailsService.createOrderDetails(order, food, quantity);
 
 	}

@@ -41,10 +41,11 @@ export class OrderService {
   
         }
 
+        this.basketService.itemsInBasket=[];
+        this.basketService.itemsChanged.emit(this.basketService.itemsInBasket.slice());
       });
 
       
-
 
   }
 

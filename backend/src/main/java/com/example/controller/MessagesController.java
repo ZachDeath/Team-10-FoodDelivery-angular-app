@@ -2,6 +2,8 @@ package com.example.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,43 +14,47 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Messages;
-import com.example.repository.MessagesRepository;
+import com.example.service.MessageService;
 
 @RestController
 @RequestMapping(value = "/api/messages")
 @CrossOrigin
 public class MessagesController {
+	
+	Logger logger = LoggerFactory.getLogger(MessagesController.class);
 
 	@Autowired
-	MessagesRepository MessagesRepository;
+	MessageService messageService;
 
 	// -- User Routes --
 
 	// Route for obtaining a single message in the database
 	@RequestMapping(value = "/getMessage/{id}")
 	public Messages getMessagesByID(@PathVariable("id") long id) {
-		return MessagesRepository.findByID(id);
+		logger.info("Getting message using ID");
+		return messageService.getMessagesByID(id);
 	}
 
 	// Route for obtaining all messages in the database
 	@RequestMapping(method = RequestMethod.GET, path = "/getMessages")
 	public List<Messages> getMessages() {
-		return MessagesRepository.findMessages();
+		logger.info("Finding all messages");
+		return messageService.getMessages();
 	}
 
 	// Route for inserting message into the database
 	@CrossOrigin
 	@PostMapping(value = "/insertMessage")
 	public String insertMessage(@RequestBody Messages message) {
-		MessagesRepository.insertMessage(new Messages(message.getFirst_name(), message.getLast_name(),
-				message.getEmail_address(), message.getMessage()));
-		return ("Message Successfully Created");
+		logger.info("Inserting new message into database");
+		return messageService.insertMessage(message);
 	}
 
 	// Route for deleting a message in the database
 	@RequestMapping(value = "/deleteMessage/{id}")
 	public String deleteMessage(@PathVariable("id") long id) {
-		return MessagesRepository.deleteMessage(id);
+		logger.info("Deleting message using Id");
+		return messageService.deleteMessage(id);
 	}
 
 }

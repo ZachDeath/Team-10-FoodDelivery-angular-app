@@ -7,7 +7,7 @@ public class MenuResponseModel {
 	private String description;
 	private String picture_url;
 	private int food_type;
-	private int unitprice;
+	private double unitprice;
 	
 
 	public MenuResponseModel(int food_id, String title, String description, String picture_url, int food_type) {
@@ -63,11 +63,11 @@ public class MenuResponseModel {
 		this.food_type = food_type;
 	}
 
-	public int getUnitprice() {
+	public double getUnitprice() {
 		return unitprice;
 	}
 
-	public void setUnitprice(int unitprice) {
+	public void setUnitprice(double unitprice) {
 		this.unitprice = unitprice;
 	}
 

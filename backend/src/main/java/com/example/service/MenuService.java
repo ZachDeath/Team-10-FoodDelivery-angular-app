@@ -6,8 +6,6 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.entity.Menu;
 import com.example.models.MenuRequestModel;
@@ -36,11 +34,11 @@ public class MenuService {
 		
 	}
 	
-	public void deleteMenuItem(@PathVariable("id") int id) {
+	public void deleteMenuItem(int id) {
 		menuRepo.deleteById(id);
 	}
 	
-	public MenuResponseModel createMenuItem(@RequestBody MenuRequestModel requestModel)
+	public MenuResponseModel createMenuItem( MenuRequestModel requestModel)
 	{
 	//System.out.println("in create method");
 

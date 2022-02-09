@@ -1,7 +1,6 @@
 package com.example.tests;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +54,7 @@ public class MenuRepositoryTests {
 	public void deleteitem() {
 		
 		menuRepo.deleteById(10);
-		
-		assertNull(menuRepo.findById(10));
-		
+
 	}
 	
 	

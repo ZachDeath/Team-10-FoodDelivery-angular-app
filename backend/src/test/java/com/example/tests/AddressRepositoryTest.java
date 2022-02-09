@@ -7,19 +7,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.entity.Payment;
-import com.example.repository.PaymentRepository;
+import com.example.entity.Address;
+import com.example.repository.AddressRepository;
+
+
 
 @SpringBootTest
-public class PaymentRepositoryTest {
+public class AddressRepositoryTest {
 	
 	@Autowired
-	PaymentRepository paymentRepo;
+	AddressRepository addressRepo;
 	
 	@Test
 	//test findAll method works and hence seeing if the repo and entity works
 	public void testFindAll() {
-		Iterable<Payment> findAll = paymentRepo.findAll();
+		Iterable<Address> findAll = addressRepo.findAll();
 		
 		assertNotNull("Can't find any items",findAll);
 	}
@@ -28,31 +30,22 @@ public class PaymentRepositoryTest {
 	//test the repo to save item to database
 	public void testSaveItem() {
 		
-		Payment temp = new Payment(114,3,"1111111111111111","111","03","2022");
+		Address address = new Address(114,"first name", "surname", "first line", "second line", "city", "state", "postcode");
 		
-		paymentRepo.save(temp);
+		addressRepo.save(address);
 		
 	}
 	
 	@Test
 	//test finding the item we previously saved
-	public void testFindPaymentByUser() {
+	public void testFindAddressByUser() {
 		
-		Payment findByUser = paymentRepo.findByUser(114);
+		Address findByUser = addressRepo.findByUserID(114);
 		
 		assertNull(findByUser);
 		
 	}
 	
-	@Test
-	//test delete by deleting the item we saved
-	public void deleteitem() {
-		
-		paymentRepo.deleteById(10);
-		
-		Payment findByUser = paymentRepo.findByUser(114);
-		
-		assertNotNull(findByUser);
-	}
+	
 
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Messages;
-import com.example.repository.MessagesRepository;
+import com.example.service.MessageService;
 
 @RestController
 @RequestMapping(value = "/api/messages")
@@ -24,7 +24,7 @@ public class MessagesController {
 	Logger logger = LoggerFactory.getLogger(MessagesController.class);
 
 	@Autowired
-	MessagesRepository MessagesRepository;
+	MessageService messageService;
 
 	// -- User Routes --
 
@@ -32,14 +32,14 @@ public class MessagesController {
 	@RequestMapping(value = "/getMessage/{id}")
 	public Messages getMessagesByID(@PathVariable("id") long id) {
 		logger.info("Getting message using ID");
-		return MessagesRepository.findByID(id);
+		return messageService.getMessagesByID(id);
 	}
 
 	// Route for obtaining all messages in the database
 	@RequestMapping(method = RequestMethod.GET, path = "/getMessages")
 	public List<Messages> getMessages() {
 		logger.info("Finding all messages");
-		return MessagesRepository.findMessages();
+		return messageService.getMessages();
 	}
 
 	// Route for inserting message into the database
@@ -47,16 +47,14 @@ public class MessagesController {
 	@PostMapping(value = "/insertMessage")
 	public String insertMessage(@RequestBody Messages message) {
 		logger.info("Inserting new message into database");
-		MessagesRepository.insertMessage(new Messages(message.getFirst_name(), message.getLast_name(),
-				message.getEmail_address(), message.getMessage()));
-		return ("Message Successfully Created");
+		return messageService.insertMessage(message);
 	}
 
 	// Route for deleting a message in the database
 	@RequestMapping(value = "/deleteMessage/{id}")
 	public String deleteMessage(@PathVariable("id") long id) {
 		logger.info("Deleting message using Id");
-		return MessagesRepository.deleteMessage(id);
+		return messageService.deleteMessage(id);
 	}
 
 }

@@ -30,6 +30,7 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
+import { SumPipe } from './shared/addAllPipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AccountDetailsComponent } from './components/account-components/account
     MessagesComponent,
     EmployeesComponent,
     AddEmployeeComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    SumPipe
   ],
   imports: [
     BrowserModule,

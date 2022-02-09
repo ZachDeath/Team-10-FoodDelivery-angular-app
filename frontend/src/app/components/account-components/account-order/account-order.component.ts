@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { OrderService } from 'src/app/services/order.service';
 import { OrderDetailsService } from 'src/app/services/orderDetails.service';
@@ -18,9 +18,15 @@ export class AccountOrderComponent implements OnInit {
   ordersDetails: OrderDetails[];
   term: string;
   loggedUser: User;
-  orderNumber: number;
+  price:number
 
-  columnsToDisplay = ['id', 'employee_id', 'order_date', 'order_details'];
+  columnsToDisplay = [
+    'id',
+    'employee_id',
+    'order_date',
+    'order_details',
+    'price',
+  ];
   @ViewChild(MatTable) table: MatTable<Order>;
 
   constructor(
@@ -79,6 +85,8 @@ export class AccountOrderComponent implements OnInit {
 
         let tempArray: menuItem[] = [];
 
+        let price: number = 0;
+
         for (let i = 0; i < ordersDetails.length; i++) {
           tempItem = ordersDetails[0].menu;
 
@@ -88,4 +96,5 @@ export class AccountOrderComponent implements OnInit {
         this.orders[index].items = tempArray;
       });
   }
+
 }

@@ -46,16 +46,18 @@ export class BasketComponent implements OnInit {
 
     }
 
-    deleteItems(menuItem:menuItem){
+    deleteItems(menuitem:menuItem){
 
-        this.bService.deleteItem(menuItem);
+        
+        this.bService.deleteItem(menuitem);
 
     }
 
 
-    addDuplicate(item: menuItem){
-     
-        this.bService.addItem(item);
+    addDuplicate(menuitem: menuItem){
+        let temp = new menuItem(menuitem.food_id,menuitem.title,null,null,null,1,null);
+        
+        this.bService.addItem(temp);
 
     }
 

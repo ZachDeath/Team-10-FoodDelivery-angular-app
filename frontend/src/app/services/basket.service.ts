@@ -30,6 +30,7 @@ export class BasketService implements OnInit{
 
 
     addItem(menuitem:menuItem){
+        console.log(menuitem.quantity);
 
         if (this.itemsInBasket.length>0){
 
@@ -38,6 +39,7 @@ export class BasketService implements OnInit{
                 if (this.itemsInBasket[i].food_id==menuitem.food_id){
                     
                     this.itemsInBasket[i].quantity+=menuitem.quantity;
+                    
                     break;
                 }
                 else if ((this.itemsInBasket[i].food_id!=menuitem.food_id)&& (this.itemsInBasket.length-1==i)){

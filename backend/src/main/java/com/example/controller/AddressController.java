@@ -31,14 +31,14 @@ public class AddressController {
 	}
 
 	// Need to add a check to make sure the user exists but for now this works fine
-	@RequestMapping(value = "/editAddress/{id}", method = RequestMethod.POST, produces ="application/json")
+	@RequestMapping(value = "/editAddress/{id}", method = RequestMethod.PUT, produces ="application/json")
 	public Address editAddress(@PathVariable("id") int id, @RequestBody Address address) {
 		logger.info("Editing address in database");
 		return AddressService.updateAddress(id, address);
 
 	}
 
-	@RequestMapping(value = "/deleteAddress/{id}")
+	@RequestMapping(value = "/deleteAddress/{id}", method = RequestMethod.DELETE)
 	public String deleteAddress(@PathVariable("id") int id) {
 		logger.info("Deleting address using Id");
 		Address address = getUserAddress(id);

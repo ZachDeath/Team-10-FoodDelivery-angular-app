@@ -36,7 +36,7 @@ public class OrderDetailsController {
 
 	}
 	
-	@RequestMapping(value = "/createOrderDetails/{order-id}/{food-id}/{quantity}", method = RequestMethod.GET)
+	@RequestMapping(value = "/createOrderDetails/{order-id}/{food-id}/{quantity}", method = RequestMethod.POST)
 	public OrderDetails CreateOrderDetails(@PathVariable("order-id") Long order, @PathVariable("food-id") Long food, @PathVariable("quantity") int quantity) {
 		System.out.println("creating order details");
 		System.out.println(order);

@@ -30,7 +30,7 @@ public class UsersController {
 	// -- User Routes --
 
 	// Route for obtaining a single user in the database
-	@RequestMapping(value = "/getUser/{id}")
+	@RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET)
 	public User getUsersByID(@PathVariable("id") long id) {
 		return usersService.getUsersByID(id);
 	}
@@ -50,14 +50,14 @@ public class UsersController {
 	}
 
 	// Route for updating user into the database
-	@RequestMapping(value = "/updateUser/{id}")
+	@RequestMapping(value = "/updateUser/{id}", method = RequestMethod.PUT)
 	public String updateUser(@PathVariable("id") long id, @ModelAttribute User user) {
 		logger.info("Updating user from database");
 		return usersService.updateUser(id, user);
 	}
 
 	// Route for deleting a user in the database
-	@RequestMapping(value = "/deleteUser/{id}")
+	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable("id") long id) {
 		logger.info("Deleting user using userId");
 		return usersService.deleteUser(id);

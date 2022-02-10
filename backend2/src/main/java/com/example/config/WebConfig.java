@@ -15,7 +15,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**").allowedMethods("*").allowedHeaders("*");
     }
     
-    @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/api/v2/api-docs", "/v2/api-docs");
         registry.addRedirectViewController("/api/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
@@ -23,7 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addRedirectViewController("/api/swagger-resources", "/swagger-resources");
     }
 
-    @Override
+    
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/api/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
         registry.addResourceHandler("/api/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");

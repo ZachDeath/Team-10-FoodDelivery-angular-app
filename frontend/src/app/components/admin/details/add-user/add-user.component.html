@@ -13,7 +13,7 @@
         <div class="row form-group">
             <div class="col">
                 <label for="firstName" style="margin-right: 22.4rem;">First name</label>
-                <input name="firstName" type="text" class="form-control" placeholder="First name" #firstName="ngModel"
+                <input name="firstName" type="text" class="form-control" placeholder="John" #firstName="ngModel"
                     ngModel required>
                 <span class="help-block" style="color: #ba1e1e;"
                     *ngIf="!firstName.valid && firstName.touched">Required!</span>
@@ -21,7 +21,7 @@
 
             <div class="col">
                 <label for="lastName" style="margin-right: 22.4rem;">Last name</label>
-                <input name="lastName" type="text" class="form-control" placeholder="Last name" #lastName="ngModel"
+                <input name="lastName" type="text" class="form-control" placeholder="Doe" #lastName="ngModel"
                     ngModel required>
                 <span class="help-block" style="color: #ba1e1e;"
                     *ngIf="!lastName.valid && lastName.touched">Required!</span>
@@ -31,7 +31,7 @@
         <div class="row form-group">
             <div class="col">
                 <label for="email" style="padding-right: 76%;">Email address</label>
-                <input name="email" type="email" class="form-control" placeholder="name@admin.com" #email="ngModel"
+                <input name="email" type="email" class="form-control" placeholder="name@user.com" #email="ngModel"
                     ngModel required>
                 <span class="help-block" style="color: #ba1e1e;" *ngIf="!email.valid && email.touched">Please enter a
                     valid

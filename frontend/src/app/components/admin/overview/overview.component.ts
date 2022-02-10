@@ -22,6 +22,7 @@ export class OverviewComponent implements OnInit {
   users: User[];
   messages: Message[];
   orders: Order[];
+  employees: Employee[];
   price: number;
   totalPrice: number;
   loggedAdmin: Employee;
@@ -36,6 +37,7 @@ export class OverviewComponent implements OnInit {
     this.users = [];
     this.messages = [];
     this.orders = [];
+    this.employees = [];
     this.loggedAdmin = this.eService.employeeObj;
     this.totalPrice=0;
 
@@ -52,7 +54,9 @@ export class OverviewComponent implements OnInit {
     this.orderService.getAllOrders().subscribe((orders: Order[]) => {
       this.orders = orders;
     });
-    
+    this.eService.getAllEmployees().subscribe((employees: Employee[]) => {
+      this.employees = employees;
+    });
   }
 
   getFinalPrice(id: number, index: number) {

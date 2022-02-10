@@ -1,6 +1,7 @@
 <div class="container p-0">
     <div class="card px-4">
         <h4 class="h8 py-3 text-center">Overview</h4><br>
+        <h5>Welcome {{loggedAdmin.first_name}}, check the overview below.</h5>
 
         <div class="row" style="width: 60%;">
             <div class="col-sm-6" style="padding-right: 0rem;">
@@ -27,8 +28,8 @@
                     <div class="card bg-light mb-3" style="width: 13rem; height: 9rem; text-align: right">
                         <div class="card-body">
                             <br>
-                            <h1>{{users.length}}</h1>
-                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Total Users</h5>
+                            <h1 routerLink="./details">{{users.length}}</h1>
+                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;" href="#"routerLink="./details">Total Users</h5>
                         </div>
                     </div>
                 </div>
@@ -47,16 +48,7 @@
 
 
         <div class="col" style="width: 20.5%;">
-            <div class="card bg-dark text-white" style="width: 55rem; height: 10rem">
-                <img src="..." class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Graph / Illustration 2</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
-                </div>
-            </div>
+            
         </div>
         <br><br><br><br><br>
 

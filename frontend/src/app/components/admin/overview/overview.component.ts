@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { MessageService } from 'src/app/services/message.service';
 import { OrderService } from 'src/app/services/order.service';
 import { OrderDetailsService } from 'src/app/services/orderDetails.service';
 import { UserService } from 'src/app/services/user.service';
+import { Employee } from 'src/app/shared/employeeConstructor';
 import { Message } from 'src/app/shared/messageConstructor';
 import { Order } from 'src/app/shared/orderConstructor';
 import { User } from 'src/app/shared/userConstructor';
@@ -18,16 +21,19 @@ export class OverviewComponent implements OnInit {
   messages: Message[];
   orders: Order[];
   price: number;
+  loggedAdmin: Employee;
 
   constructor(
     private userService: UserService,
     private messageService: MessageService,
     private orderService: OrderService,
-    private orderDetailsService: OrderDetailsService
+    private orderDetailsService: OrderDetailsService,
+    private eService: EmployeeService
   ) {
     this.users = [];
     this.messages = [];
     this.orders = [];
+    this.loggedAdmin = this.eService.employeeObj;
   }
 
   ngOnInit(): void {

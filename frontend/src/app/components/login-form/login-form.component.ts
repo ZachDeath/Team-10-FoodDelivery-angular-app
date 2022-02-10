@@ -3,12 +3,13 @@ import { NgForm } from '@angular/forms';
 import { Data, Router } from '@angular/router';
 import { PostsService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
-import { HeaderColorService } from 'src/app/services/header-color.service';
 import { Registereduser } from 'src/app/shared/registeredUser.model';
 import { User } from 'src/app/shared/userConstructor';
 import { HeaderComponent } from '../header/header.component';
 import { AdminFormComponent } from '../admin-form/admin-form.component';
 import { BasketService } from 'src/app/services/basket.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +18,7 @@ import { BasketService } from 'src/app/services/basket.service';
 })
 
 export class LoginFormComponent implements OnInit {
+  
 
   @ViewChild('loginForm') loginForm: NgForm;
   color = '#2657dc';
@@ -25,7 +27,9 @@ export class LoginFormComponent implements OnInit {
 
   user: Registereduser = { email: "", password: "" };
 
-  constructor(private router: Router,private basketService: BasketService, private userService: UserService) { 
+  constructor(private router: Router,private basketService: BasketService, private userService: UserService,
+    private eService: EmployeeService) { 
+      this.eService.atAdminPage = false;
     
   }
 
@@ -45,11 +49,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   changeHeader(): void {
-    //this.color = '#2657dc';
-    //this.hService.changeColor(this.color);
-    //this.HeaderComponent.color = this.color;
+    this.eService.atAdminPage = true;
     console.log("Admin page")
-
     
   }
 

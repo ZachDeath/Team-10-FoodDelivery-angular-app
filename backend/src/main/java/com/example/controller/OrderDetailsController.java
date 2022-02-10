@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.OrderDetails;
@@ -37,8 +36,10 @@ public class OrderDetailsController {
 
 	}
 	
-	@RequestMapping(value = "/createOrderDetails", method = RequestMethod.POST)
-	public OrderDetails CreateOrderDetails(@RequestParam Long order, @RequestParam Long food, int quantity) {
+	@RequestMapping(value = "/createOrderDetails/{order-id}/{food-id}/{quantity}", method = RequestMethod.GET)
+	public OrderDetails CreateOrderDetails(@PathVariable("order-id") Long order, @PathVariable("food-id") Long food, @PathVariable("quantity") int quantity) {
+		System.out.println("creating order details");
+		System.out.println(order);
 		return OrderDetailsService.createOrderDetails(order, food, quantity);
 
 	}

@@ -1,13 +1,15 @@
-<div style="color: #dc4726;">
-  <h1 class="display-6 mt-4 text-center">Contact Us</h1>
-  <h2 class="display-9 text-center" style="color: #000000;">Send us a message</h2>
+<div [style.Color]="color">
+  <h1 *ngIf="isAdmin!=true" class="display-7 mt-4 text-center">Contact Us</h1>
+  <h1 *ngIf="isAdmin" class="display-7 mt-4 text-center">Test Message</h1>
+  <h2 *ngIf="isAdmin!=true" class="display-9 text-center" style="color: #000000;" >Send us a message</h2>
 </div>
 
 <div class="card text-black bg-light mb-3 text-center" style="max-width: 38rem; 
                     margin:2rem auto;
                     float: none;
                     margin-bottom: 10px;
-                    border: 2px solid #dc4726;">
+                    border: 2px solid"
+                    [ngStyle]="{'border-color': color }">
   <div class="card-body">
     <form name="contactForm" class="form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <div class="row">
@@ -49,7 +51,7 @@
       <br>
 
       <button class="btn btn-block mb-1" [disabled]="!contactForm.valid"
-        style="padding: 9px 110px;  background-color: #dc4726;">Submit</button>
+        style="padding: 9px 110px;" [style.backgroundColor]="color">Submit</button>
       <br><br>
     </form>
   </div>

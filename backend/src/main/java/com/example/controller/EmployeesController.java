@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,16 +42,14 @@ public class EmployeesController {
 		}
 
 		// Route for inserting employee into the database
-		@CrossOrigin
 		@PostMapping(value = "/insertEmployee")
-		public String insertEmployee(@ModelAttribute Employee employee) {
-			
+		public String insertEmployee(@RequestBody Employee employee) {
+			logger.info("Creating employee into DB");
 			return employeesService.insertEmployee(employee);
 		}
 
 		// Route for updating employee into the database
 		@RequestMapping(value = "/updateEmployee/{id}")
-
 		public String updateEmployee(@PathVariable("id") long id, @ModelAttribute Employee employee) {
 			return employeesService.updateEmployee(id, employee);
 		}
@@ -58,6 +57,7 @@ public class EmployeesController {
 		// Route for deleting a employee in the database
 		@RequestMapping(value = "/deleteEmployee/{id}")
 		public String deleteEmployee(@PathVariable("id") long id) {
+			logger.info("Removing employee from DB of ID " + id);
 			return employeesService.deleteEmployee(id);
 		}
 

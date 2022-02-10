@@ -2,8 +2,6 @@ package com.example.tests;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,9 +25,9 @@ public class OrderDetailsRepositoryTesting {
 	
 	@Test
 	public void testFindByID() {
-//		List<OrderDetails> findByID = orderDetailsRepo.findByID(7l, 2l);
+		//List<OrderDetails> findByID = orderDetailsRepo.findByID(7l, 2l);
 		
-//		assertNotNull(findByID);
+		//assertNotNull(findByID);
 		
 	}
 	

@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import org.springframework.data.jpa.repository.Query;
-
 @Entity
 @Table(name="messages")
 @NamedQuery(query = "Select m from Messages m", name = "findAllMessages")

@@ -10,10 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.example.entity.Menu;
 import com.example.entity.OrderDetails;
-import com.example.entity.OrderDetailsID;
-import com.example.entity.Orders;
 
 @Repository
 @Transactional

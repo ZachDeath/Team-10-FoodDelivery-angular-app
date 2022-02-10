@@ -30,7 +30,7 @@ public class EmployeesController {
 	// -- Employee Routes --
 
 	// Route for obtaining a single employee in the database
-		@RequestMapping(value = "/getEmployee/{id}")
+		@RequestMapping(value = "/getEmployee/{id}", method = RequestMethod.GET)
 		public Employee getEmployeesByID(@PathVariable("id") long id) {
 			return employeesService.getEmployeesByID(id);
 		}
@@ -49,13 +49,13 @@ public class EmployeesController {
 		}
 
 		// Route for updating employee into the database
-		@RequestMapping(value = "/updateEmployee/{id}")
+		@RequestMapping(value = "/updateEmployee/{id}", method = RequestMethod.PUT)
 		public String updateEmployee(@PathVariable("id") long id, @ModelAttribute Employee employee) {
 			return employeesService.updateEmployee(id, employee);
 		}
 
 		// Route for deleting a employee in the database
-		@RequestMapping(value = "/deleteEmployee/{id}")
+		@RequestMapping(value = "/deleteEmployee/{id}", method = RequestMethod.DELETE)
 		public String deleteEmployee(@PathVariable("id") long id) {
 			logger.info("Removing employee from DB of ID " + id);
 			return employeesService.deleteEmployee(id);

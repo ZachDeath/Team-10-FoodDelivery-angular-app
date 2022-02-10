@@ -29,7 +29,7 @@ public class MessagesController {
 	// -- User Routes --
 
 	// Route for obtaining a single message in the database
-	@RequestMapping(value = "/getMessage/{id}")
+	@RequestMapping(value = "/getMessage/{id}", method = RequestMethod.GET)
 	public Messages getMessagesByID(@PathVariable("id") long id) {
 		logger.info("Getting message using ID");
 		return messageService.getMessagesByID(id);
@@ -51,7 +51,7 @@ public class MessagesController {
 	}
 
 	// Route for deleting a message in the database
-	@RequestMapping(value = "/deleteMessage/{id}")
+	@RequestMapping(value = "/deleteMessage/{id}", method = RequestMethod.DELETE)
 	public String deleteMessage(@PathVariable("id") long id) {
 		logger.info("Deleting message using Id");
 		return messageService.deleteMessage(id);

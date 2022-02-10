@@ -19,7 +19,6 @@ export class Order {
     public finalPrice:number
   ) {}
 }
-
 @Injectable({
   providedIn: 'root',
 })

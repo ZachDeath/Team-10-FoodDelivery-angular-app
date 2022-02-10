@@ -47,7 +47,7 @@ public class OrderController {
 
 	}
 	
-	@RequestMapping(value = "/deleteOrder/{id}")
+	@RequestMapping(value = "/deleteOrder/{id}", method = RequestMethod.DELETE)
 	public String deleteOrder(@PathVariable("id") int id) {
 		logger.info("Deleting order");
 		Optional<Orders> order = getOrderByOrderID(id);
@@ -59,7 +59,7 @@ public class OrderController {
 		}
 	}
 	
-	@RequestMapping(value = "/createOrder/{id}")
+	@RequestMapping(value = "/createOrder/{id}", method = RequestMethod.POST)
 	public Orders createOrder(@RequestBody Orders orders, @PathVariable("id") long id) {
 		logger.info("Creating order");
 		return OrderService.createOrder(orders, id);

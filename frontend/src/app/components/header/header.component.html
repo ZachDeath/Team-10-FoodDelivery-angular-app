@@ -26,7 +26,10 @@
                 <a *ngIf="isAdmin" class="nav-link active mx-2" routerLink = "/contact-page" >Test Message</a>
             </li>
             <li class="nav-item navbar-brand py-0">
-                <a class="nav-link active  mx-2" routerLink = "/menu">Menu</a>
+                <a *ngIf="isAdmin!=true" class="nav-link active  mx-2" routerLink = "/menu">Menu</a>
+            </li>
+            <li class="nav-item navbar-brand py-0">
+                <a *ngIf="isAdmin" class="nav-link active  mx-2" routerLink = "/menu"> View Menu</a>
             </li>
             <li *ngIf="loginStatus!=true && isAdmin!=true" class="nav-item navbar-brand py-0">
                 <a class="nav-link active mx-2" routerLink = "/registration">Register</a>

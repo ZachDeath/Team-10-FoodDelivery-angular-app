@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { MessageService } from 'src/app/services/message.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -10,6 +8,7 @@ import { Employee } from 'src/app/shared/employeeConstructor';
 import { Message } from 'src/app/shared/messageConstructor';
 import { Order } from 'src/app/shared/orderConstructor';
 import { User } from 'src/app/shared/userConstructor';
+
 
 @Component({
   selector: 'app-overview',
@@ -22,6 +21,7 @@ export class OverviewComponent implements OnInit {
   orders: Order[];
   price: number;
   loggedAdmin: Employee;
+  
 
   constructor(
     private userService: UserService,

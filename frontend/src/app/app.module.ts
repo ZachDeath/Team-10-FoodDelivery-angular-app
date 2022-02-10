@@ -33,6 +33,7 @@ import { AccountDetailsComponent } from './components/account-components/account
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
 
+
 @NgModule({
   declarations: [
     appComponent,
@@ -60,8 +61,8 @@ import { AddUserComponent } from './components/admin/details/add-user/add-user.c
     EmployeesComponent,
     AddEmployeeComponent,
     AccountDetailsComponent,
-    OrdersComponent,
-    AddUserComponent
+    AddUserComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

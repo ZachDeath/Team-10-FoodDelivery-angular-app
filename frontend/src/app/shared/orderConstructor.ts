@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 
 import { Adapter } from '../services/adapter';
 
@@ -14,7 +14,9 @@ export class Order {
 
     public order_date: number,
 
-    public items: menuItem[]
+    public items: menuItem[],
+
+    public finalPrice:number
   ) {}
 }
 
@@ -28,7 +30,8 @@ export class OrderAdapter implements Adapter<Order> {
       item.user_id,
       item.employee_id,
       item.order_date,
-      item.items
+      item.items,
+      item.finalPrice
     );
   }
 }

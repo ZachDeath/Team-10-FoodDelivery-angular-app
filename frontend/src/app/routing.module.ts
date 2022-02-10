@@ -23,6 +23,7 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
+import { OrdersComponent } from './components/admin/orders/orders.component';
 
 //configure route paths
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
     { path: 'details', component : DetailsComponent},
     { path: 'messages', component : MessagesComponent},
     { path: 'employees', component : EmployeesComponent},
-    { path: 'addEmployee', component: AddEmployeeComponent}  
+    { path: 'addEmployee', component: AddEmployeeComponent},
+    { path: 'orders', component: OrdersComponent}  
   ]},
   { path: 'registration', component: RegistrationComponent },
   { path: 'basket', component: BasketComponent },

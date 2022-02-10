@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 
 import { map, Observable } from 'rxjs';
-
 import {
   OrderDetails,
   OrderDetailsAdapter,

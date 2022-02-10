@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { menuItem } from '../../../shared/menuItem.model';
 import { BasketService } from 'src/app/services/basket.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/shared/employeeConstructor';
 
 
 
@@ -13,12 +15,21 @@ import { BasketService } from 'src/app/services/basket.service';
 
 export class MeatEaterMenuComponent implements OnInit {
 
+  loggedAdmin: Employee;
+  color= "#dc4726";
   
   
-  constructor(private menuService: MenuService, private bService:BasketService) {
+  constructor(private menuService: MenuService, private bService:BasketService,
+    private eService: EmployeeService) {
     console.log('MeatEater Menu Loaded');
     //menuService.listMenuItems();
     //menuService.createMenus();
+
+    this.loggedAdmin=this.eService.employeeObj;
+
+    this.eService.loggedEmployee.subscribe((employee: Employee)=>{
+      this.eService.employeeObj=employee;
+      this.loggedAdmin=employee; });
     
   }
 
@@ -32,6 +43,9 @@ export class MeatEaterMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.loggedAdmin) {
+      this.color = '#ba1e1e';
+    }
   this.meatEaterMenu = this.menuService.meatEaterMenu
   }
 

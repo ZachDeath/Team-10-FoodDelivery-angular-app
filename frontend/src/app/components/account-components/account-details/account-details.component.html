@@ -44,12 +44,9 @@
             <div class="container p-0">
                 <div class="card px-4" style="border: 0px;">
                     <h6 class="h8 py-2">Current email address:</h6>
-                    <div *ngIf="payment!=null">
+
                     {{loggedUser.email_address}} <br>
-                    </div>
-                    <div *ngIf="payment==null">
-                        No email address <br>
-                    </div>
+
                 </div>
             </div>
         </div>

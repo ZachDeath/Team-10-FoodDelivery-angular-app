@@ -1,8 +1,7 @@
 <div class="card text-black mb-3 text-center" style="max-width: 65rem; margin:2rem auto; float: none;
                     margin-bottom: 2px;
                     height: 35rem;
-                    border: 2px solid #ba1e1e;
-                     ">
+                    border: 2px solid #ba1e1e;">
         <br>
         <h3 class="" style="font-size: 230%; color: #ba1e1e;">Add New Employee</h3>
     
@@ -13,7 +12,7 @@
         <div class="row form-group">
             <div class="col">
                 <label for="firstName" style="margin-right: 22.4rem;">First name</label>
-                <input name="firstName" type="text" class="form-control" placeholder="First name" #firstName="ngModel"
+                <input name="firstName" type="text" class="form-control" placeholder="Jane" #firstName="ngModel"
                     ngModel required>
                 <span class="help-block" style="color: #ba1e1e;"
                     *ngIf="!firstName.valid && firstName.touched">Required!</span>
@@ -21,7 +20,7 @@
 
             <div class="col">
                 <label for="lastName" style="margin-right: 22.4rem;">Last name</label>
-                <input name="lastName" type="text" class="form-control" placeholder="Last name" #lastName="ngModel"
+                <input name="lastName" type="text" class="form-control" placeholder="Harris" #lastName="ngModel"
                     ngModel required>
                 <span class="help-block" style="color: #ba1e1e;"
                     *ngIf="!lastName.valid && lastName.touched">Required!</span>

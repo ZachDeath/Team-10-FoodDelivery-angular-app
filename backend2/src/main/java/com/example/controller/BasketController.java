@@ -47,7 +47,7 @@ public class BasketController {
 
 	}
 	
-	@RequestMapping(value="/delete-basket/{user-id}", method=RequestMethod.GET)
+	@RequestMapping(value="/delete-basket/{user-id}", method=RequestMethod.DELETE)
 	public void deleteItemsByUserId(@PathVariable("user-id") int id) {
 		
 		basketRepo.deleteItemsByUserId(id);

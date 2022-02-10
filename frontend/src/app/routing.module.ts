@@ -26,7 +26,6 @@ import { AddEmployeeComponent } from './components/admin/employees/add-employee/
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
 
-
 //configure route paths
 const routes: Routes = [
   { path: '', component: MainPageComponent },

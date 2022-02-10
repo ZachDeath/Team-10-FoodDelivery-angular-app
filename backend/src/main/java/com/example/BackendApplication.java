@@ -3,7 +3,7 @@ package com.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.cors",
+@SpringBootApplication(scanBasePackages = { "com.example.repository", "com.example.controller", "com.example.config",
 		"com.example.service" })
 public class BackendApplication {
 

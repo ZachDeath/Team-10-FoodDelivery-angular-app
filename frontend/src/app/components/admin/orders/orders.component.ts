@@ -5,7 +5,6 @@ import { OrderDetailsService } from 'src/app/services/orderDetails.service';
 import { menuItem } from 'src/app/shared/menuItem.model';
 import { Order } from 'src/app/shared/orderConstructor';
 import { OrderDetails } from 'src/app/shared/orderDetailsConstructor';
-
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -16,7 +15,6 @@ export class OrdersComponent implements OnInit {
   ordersDetails: OrderDetails[];
   term: string;
   price: number;
-
   columnsToDisplay = [
     'id',
     'user_id',
@@ -25,14 +23,11 @@ export class OrdersComponent implements OnInit {
     'order_details',
     'price',
   ];
-
   @ViewChild(MatTable) table: MatTable<Order>;
-
   constructor(
     private orderService: OrderService,
     private orderDetailsService: OrderDetailsService
   ) {}
-
   ngOnInit(): void {
     this.reloadData();
   }
@@ -64,7 +59,6 @@ export class OrdersComponent implements OnInit {
         })
     );
   }
-
   getOrderDetails(id: number, index: number) {
     this.orderDetailsService.getOrderDetails(id).subscribe((ordersDetails) => {
       let tempItem: menuItem;

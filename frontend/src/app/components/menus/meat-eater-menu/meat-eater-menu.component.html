@@ -1,7 +1,9 @@
 <div class="container">
     <h1 class="display-6 mt-4 text-center"> Meateater</h1>
     <div *ngFor="let x of meatEaterMenu">
-        <div class="card w-75 d-flex mt-4 mx-auto p-3" style=" margin:2rem auto; border: 2px solid #dc4726;">
+        <div class="card w-75 d-flex mt-4 mx-auto p-3" 
+        style=" margin:2rem auto; border: 2px solid;" 
+        [ngStyle]="{'border-color': color }" >
             <div class="row">
                 <div class="col-md-auto" width="110px">
                     <img [src]="x.picture_url" width="100px"  height="100px">

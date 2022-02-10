@@ -32,8 +32,18 @@ export class UserService {
     return this.http.delete(url);
   }
 
-  getUserByEmail(email: String, password: String):Observable<any> {
+  getUserByEmailAndPassword(email: String, password: String):Observable<any> {
     const url = `${this.apiUrl}/getUser/email/${email}/pass/${password}`;
+    let response: Observable<any>=this.http.get(url).pipe();
+    if (response!=null){
+      
+      return response;
+    }
+    return null;
+  }
+
+  getUserByemail(email: String):Observable<any> {
+    const url = `${this.apiUrl}/getUser/email/${email}`;
     let response: Observable<any>=this.http.get(url).pipe();
     if (response!=null){
       

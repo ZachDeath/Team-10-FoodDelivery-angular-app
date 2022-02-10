@@ -61,7 +61,7 @@ export class LoginFormComponent implements OnInit {
     //console.log(this.loginForm.value.email);
     this.clearForm();
 
-    this.userService.getUserByEmail(this.user.email, this.user.password).subscribe((users: User) => {
+    this.userService.getUserByEmailAndPassword(this.user.email, this.user.password).subscribe((users: User) => {
       this.users = users;
 
       if (this.users == null) {

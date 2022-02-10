@@ -64,9 +64,16 @@ public class UsersController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/getUser/email/{email}/pass/{password}")
-	public User FindByEmail(@PathVariable("email") String email, @PathVariable("password") String password) {
+	public User FindByEmailAndPassword(@PathVariable("email") String email, @PathVariable("password") String password) {
 		logger.info("Finding user by email");
-		return usersService.FindByEmail(email, password);
+		return usersService.FindByEmailAndPassword(email, password);
+
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/getUser/email/{email}")
+	public User FindByEmail(@PathVariable("email") String email) {
+		logger.info("Finding user by email");
+		return usersService.FindByEmail(email);
 
 	}
 

@@ -17,6 +17,9 @@ import com.example.entity.User;
 public interface UsersRepository extends CrudRepository<User, Long> {
 	
 	@Query(value="SELECT * FROM USERS where email_address=:email AND password=:password",nativeQuery=true)
-	User FindByEmail(@Param("email") String email, @Param("password") String password);
+	User FindByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+	
+	@Query(value="SELECT * FROM USERS where email_address=:email",nativeQuery=true)
+	User FindByemail(@Param("email") String email);
 
 }

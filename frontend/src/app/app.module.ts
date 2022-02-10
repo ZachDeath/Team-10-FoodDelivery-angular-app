@@ -30,8 +30,9 @@ import { EmployeesComponent } from './components/admin/employees/employees.compo
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
-import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
+import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
+
 
 @NgModule({
   declarations: [

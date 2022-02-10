@@ -23,6 +23,7 @@ import { MessagesComponent } from './components/admin/messages/messages.componen
 import { EmployeesComponent } from './components/admin/employees/employees.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
+import { OrdersComponent } from './components/admin/orders/orders.component';
 import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 
@@ -31,6 +32,23 @@ const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
+  { path: 'adminLogin', component: AdminFormComponent},
+  { path: 'login-dashboard', component: LoginComponent,
+  children : [
+        { path: 'details', component : AccountDetailsComponent },
+        { path: 'payment', component : AccountPaymentComponent },
+        { path: 'address', component : AccountAddressComponent },
+        { path: 'orders', component : AccountOrderComponent }
+    ] },
+  { path: 'admin-dashboard', component: AdminComponent ,
+  children : [
+    { path: 'overview', component : OverviewComponent },
+    { path: 'details', component : DetailsComponent},
+    { path: 'messages', component : MessagesComponent},
+    { path: 'employees', component : EmployeesComponent},
+    { path: 'addEmployee', component: AddEmployeeComponent},
+    { path: 'orders', component: OrdersComponent}  
+  ]},
   { path: 'adminLogin', component: AdminFormComponent },
   {
     path: 'login-dashboard', component: LoginComponent,

@@ -6,7 +6,7 @@ export class OrderDetails {
   constructor(
     public order_id: number,
     public food_id: number,
-    public quanity: number
+    public quantity: number
   ) {}
 }
 

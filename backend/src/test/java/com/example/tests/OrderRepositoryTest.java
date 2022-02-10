@@ -32,8 +32,8 @@ public class OrderRepositoryTest {
 	@Test
 	public void testCreateOrder() {
 		LocalDateTime now = LocalDateTime.now();
-		//Orders testOrder = new Orders(9999l,114l, 9l, now);
-		//orderRepo.save(testOrder);
+		Orders testOrder = new Orders(9999l,114l, 9l, now.toString());
+		orderRepo.save(testOrder);
 	}
 	
 	

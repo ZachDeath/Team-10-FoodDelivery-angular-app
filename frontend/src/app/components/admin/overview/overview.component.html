@@ -1,55 +1,59 @@
 <div class="container p-0">
     <div class="card px-4">
         <h4 class="h8 py-3 text-center">Overview</h4><br>
-        <h5>Welcome {{loggedAdmin.first_name}}, check the overview below.</h5>
-
-        <div class="row" style="width: 60%;">
-            <div class="col-sm-6" style="padding-right: 0rem;">
-                <div class="card bg-light mb-3" style="width: 16rem; height: 9rem; text-align: right">
-                    <div class="card-body">
-                        <br>
-                        <h1>£52,102 </h1>
-                        <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Total Revenue</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-1">
-                <div class="card bg-light mb-3" style="width: 13rem; height: 9rem; text-align: right">
-                    <div class="card-body">
-                        <br>
-                        <h1>{{messages.length}}</h1>
-                        <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Messages</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" style="width: 87%;">
-                <div class="col-sm-6">
-                    <div class="card bg-light mb-3" style="width: 13rem; height: 9rem; text-align: right">
+        <h5 class="h8 py-3">Welcome {{loggedAdmin.first_name}}, check the overview below.</h5>
+            <div class="row" style="width: 81.6%">
+                <div class="col-sm-6" style="padding-left: 0.7rem;">
+                    <div class="card bg-light mb-3" style="width: 22rem; height: 9rem; text-align: right">
                         <div class="card-body">
                             <br>
-                            <h1 routerLink="./details">{{users.length}}</h1>
-                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;" href="#"routerLink="./details">Total Users</h5>
+                            <h1>£52,102</h1>
+                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Total Revenue</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-1">
-                    <div class="card bg-light mb-3" style="width: 16rem; height: 9rem; text-align: right">
+                <div class="col-xl-1" style="padding-right: 0rem;">
+                    <div class="card bg-light mb-3" style="width: 18rem; height: 9rem; text-align: right">
                         <div class="card-body">
                             <br>
-                            <h1>3212 </h1>
+                            <h1 class="stretched-link">{{messages.length}}</h1>
+                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Messages</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" style="width: 70%;">
+                <div class="col-sm-6">
+                    <div class="card bg-light mb-3" style="width: 18rem; height: 9rem; text-align: right">
+                        <div class="card-body">
+                            <br>
+                            <h1 routerLink="./details">{{users.length}}</h1>
+                            <h5 class="h4 py-3" style="text-align: right; line-height: 0px;" href="#"
+                                routerLink="./details">Total Users</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-1" style="padding-left: 0rem">
+                    <div class="card bg-light mb-3" style="width: 22rem; height: 9rem; text-align: right">
+                        <div class="card-body">
+                            <br>
+                            <h1>{{orders.length}}</h1>
                             <h5 class="h4 py-3" style="text-align: right; line-height: 0px;">Total Orders</h5>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-
-
-        <div class="col" style="width: 20.5%;">
+            <br>
+            <h5 class="h8 py-3">Employee #: {{loggedAdmin.employee_id}}</h5>
+            <h5 class="h8 py-3">Full Name: {{loggedAdmin.first_name}} {{loggedAdmin.last_name}}</h5>
+            <h5 class="h8 py-3">Email Address: {{loggedAdmin.email_address}}</h5>
+            <h5 class="h8 py-3">Phone #: {{loggedAdmin.phone_number}}</h5>
             
-        </div>
+
+
         <br><br><br><br><br>
 
 

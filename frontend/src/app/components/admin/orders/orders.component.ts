@@ -9,6 +9,15 @@ import { Order } from 'src/app/shared/orderConstructor';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+<<<<<<< Updated upstream
+=======
+  orders: Order[];
+  ordersDetails: OrderDetails[];
+  term: string;
+  price: number;
+  total = 0;
+
+>>>>>>> Stashed changes
 
   orders: Order[];
   columnsToDisplay = [
@@ -20,13 +29,62 @@ export class OrdersComponent implements OnInit {
 
   @ViewChild(MatTable) table: MatTable<Order>;
 
+<<<<<<< Updated upstream
   constructor(private oService: OrderService) { 
     this.orders = [];
   }
+=======
+  constructor(
+    private orderService: OrderService,
+    private orderDetailsService: OrderDetailsService
+  ) { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.reloadData();
   }
+<<<<<<< Updated upstream
+=======
+  reloadData() {
+
+    console.log(
+      this.orderService
+
+        .getAllOrders()
+
+        .subscribe((orders) => {
+          this.orders = orders;
+
+
+          console.log('orders^^');
+
+          for (let i = 0; i < this.orders.length; i++) {
+            console.log(i);
+
+            this.getOrderDetails(orders[i].id, i);
+            this.getFinalPrice(orders[i].id, i);
+
+            //let temp: menuItem[] = this.getOrderDetails(orders[i].id);
+
+            console.log('orders with details:');
+
+            console.log(this.orders);
+          }
+        })
+    );
+  }
+
+  getOrderDetails(id: number, index: number) {
+    this.orderDetailsService.getOrderDetails(id).subscribe((ordersDetails) => {
+      let tempItem: menuItem;
+      let tempArray: menuItem[] = [];
+
+      for (let i = 0; i < ordersDetails.length; i++) {
+        tempItem = ordersDetails[i];
+
+        tempArray.push(tempItem);
+      }
+>>>>>>> Stashed changes
 
   reloadData() {
     this.oService.getAllOrders().subscribe((orders: Order[]) => {
@@ -47,4 +105,14 @@ export class OrdersComponent implements OnInit {
     }
   } */
 
+<<<<<<< Updated upstream
+=======
+        this.price = tempArray.reduce((a, b) => a + b, 0);
+      }
+      // console.log(tempArray);
+      this.orders[index].finalPrice = this.price;
+
+    });
+  }
+>>>>>>> Stashed changes
 }

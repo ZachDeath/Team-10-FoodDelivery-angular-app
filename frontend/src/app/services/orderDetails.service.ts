@@ -27,7 +27,7 @@ export class OrderDetailsService {
       .pipe();
   }
 
-  //Gets every order under a paticular ID in the table
+  //Create New Order Details
   createNewOrderDetails(
     order_id: number,
     food_id: number,
@@ -36,6 +36,6 @@ export class OrderDetailsService {
     const url = `${this.apiUrl}/createOrderDetails/${order_id}/${food_id}/${quantity}`;
     let temp = new OrderDetails(order_id, food_id, quantity);
     console.log(temp);
-    this.http.get(url).pipe().subscribe();
+    this.http.post(url, temp).pipe().subscribe();
   }
 }

@@ -32,7 +32,7 @@ import { AddEmployeeComponent } from './components/admin/employees/add-employee/
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
-
+import { OverviewComponent } from './components/admin/overview/overview.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import { AddUserComponent } from './components/admin/details/add-user/add-user.c
     AddEmployeeComponent,
     AccountDetailsComponent,
     AddUserComponent,
-    OrdersComponent
+    OrdersComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,7 @@ import { AddUserComponent } from './components/admin/details/add-user/add-user.c
     RoutingModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [appComponent]

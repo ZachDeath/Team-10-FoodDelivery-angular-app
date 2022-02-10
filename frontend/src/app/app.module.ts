@@ -31,11 +31,8 @@ import { AdminFormComponent } from './components/admin-form/admin-form.component
 import { AddEmployeeComponent } from './components/admin/employees/add-employee/add-employee.component';
 import { AccountDetailsComponent } from './components/account-components/account-details/account-details.component';
 import { AddUserComponent } from './components/admin/details/add-user/add-user.component';
-<<<<<<< Updated upstream
 import { OrdersComponent } from './components/admin/orders/orders.component';
-=======
 import { OverviewComponent } from './components/admin/overview/overview.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [

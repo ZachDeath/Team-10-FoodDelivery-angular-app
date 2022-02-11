@@ -1,3 +1,4 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -28,7 +29,7 @@ export class EmployeesComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) {
     this.employees = [];
-   }
+  }
 
   ngOnInit(): void {
     this.reloadData();
@@ -41,15 +42,22 @@ export class EmployeesComponent implements OnInit {
   }
 
   deleteEmployee(id: number) {
-    let text = 'Are you sure you want to delete this employee?';
-    if (confirm(text) == true) {
-      const employeeDeleted = this.employees.findIndex(
-        (element) => element.employee_id == id
-      );
-      console.log(employeeDeleted);
-      this.employeeService.deleteEmployee(id).subscribe();
-      this.employees.splice(employeeDeleted, 1);
-      this.table.renderRows();
+    if (this.employeeService.employeeObj.employee_id != id) {
+      let text = 'Are you sure you want to delete this employee?';
+      if (confirm(text) == true) {
+        const employeeDeleted = this.employees.findIndex(
+          (element) => element.employee_id == id
+        );
+        console.log(employeeDeleted);
+        this.employeeService.deleteEmployee(id).subscribe();
+        this.employees.splice(employeeDeleted, 1);
+        this.table.renderRows();
+      }
+    }
+
+    else {
+      let text = "You can't delete yourself!";
+      console.log(text)
     }
   }
 

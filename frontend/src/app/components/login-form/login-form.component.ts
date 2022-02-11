@@ -72,6 +72,7 @@ export class LoginFormComponent implements OnInit {
         this.userService.userLoggedIn();
         this.userService.updateLoggeduser(this.users);
         this.basketService.getBasketFromDatabase(this.users.user_id);
+        this.basketService.deleteBasketItems(this.users.user_id);
         this.router.navigate(['/'])
       }
     });

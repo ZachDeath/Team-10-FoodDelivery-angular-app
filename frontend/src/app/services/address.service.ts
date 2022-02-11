@@ -21,7 +21,7 @@ export class AddressService {
   editUser(id: number, address: Address) {
     const url = `${this.apiUrl}/editAddress/${id}`;
     return this.http
-      .post<Address>(url, address)
+      .put<Address>(url, address)
       .subscribe((address: Address) => {
         console.log(address);
       });

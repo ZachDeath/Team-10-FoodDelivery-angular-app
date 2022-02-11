@@ -62,6 +62,30 @@ export class BasketService implements OnInit{
 
     }
 
+    DeleteOneItem(menuitem:menuItem){
+        
+
+        
+
+            for(let i=0; i<this.itemsInBasket.length;i++){
+
+                if (this.itemsInBasket[i].food_id==menuitem.food_id){
+                    
+                    this.itemsInBasket[i].quantity-=1;
+                    
+                    break;
+                }
+                
+            }
+        
+        
+        //console.log(this.itemsInBasket);
+        this.itemsChanged.emit(this.itemsInBasket.slice());
+        
+        this.totalPrice();
+
+    }
+
     deleteItem(menuItem:menuItem){
 
         this.itemsInBasket.forEach((element, index)=>{

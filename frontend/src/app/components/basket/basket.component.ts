@@ -68,4 +68,9 @@ export class BasketComponent implements OnInit {
         this.checkedOut=true;
     }
 
+    removeDuplicate(menuitem: menuItem){
+        let temp = new menuItem(menuitem.food_id,menuitem.title,null,null,null,1,null);
+        this.bService.DeleteOneItem(temp);
+    }
+
 }

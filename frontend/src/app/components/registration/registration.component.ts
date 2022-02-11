@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostsService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/shared/userConstructor';
 
 @Component({
@@ -42,7 +43,7 @@ export class RegistrationComponent implements OnInit {
     /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
   );
 
-  constructor(private postsService: PostsService) {
+  constructor(private postsService: PostsService, private userService: UserService) {
     console.log('Registration Page Loaded');
   }
 
@@ -60,19 +61,39 @@ export class RegistrationComponent implements OnInit {
 
     console.log(this.user);
 
-    if (this.checkLoginDetails() == 5) {
-      this.userSubmitted.first_name = this.registrationForm.value.firstName;
-      this.userSubmitted.last_name = this.registrationForm.value.lastName;
-      this.userSubmitted.email_address = this.registrationForm.value.email;
-      this.userSubmitted.date_of_birth = this.registrationForm.value.birthDate;
-      this.userSubmitted.phone_number = this.registrationForm.value.mobile;
-      this.userSubmitted.password = this.registrationForm.value.password
+    let userExist: User;
+    this.userService.getUserByEmail(this.user.email_address, this.user.password).subscribe((user:User)=>{
+      userExist=user;
+
+      if (userExist!=null){
+        alert("User Email already Exists!")
+        
+      }
+      else{
+
+        if (this.checkLoginDetails() == 5&&user==null) {
+          this.userSubmitted.first_name = this.registrationForm.value.firstName;
+          this.userSubmitted.last_name = this.registrationForm.value.lastName;
+          this.userSubmitted.email_address = this.registrationForm.value.email;
+          this.userSubmitted.date_of_birth = this.registrationForm.value.birthDate;
+          this.userSubmitted.phone_number = this.registrationForm.value.mobile;
+          this.userSubmitted.password = this.registrationForm.value.password
+          
+          console.log(this.userSubmitted);
+          
+          this.postsService.submiteUsersDetails(this.userSubmitted);
+          this.registrationForm.form.reset();
+        }
+
+      }
+
       
-      console.log(this.userSubmitted);
-      
-      this.postsService.submiteUsersDetails(this.userSubmitted);
-      this.registrationForm.form.reset();
-    }
+    });
+
+    
+    
+
+    
   }
 
   checkLoginDetails() {
@@ -123,6 +144,10 @@ export class RegistrationComponent implements OnInit {
     if (count != 5) {
       alert(response);
     }
+
+
     return count;
   }
+
+  
 }

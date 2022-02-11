@@ -57,7 +57,7 @@ public class UserRepositoryTest {
 	
 	public void testFindUserByEmailAndPassword() {
 		
-		User temp = userRepo.FindByEmail("test@hotmail.com","pass123");	
+		User temp = userRepo.FindByEmailAndPassword("test@hotmail.com","pass123");	
 		assertNotNull(temp);
 	}
 	

@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.controller.UsersController;
 import com.example.entity.User;
@@ -73,8 +74,14 @@ public class UsersService {
 	}
 
 	
-	public User FindByEmail( String email,String password) {
-		return UsersRepos.FindByEmail(email, password);
+	public User FindByEmailAndPassword( String email,String password) {
+		return UsersRepos.FindByEmailAndPassword(email, password);
+
+	}
+	
+	public User FindByEmail(@PathVariable("email") String email) {
+		logger.info("Finding user by email");
+		return UsersRepos.FindByemail(email);
 
 	}
 

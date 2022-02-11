@@ -46,16 +46,18 @@ export class BasketComponent implements OnInit {
 
     }
 
-    deleteItems(menuItem:menuItem){
+    deleteItems(menuitem:menuItem){
 
-        this.bService.deleteItem(menuItem);
+        
+        this.bService.deleteItem(menuitem);
 
     }
 
 
-    addDuplicate(item: menuItem){
-     
-        this.bService.addItem(item);
+    addDuplicate(menuitem: menuItem){
+        let temp = new menuItem(menuitem.food_id,menuitem.title,null,null,null,1,null);
+        
+        this.bService.addItem(temp);
 
     }
 
@@ -64,6 +66,11 @@ export class BasketComponent implements OnInit {
         this.orderService.createNewOrder(this.userService.userObj.user_id, 8);
         //this.orderService.createNewOrder(211, 8);
         this.checkedOut=true;
+    }
+
+    removeDuplicate(menuitem: menuItem){
+        let temp = new menuItem(menuitem.food_id,menuitem.title,null,null,null,1,null);
+        this.bService.DeleteOneItem(temp);
     }
 
 }

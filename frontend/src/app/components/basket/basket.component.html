@@ -22,7 +22,8 @@
                 <h6>Quantity: {{item.quantity}}</h6>
             </div>
             <div class="col justify-content-right">
-                <a class="btn" style="background-color: #dc4726; margin-left: 50%;" (click)="addDuplicate(item)">Add Another</a>
+                <a class="btn" style="background-color: #dc4726; margin-left: 20%;" (click)="addDuplicate(item)">Add One</a>
+                <a class="btn" *ngIf="item.quantity>1" style="background-color: #dc4726;"  (click)="removeDuplicate(item)">Delete one</a>
                 <a class="btn" style="background-color: #dc4726; margin-top: 24px; margin-left: 54%;" (click)="deleteItems(item)">Delete Item</a>
             </div>
 

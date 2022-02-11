@@ -1,3 +1,16 @@
 h1 {
     color: black;
 }
+
+button {
+    background-color: #dc4726;
+    border: none;
+    color: white;
+}
+
+button:hover {
+    background-color: #cf2600;
+    border: none;
+    color: white;
+    
+}

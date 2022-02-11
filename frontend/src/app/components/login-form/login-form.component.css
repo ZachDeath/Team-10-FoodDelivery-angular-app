@@ -1,3 +1,17 @@
 input.ng-invalid.ng-touched{
     border: 2px solid red;
   }
+
+  button {
+    background-color: #dc4726;
+    border: none;
+    color: white;
+    margin-top: 24px;
+}
+
+button:hover, button:focus {
+    background-color: #cf2600;
+    border: none;
+    color: white;
+
+}

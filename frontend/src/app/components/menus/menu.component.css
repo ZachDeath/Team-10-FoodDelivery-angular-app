@@ -6,14 +6,19 @@ h5 {
    font-weight: bold;
 }
  
- .btn {
-     background-color: #dc4726;
-     border: none;
-     color: white;
- }
- 
- .btn:hover {
-     background-color: #cf2600;
-     border: none;
-     color: white;
- }
+button {
+    background-color: #dc4726;
+    border: none;
+    color: white;
+    margin-top: 24px;
+    padding: 13px; 
+    margin-left: 54%;
+}
+
+button:hover, :focus {
+    background-color: #cf2600;
+    border: none;
+    color: white;
+    margin-top: 24px; 
+    margin-left: 54%;
+}
